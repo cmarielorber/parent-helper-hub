@@ -3,8 +3,20 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
-
+import Colors from '../utils/Colors';
 import Auth from '../utils/auth';
+
+const styles = {
+  navbar: {
+    backgroundColor: Colors.DARK,
+  },
+  link: {
+    color: Colors.YELLOW,
+  },
+  logo: {
+    color: Colors.YELLOW,
+  }
+  };
 
 const AppNavbar = () => {
   // set modal display state
@@ -12,27 +24,27 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar bg='dark' variant='dark' expand='lg'>
+      <Navbar style={styles.navbar} expand='lg'>
         <Container fluid>
-          <Navbar.Brand as={Link} to='/'>
-            Google Books Search
+          <Navbar.Brand style={styles.logo} as={Link} to='/'>
+            Parent Helper Hub
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
-              <Nav.Link as={Link} to='/'>
+              {/* <Nav.Link style={styles.link}as={Link} to='/'>
                 Search For Books
-              </Nav.Link>
+              </Nav.Link> */}
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to='/saved'>
-                    See Your Books
+                  <Nav.Link style={styles.link} as={Link} to='/saved'>
+                    Profile
                   </Nav.Link>
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                  <Nav.Link style={styles.link} onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
+                <Nav.Link style={styles.link} onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse>
