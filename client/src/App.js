@@ -5,6 +5,7 @@ import Schools from './pages/Schools';
 import Housing from './pages/Housing';
 import Legal from './pages/Legal';
 import Profile from './pages/Profile';
+import Healthcare from './pages/Healthcare';
 import Navbar from './components/Navbar';
 import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
@@ -64,6 +65,10 @@ function App() {
             <Route 
               path='/legal' 
               element={<Legal />} 
+            />
+              <Route 
+              path='/healthcare' 
+              element={<Healthcare/>} 
             />
             <Route 
               path='/profile' 
