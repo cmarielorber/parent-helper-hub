@@ -1,6 +1,9 @@
 # Parent-Helper-Hub
 Final Project Full Stack Bootcamp Cohort 2022-202
 
+# -Project-3-Parent-Helper-Hub
+Project #3 
+
 # Project Description
 This app  allows single parents access resources that they need in one app. 
  
@@ -193,7 +196,7 @@ Logout:
 - 
 
 ## Long Term Goals
-- Connection to additional support such as housing and legal forms
+- 
 - 
 - 
 - 
@@ -215,27 +218,27 @@ You can find more of our work on our GitHub, [hannybear88](https://github.com/ha
 
 Hannah Chung: 
     
-    Focus: Login, Logout, Signup, App.js, auth, mutations, queries, App, Profile
+    Focus: Login, Logout, Signup, App.js, auth, mutations, queries, App
     Support: README, Presentation, Trello
 
 Triana Deguzman: 
     
-    Focus: Signup, Profile
-    Support: Trello Coordination, API Search, README, Presentation, queries
+    Focus: Signup
+    Support: Trello Coordination, Login, Logout
 
 Christen Lorber: 
 
     Focus: Overall theme and styling
-    Support: App, ChildForm, LoginForm, Navbar, SignupForm
+    Support: App, ChildForm, LoginForm, Navbar, SignupForm, Welcome, Profile
 
 Fernando Maldonado: 
     
-    Focus: Welcome 
+    Focus: Welcome page
     Support: 
 
 Heidi Wu: 
     
-    Focus: Server Side, API 
+    Focus: Server Side
     Support: Navbar, auth, mutations, queries
 
 Team Collaboration:
@@ -328,7 +331,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
