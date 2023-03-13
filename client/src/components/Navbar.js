@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import SignUpForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 import Colors from "../utils/Colors";
-import '../index.css';
-import logo from "../assets/logo.svg";
+import logo from "../assets/logo.png";
 import Auth from "../utils/auth";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import SearchBar from "./SearchBar";
+
 
 const styles = {
   navbar: {
@@ -19,22 +17,13 @@ const styles = {
     color: Colors.YELLOW,
   },
   logo: {
-    color: Colors.DARK_ORANGE,
+    innerWidth: "100px",
+    innerHeight: "100px",
   },
-  button: {
-    backgroundColor: Colors.DARK,
-    border: "2px solid #e9c46a",
-    margin: "5px",
-    color: Colors.YELLOW,  
-  },
-  search: {
-    margin: "5px",
-  },
-
   navdrop: {
     backgroundColor: Colors.DARK,
     color: Colors.YELLOW,
-},
+  },
 };
 
 const AppNavbar = () => {
@@ -43,36 +32,16 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar style={styles.navbar} expand="lg">
+      <Navbar style={styles.navbar} expand="md">
         <Container fluid>
           <Navbar.Brand style={styles.logo} as={Link} to="/">
-          <img src={logo} alt="Parent Helper Hub Logo" />
-          The Parent Helper Hub
+            <img style={styles.logo}id="logo" src={logo} alt="Parent Helper Hub Logo" />
           </Navbar.Brand>
+          <SearchBar  />
           <Navbar.Toggle aria-controls="navbar" />
           <Navbar.Collapse id="navbar">
-          <Form className="d-flex">
-            <Form.Control
-            style={styles.search}
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button style={styles.button}>Search</Button>
-          </Form>
-              <NavDropdown style={styles.navdrop} title="Parent Resources" id="basic-nav-dropdown">
-              <NavDropdown.Item style={styles.link} as={Link} to="/schools">Schools</NavDropdown.Item>
-              <NavDropdown.Item style={styles.link} as={Link} to="/housing">Housing</NavDropdown.Item>
-              <NavDropdown.Item style={styles.link} as={Link} to="/legal">Legal</NavDropdown.Item>
-              <NavDropdown.Item style={styles.link} as={Link} to="/Healthcare">Healthcare</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item style={styles.link} >
-                Resources Coming Soon!
-              </NavDropdown.Item>
-            </NavDropdown>
             <Nav className="ml-auto">
-              {/* <Nav.Link style={styles.link} as={Link} to="/schools">
+              <Nav.Link style={styles.link} as={Link} to="/schools">
                 Schools
               </Nav.Link>
               <Nav.Link style={styles.link} as={Link} to="/housing">
@@ -80,7 +49,10 @@ const AppNavbar = () => {
               </Nav.Link>
               <Nav.Link style={styles.link} as={Link} to="/legal">
                 Legal
-              </Nav.Link> */}
+              </Nav.Link>
+              <Nav.Link style={styles.link} as={Link} to="/healthcare">
+                Healthcare
+              </Nav.Link>
               {/* if user is logged in show 'Profile' and 'Logout' */}
               {/* otherwise, show 'Login/Sign Up'*/}
               {Auth.loggedIn() ? (
