@@ -4,7 +4,8 @@ import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
 import SignUpForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 import Colors from "../utils/Colors";
-import logo from "../assets/logo.png";
+// import logo from "../assets/logo.png";
+import logo2 from "../assets/logo2.svg";
 import Auth from "../utils/auth";
 import SearchBar from "./SearchBar";
 
@@ -35,7 +36,7 @@ const AppNavbar = () => {
       <Navbar style={styles.navbar} expand="md">
         <Container fluid>
           <Navbar.Brand style={styles.logo} as={Link} to="/">
-            <img style={styles.logo}id="logo" src={logo} alt="Parent Helper Hub Logo" />
+            <img id="logo2" src={logo2} alt="Parent Helper Hub Logo" />
           </Navbar.Brand>
           <SearchBar  />
           <Navbar.Toggle aria-controls="navbar" />
