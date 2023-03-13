@@ -1,7 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import SearchBooks from './pages/SearchBooks';
-import SavedBooks from './pages/SavedBooks';
+import Welcome from './pages/Welcome';
+import Schools from './pages/Schools';
+import Housing from './pages/Housing';
+import Legal from './pages/Legal';
+import Profile from './pages/Profile';
 import Navbar from './components/Navbar';
 import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
@@ -48,11 +51,23 @@ function App() {
           <Routes>
             <Route 
               path='/' 
-              element={<SearchBooks />} 
+              element={<Welcome />}
             />
             <Route 
-              path='/saved' 
-              element={<SavedBooks />} 
+              path='/schools' 
+              element={<Schools />}
+            />
+            <Route 
+              path='/housing' 
+              element={<Housing />} 
+            />
+            <Route 
+              path='/legal' 
+              element={<Legal />} 
+            />
+            <Route 
+              path='/profile' 
+              element={<Profile />} 
             />
             <Route 
               path='*'
