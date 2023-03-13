@@ -1,6 +1,16 @@
+:root {
+    --DARK: #264653;
+    --TEAL: #2a9d8f;
+    --YELLOW: #e9c46a;
+    --ORANGE: #f4a261;
+    --DARK_ORANGE: #e76f51;
+    --OFF_WHITE: #f7ede2;
+    --BLACK: #000000;
+};
+
 body {
   font-family: 'Rubik', sans-serif;
-}
+};
 
 h1,
 h2,
@@ -9,9 +19,14 @@ h4,
 h5,
 h6 {
   font-family: 'Rubik Mono One', sans-serif;
-}
+};
 
 .small {
   font-weight: 300;
   font-style: italic;
-}
+};
+
+#basic-nav-dropdown {
+  color: var(--YELLOW);
+  background-color: var(--DARK)
+};
