@@ -7,7 +7,7 @@ import { ADD_USER } from '../utils/mutations';
 
 const SignupForm = () => {
   // set initial form state
-  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
+  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '', kids:'', zipcode:'' });
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
@@ -48,6 +48,8 @@ const SignupForm = () => {
       username: '',
       email: '',
       password: '',
+      kids:'',
+      zipcode:'',
     });
   };
 
@@ -76,6 +78,26 @@ const SignupForm = () => {
           />
           <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
         </Form.Group>
+        {/* <Form.Group>
+          <Form.Label htmlFor='kids'>Number of kids</Form.Label>
+          <Form.Control
+            type='string'
+            placeholder='# of kids'
+            name='kids'
+            onChange={handleInputChange}
+            value={userFormData.kids}
+            required
+          />
+                  <Form.Group>
+          <Form.Label htmlFor='zipcode'>Zipcode</Form.Label>
+          <Form.Control
+            type='string'
+            placeholder='Your zipcode'
+            name='zipcode'
+            onChange={handleInputChange}
+            value={userFormData.zipcode}
+            required
+          /> */}
 
         <Form.Group>
           <Form.Label htmlFor='email'>Email</Form.Label>
