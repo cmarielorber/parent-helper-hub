@@ -5,13 +5,16 @@ import SignUpForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 import Colors from "../utils/Colors";
 import logo2 from "../assets/logo2.svg";
-import healthIcon from "../assets/healthIcon.svg";
-import houseIcon from "../assets/houseIcon.svg";
-import userIcon from "../assets/userIcon.svg";
-import legalIcon from "../assets/legalIcon.svg";
-import schoolIcon from "../assets/schoolIcon.svg";
 import Auth from "../utils/auth";
 import "../styles/navbar.css";
+import {
+  HealthIcon,
+  HouseIcon,
+  LegalIcon,
+  LogoutIcon,
+  UserIcon,
+  SchoolIcon,
+} from "./icons";
 
 const styles = {
   navbar: {
@@ -44,45 +47,46 @@ const AppNavbar = () => {
           <Navbar.Toggle aria-controls="navbar" />
           <Navbar.Collapse id="navbar">
             <Nav className="ml-auto">
-              <Nav.Link 
-              //  style={styles.link}
+              <Nav.Link
+                //  style={styles.link}
                 as={Link}
                 to="/schools"
                 className="nav-link"
-                >
-                <img src={schoolIcon} alt="school icon" />
-                <p> Schools</p>
+              >
+                <SchoolIcon />
+                <p>Schools</p>
               </Nav.Link>
               <Nav.Link className="nav-link" as={Link} to="/housing">
-              <img src={houseIcon} alt="house icon" />
-              <p> Housing</p>
+                <HouseIcon />
+                <p>Housing</p>
               </Nav.Link>
               <Nav.Link className="nav-link" as={Link} to="/legal">
-              <img src={legalIcon} alt="legal icon" />
-              <p> Legal</p>
+                <LegalIcon />
+                <p>Legal</p>
               </Nav.Link>
               <Nav.Link className="nav-link" as={Link} to="/healthcare">
-              <img src={healthIcon} alt="healthcare icon" />
-              <p>Healthcare</p>
+                <HealthIcon />
+                <p>Healthcare</p>
               </Nav.Link>
               {/* if user is logged in show 'Profile' and 'Logout' */}
               {/* otherwise, show 'Login/Sign Up'*/}
               {Auth.loggedIn() ? (
                 <>
-                <img src={userIcon} alt="user icon" />
                   <Nav.Link className="nav-link" as={Link} to="/profile">
-                    Profile
+                    <UserIcon />
+                    <p>Profile</p>
                   </Nav.Link>
-                  <Nav.Link className="nav-link"  onClick={Auth.logout}>
-                    Logout
+                  <Nav.Link className="nav-link" onClick={Auth.logout}>
+                  <LogoutIcon />
+                    <p>Logout</p>
                   </Nav.Link>
                 </>
               ) : (
                 <Nav.Link
-                  className="nav-link" 
+                  className="nav-link"
                   onClick={() => setShowModal(true)}
                 >
-                  <img src={userIcon} alt="user icon" />
+                  <UserIcon />
                   <p>Login/Sign Up</p>
                 </Nav.Link>
               )}
