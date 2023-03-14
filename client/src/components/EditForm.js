@@ -4,9 +4,14 @@ import Auth from "../utils/auth";
 // refractor to use Apollo GraphQL API instead of RESTful API
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
-import { ButtonGroup, Dropdown, DropdownButton } from "react-bootstrap";
+import { QUERY_USER, QUERY_ME } from '../utils/queries';
+// create QUERY for child 
 
-const SignupForm = () => {
+{/* <button type="button" class="btn btn-success mx-3" data-mdb-ripple-color="dark" 
+            onClick={edit form?} 
+            >Edit</button>  */}
+
+const EditForm = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: "",
@@ -26,6 +31,7 @@ const SignupForm = () => {
   // to execute the ADD_USER mutation in the functions below
   const [addUser, { loading }] = useMutation(ADD_USER);
 
+  // keep this code lines 33-37
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
@@ -232,4 +238,4 @@ const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+export default EditForm;
