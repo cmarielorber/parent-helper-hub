@@ -9,7 +9,7 @@ import healthIcon from "../assets/healthIcon.svg";
 import houseIcon from "../assets/houseIcon.svg";
 import userIcon from "../assets/userIcon.svg";
 import legalIcon from "../assets/legalIcon.svg";
-
+import schoolIcon from "../assets/schoolIcon.svg";
 import Auth from "../utils/auth";
 import "../styles/navbar.css";
 
@@ -50,7 +50,7 @@ const AppNavbar = () => {
                 to="/schools"
                 className="nav-link"
                 >
-                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                <img src={schoolIcon} alt="school icon" />
                 <p> Schools</p>
               </Nav.Link>
               <Nav.Link className="nav-link" as={Link} to="/housing">
