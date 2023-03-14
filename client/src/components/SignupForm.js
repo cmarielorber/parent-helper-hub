@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import Auth from '../utils/auth';
@@ -151,4 +149,3 @@ const SignupForm = () => {
 };
 
 export default SignupForm;
->>>>>>> 372df759689e4616237607ff14b344052ccf2b81
