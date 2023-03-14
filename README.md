@@ -112,7 +112,7 @@ This app  allows single parents access resources that they need in one app.
 ![Technologies](https://img.shields.io/badge/Database-MongoDB-yellow?style=flat-square&logo=mongoDB) 
 
 ## Challenges
-- 
+- Material UI - new repo had to be created 
 - 
 - 
 - 
@@ -211,35 +211,35 @@ If you need support or have any questions about the repo, please [open an issue]
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)]()
 
-You can find more of our work on our GitHub, [hannybear88](https://github.com/hannybear88/), [heidiwu3388](https://github.com/heidiwu3388), [TrianaD](https://github.com/TrianaD), [cmarielorber](), [fmaldmed](https://github.com/fmaldmed).
+You can find more of our work on our GitHub, [hannybear88](https://github.com/hannybear88/), [heidiwu3388](https://github.com/heidiwu3388), [TrianaD](https://github.com/TrianaD), [cmarielorber](https://github.com/cmarielorber), [fmaldmed](https://github.com/fmaldmed).
 
 
 # Tasks and Roles
 
 Hannah Chung: 
     
-    Focus: Login, Logout, Signup, App.js, auth, mutations, queries, App
-    Support: README, Presentation, Trello
+    Focus: Signup, Profile, App.js, Auth, Mutations, Queries, App, Models, Schemas, README, Presentation
+    Support: Presentation, Trello
 
 Triana Deguzman: 
     
-    Focus: Signup
-    Support: Trello Coordination, Login, Logout
+    Focus:  Trello Coordination, Signup, Profile, Schemas
+    Support: Queries, README, 
 
 Christen Lorber: 
 
-    Focus: Overall theme and styling
-    Support: App, ChildForm, LoginForm, Navbar, SignupForm, Welcome, Profile
+    Focus: Navbar, Login/Logout, 
+    Support: App, LoginForm, 
 
 Fernando Maldonado: 
     
     Focus: Welcome page
-    Support: 
+    Support: API, 
 
 Heidi Wu: 
     
-    Focus: Server Side
-    Support: Navbar, auth, mutations, queries
+    Focus: Server Side, API,
+    Support: Auth
 
 Team Collaboration:
     
@@ -331,3 +331,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
