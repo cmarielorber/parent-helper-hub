@@ -78,17 +78,8 @@ const SignupForm = () => {
           />
           <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
         </Form.Group>
-        {/* <Form.Group>
-          <Form.Label htmlFor='kids'>Number of kids</Form.Label>
-          <Form.Control
-            type='string'
-            placeholder='# of kids'
-            name='kids'
-            onChange={handleInputChange}
-            value={userFormData.kids}
-            required
-          />
-                  <Form.Group>
+        <Form.Group>
+          </Form.Group>
           <Form.Label htmlFor='zipcode'>Zipcode</Form.Label>
           <Form.Control
             type='string'
@@ -97,7 +88,7 @@ const SignupForm = () => {
             onChange={handleInputChange}
             value={userFormData.zipcode}
             required
-          /> */}
+          />
 
         <Form.Group>
           <Form.Label htmlFor='email'>Email</Form.Label>
