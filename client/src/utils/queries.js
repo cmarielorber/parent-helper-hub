@@ -8,6 +8,10 @@ export const QUERY_USER = gql`
         email
         kids
         zipcode
+        children {
+            childName
+            ageGroup
+        }
     }
   }
 `;

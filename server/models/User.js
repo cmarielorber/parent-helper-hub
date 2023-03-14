@@ -2,10 +2,10 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 // import schema from Children.js
-// const childSchema = require('./Child');
+const childSchema = require('./Child');
 
 // import schema from Book.js
-const bookSchema = require('./Book');
+// const bookSchema = require('./Book');
 
 const userSchema = new Schema(
   {
@@ -25,9 +25,9 @@ const userSchema = new Schema(
       required: true,
     },
     // set savedBooks to be an array of data that adheres to the bookSchema
-    savedBooks: [bookSchema],
+    // savedBooks: [bookSchema],
     // set children to be an array of data that adheres to the childSchema
-    // children: [childSchema],
+    children: [childSchema],
   },
   // set this to use virtual below
   {
