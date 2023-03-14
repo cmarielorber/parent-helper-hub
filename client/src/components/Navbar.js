@@ -4,11 +4,14 @@ import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
 import SignUpForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 import Colors from "../utils/Colors";
-// import logo from "../assets/logo.png";
 import logo2 from "../assets/logo2.svg";
+import healthIcon from "../assets/healthIcon.svg";
+import houseIcon from "../assets/houseIcon.svg";
+import userIcon from "../assets/userIcon.svg";
+import legalIcon from "../assets/legalIcon.svg";
+import schoolIcon from "../assets/schoolIcon.svg";
 import Auth from "../utils/auth";
-import SearchBar from "./SearchBar";
-
+import "../styles/navbar.css";
 
 const styles = {
   navbar: {
@@ -38,39 +41,49 @@ const AppNavbar = () => {
           <Navbar.Brand style={styles.logo} as={Link} to="/">
             <img id="logo2" src={logo2} alt="Parent Helper Hub Logo" />
           </Navbar.Brand>
-          <SearchBar  />
           <Navbar.Toggle aria-controls="navbar" />
           <Navbar.Collapse id="navbar">
             <Nav className="ml-auto">
-              <Nav.Link style={styles.link} as={Link} to="/schools">
-                Schools
+              <Nav.Link 
+              //  style={styles.link}
+                as={Link}
+                to="/schools"
+                className="nav-link"
+                >
+                <img src={schoolIcon} alt="school icon" />
+                <p> Schools</p>
               </Nav.Link>
-              <Nav.Link style={styles.link} as={Link} to="/housing">
-                Housing
+              <Nav.Link className="nav-link" as={Link} to="/housing">
+              <img src={houseIcon} alt="house icon" />
+              <p> Housing</p>
               </Nav.Link>
-              <Nav.Link style={styles.link} as={Link} to="/legal">
-                Legal
+              <Nav.Link className="nav-link" as={Link} to="/legal">
+              <img src={legalIcon} alt="legal icon" />
+              <p> Legal</p>
               </Nav.Link>
-              <Nav.Link style={styles.link} as={Link} to="/healthcare">
-                Healthcare
+              <Nav.Link className="nav-link" as={Link} to="/healthcare">
+              <img src={healthIcon} alt="healthcare icon" />
+              <p>Healthcare</p>
               </Nav.Link>
               {/* if user is logged in show 'Profile' and 'Logout' */}
               {/* otherwise, show 'Login/Sign Up'*/}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link style={styles.link} as={Link} to="/profile">
+                <img src={userIcon} alt="user icon" />
+                  <Nav.Link className="nav-link" as={Link} to="/profile">
                     Profile
                   </Nav.Link>
-                  <Nav.Link style={styles.link} onClick={Auth.logout}>
+                  <Nav.Link className="nav-link"  onClick={Auth.logout}>
                     Logout
                   </Nav.Link>
                 </>
               ) : (
                 <Nav.Link
-                  style={styles.link}
+                  className="nav-link" 
                   onClick={() => setShowModal(true)}
                 >
-                  Login/Sign Up
+                  <img src={userIcon} alt="user icon" />
+                  <p>Login/Sign Up</p>
                 </Nav.Link>
               )}
             </Nav>
