@@ -1,108 +1,120 @@
-import React, {useEffect, useState} from 'react';
-import { Jumbotron, Container, Form, Col, Button } from 'react-bootstrap';
+import React, { useEffect, useState } from "react";
+import { Jumbotron, Container, Form, Col, Button } from "react-bootstrap";
+import { stateList, levelList } from "../utils/constants";
 
 function Schools() {
-    const [formState, setFormState] = useState({ searchCity: '', searchState: '', searchZip: '', searchLevel: '' });
+  const [formState, setFormState] = useState({
+    searchCity: "",
+    searchState: "CA",
+    searchZip: "",
+    searchLevel: "",
+  });
 
-    useEffect(() => {
-        let apiURL=`https://api.schooldigger.com/v2.0/schools`;
-            apiURL+=`?st=CA`;
-            apiURL+=`&city=San%20Diego`;
-            apiURL+=`&zip=92130`;
-            apiURL+=`&level=Elementary`;
-            apiURL+=`&appID=${process.env.REACT_APP_API_ID}`;
-            apiURL+=`&appKey=${process.env.REACT_APP_API_KEY}`;
-        console.log(apiURL);
+  useEffect(() => {}, []);
 
-        // fetch(apiURL, { mode: 'no-cors'})
-        // .then((response) => {
-        //     console.log("***********response", response);
-        //     response.json()
-        // })
-        // .then((data) => {
-        //     console.log("***********data", data);
-        //     console.log(data)
-        // })
-        // .catch((err) => console.error(err));
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
 
-    }, []);
+    setFormState({
+      searchCity: "",
+      searchState: "",
+      searchZip: "",
+      searchLevel: "",
+    });
+  };
 
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
-    };
-    
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        setFormState({
-          ...formState,
-          [name]: value,
-        });
-    };
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
 
-    return (
-        <Jumbotron fluid className='text-light bg-dark'>
-        <Container>
-          <h1>Search for Schools!</h1>
-          <Form onSubmit={handleFormSubmit}>
-            <Form.Row>
-              <Col xs={12} md={6}>
+  return (
+    <Jumbotron fluid className="text-light bg-dark pt-2">
+      <Container>
+        <h2>Search for Schools!</h2>
+        <Form onSubmit={handleFormSubmit}>
+          <Form.Row>
+            <Col xs={12} md={6}>
+              <Form.Group>
+                <Form.Label>City</Form.Label>
                 <Form.Control
-                  name='searchCity'
+                  name="searchCity"
                   value={formState.searchCity}
                   onChange={handleChange}
-                  type='text'
-                  size='sm'
-                  placeholder='city'
+                  type="text"
+                  size="sm"
                 />
-              </Col>
-              
-            </Form.Row>
-            <Form.Row>       
-              <Col xs={12} md={3}>
-              <Form.Control
-                  name='searchState'
+              </Form.Group>
+            </Col>
+          </Form.Row>
+          <Form.Row>
+            <Col xs={12} md={3}>
+              <Form.Group>
+                <Form.Label>State</Form.Label>
+                <Form.Control
+                  as="select"
+                  name="searchState"
                   value={formState.searchState}
                   onChange={handleChange}
-                  type='text'
-                  size='sm'
-                  placeholder='state'
-                />
-                
-              </Col>
-              <Col xs={12} md={3}>
+                  size="sm"
+                >
+                  {stateList.map((usState) => (
+                    <option key={usState.id} value={usState.value}>
+                      {usState.label}
+                    </option>
+                  ))}
+                </Form.Control>
+              </Form.Group>
+            </Col>
+            <Col xs={12} md={3}>
+              <Form.Group>
+                <Form.Label>Zip</Form.Label>
                 <Form.Control
-                  name='searchZip'
+                  name="searchZip"
                   value={formState.searchZip}
                   onChange={handleChange}
-                  type='text'
-                  size='sm'
-                  placeholder='zip'
-                  />
-              </Col>
-            </Form.Row>
-            
-            <Form.Row>
+                  type="text"
+                  size="sm"
+                />
+              </Form.Group>
+            </Col>
+          </Form.Row>
+          <Form.Row>
             <Col xs={12} md={6}>
+              <Form.Group>
+                <Form.Label>Level</Form.Label>
                 <Form.Control
-                  name='searchLevel'
+                  as="select"
+                  name="searchLevel"
                   value={formState.searchLevel}
                   onChange={handleChange}
-                  type='text'
-                  size='sm'
-                  placeholder='level'
-                />
-              </Col>
-              <Col xs={12} md={4}>
-                <Button type='submit' variant='success' size='sm'>
+                  size="sm"
+                >
+                  {levelList.map((level) => (
+                    <option key={level.id} value={level.value}>
+                      {level.label}
+                    </option>
+                  ))}
+                </Form.Control>
+              </Form.Group>
+            </Col>
+          </Form.Row>
+          <Form.Row>
+            <Col xs={12} md={4}>
+              <Form.Group>
+                <Button type="submit" variant="success" size="sm">
                   Submit Search
                 </Button>
-              </Col>
-            </Form.Row>
-          </Form>
-        </Container>
-      </Jumbotron>
-    )
+              </Form.Group>
+            </Col>
+          </Form.Row>
+        </Form>
+      </Container>
+    </Jumbotron>
+  );
 }
 
 export default Schools;
-
