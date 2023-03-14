@@ -42,17 +42,12 @@ const AppNavbar = () => {
       <Navbar style={styles.navbar} expand="md">
         <Container fluid>
           <Navbar.Brand style={styles.logo} as={Link} to="/">
-          <Logo />          
+            <Logo />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar" />
           <Navbar.Collapse id="navbar">
             <Nav className="ml-auto">
-              <Nav.Link
-                //  style={styles.link}
-                as={Link}
-                to="/schools"
-                className="nav-link"
-              >
+              <Nav.Link as={Link} to="/schools" className="nav-link">
                 <SchoolIcon />
                 <p>Schools</p>
               </Nav.Link>
@@ -77,7 +72,7 @@ const AppNavbar = () => {
                     <p>Profile</p>
                   </Nav.Link>
                   <Nav.Link className="nav-link" onClick={Auth.logout}>
-                  <LogoutIcon />
+                    <LogoutIcon />
                     <p>Logout</p>
                   </Nav.Link>
                 </>
