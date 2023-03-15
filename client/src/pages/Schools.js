@@ -1,8 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { Jumbotron, Container, Form, Col, Button } from "react-bootstrap";
 import { stateList, levelList } from "../utils/constants";
+import "../styles/pages.css";
+import booksImg from "../assets/booksImg.png";
+import { SchoolsType } from "../components/TypeWriter";
+// import Colors from "../utils/Colors";
+
+const styles = {
+  jumbotron: {
+    backgroundImage: `url(${booksImg})`,
+    backgroundSize: 'fill',
+    backgroundPosition: 'center',
+  },
+  formstyle: {
+    border: '5px dotted #264653 ',
+    borderRadius: '10px',
+    margin: '10px',
+    backgroundColor: '#f7ede2',
+    width: '100%',
+  },
+  buttonSearch:{
+    display: 'flex',
+    justifyContent: 'center',
+  },
+};
 
 function Schools() {
+
+  const [text] = useState("Search for Schools!");
+
   const [formState, setFormState] = useState({
     searchCity: "",
     searchState: "CA",
@@ -32,12 +58,12 @@ function Schools() {
   };
 
   return (
-    <Jumbotron fluid className="text-light bg-dark pt-2">
-      <Container>
-        <h2>Search for Schools!</h2>
-        <Form onSubmit={handleFormSubmit}>
-          <Form.Row>
-            <Col xs={12} md={6}>
+    <Jumbotron fluid className="jumbo pt-2" style={styles.jumbotron}>
+      <Container className="searchschool d-flex flex-column justify-content-center align-items-center" style={{ width: "60%"}}>
+      <SchoolsType text={text} />
+        <Form className="searchform" style={styles.formstyle} onSubmit={handleFormSubmit}>
+          <Form.Row className="formRow">
+            <Col sm={12} md={12}>
               <Form.Group>
                 <Form.Label>City</Form.Label>
                 <Form.Control
@@ -51,7 +77,7 @@ function Schools() {
             </Col>
           </Form.Row>
           <Form.Row>
-            <Col xs={12} md={3}>
+            <Col xs={12} md={6}>
               <Form.Group>
                 <Form.Label>State</Form.Label>
                 <Form.Control
@@ -69,7 +95,7 @@ function Schools() {
                 </Form.Control>
               </Form.Group>
             </Col>
-            <Col xs={12} md={3}>
+            <Col xs={12} md={6}>
               <Form.Group>
                 <Form.Label>Zip</Form.Label>
                 <Form.Control
@@ -83,7 +109,7 @@ function Schools() {
             </Col>
           </Form.Row>
           <Form.Row>
-            <Col xs={12} md={6}>
+            <Col xs={12} md={12}>
               <Form.Group>
                 <Form.Label>Level</Form.Label>
                 <Form.Control
@@ -103,15 +129,23 @@ function Schools() {
             </Col>
           </Form.Row>
           <Form.Row>
-            <Col xs={12} md={4}>
-              <Form.Group>
-                <Button type="submit" variant="success" size="sm">
+            <Col xs={12} md={12}>
+              <Form.Group style={styles.buttonSearch}>
+                <Button className="searchButton"
+                  type="submit"
+                  size="md"
+                >
                   Submit Search
                 </Button>
               </Form.Group>
             </Col>
           </Form.Row>
         </Form>
+      </Container>
+      <Container className=" schoolposts d-flex flex-column justify-content-center align-items-center">
+        <h2>Searches posted here with add to profile button</h2>
+        <h2>Searches posted here with add to profile button</h2>
+        <h2>Searches posted here with add to profile button</h2>
       </Container>
     </Jumbotron>
   );
