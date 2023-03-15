@@ -27,6 +27,7 @@ const Profile = () => {
 
   if (!user?.username) {
     return (
+
       <h4>
         You need to be logged in to see this. Use the navigation links above to
         sign up or log in!
@@ -135,6 +136,7 @@ export default Profile;
 
 // function Profile() {
 //     // const {setAuthTokens} = authService();
+
 //     // const [userFormData, setUserFormData] = useState({username});
 
 //     // var user = JSON.parse(localStorage.username('username'));
