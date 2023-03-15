@@ -48,10 +48,10 @@ const Profile = () => {
             <p class= "mx-3"> Username: {`${user.username}`}</p>
             <p class= "mx-3"> Email: {`${user.email}`}</p>
             <p class= "mx-3"> Number of Kids: 
-                {/* {`${user.kids}`} */}
+                {`${user.kidCount}`}
             </p>
             <p class= "mx-3"> Zipcode: 
-                {/* {`${user.zipcode}`} */}
+                {`${user.zipcode}`}
             </p>
             
             
