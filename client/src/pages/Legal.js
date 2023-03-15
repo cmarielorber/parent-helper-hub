@@ -9,26 +9,34 @@ import { LegalType } from "../components/TypeWriter";
 const styles = {
   jumbotron: {
     backgroundImage: `url(${legalImg})`,
-    Image: 'cover',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    overFlow: 'hidden',
+    Image: "cover",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    overFlow: "hidden",
   },
   formstyle: {
-    border: '5px dotted #264653 ',
-    borderRadius: '10px',
-    margin: '10px',
-    backgroundColor: '#f7ede2',
-    width: '100%',
+    border: "5px dotted #264653 ",
+    borderRadius: "10px",
+    margin: "10px",
+    backgroundColor: "#f7ede2",
+    width: "100%",
   },
-  buttonSearch:{
-    display: 'flex',
-    justifyContent: 'center',
+  buttonSearch: {
+    display: "flex",
+    justifyContent: "center",
+  },
+  resourceLink: {
+    backgroundColor: "#e76f51",
+    color: "white",
+    padding: "10px 20px",
+    borderRadius: "5px",
+    textDecoration: "bold",
+    margin: "10px",
+    decoration: "none",
   },
 };
 
 function Legal() {
-
   const [text] = useState("Search for Legal Services");
 
   const [formState, setFormState] = useState({
@@ -61,9 +69,16 @@ function Legal() {
 
   return (
     <Jumbotron fluid className="jumbo pt-2" style={styles.jumbotron}>
-      <Container className="searchschool d-flex flex-column justify-content-center align-items-center" style={{ width: "60%"}}>
-      <LegalType text={text} />
-        <Form className="searchform" style={styles.formstyle} onSubmit={handleFormSubmit}>
+      <Container
+        className="searchschool d-flex flex-column justify-content-center align-items-center"
+        style={{ width: "60%" }}
+      >
+        <LegalType text={text} />
+        <Form
+          className="searchform"
+          style={styles.formstyle}
+          onSubmit={handleFormSubmit}
+        >
           <Form.Row className="formRow">
             <Col sm={12} md={12}>
               <Form.Group>
@@ -113,10 +128,7 @@ function Legal() {
           <Form.Row>
             <Col xs={12} md={12}>
               <Form.Group style={styles.buttonSearch}>
-                <Button className="searchButton"
-                  type="submit"
-                  size="md"
-                >
+                <Button className="searchButton" type="submit" size="md">
                   Submit Search
                 </Button>
               </Form.Group>
@@ -125,9 +137,13 @@ function Legal() {
         </Form>
       </Container>
       <Container className=" schoolposts d-flex flex-column justify-content-center align-items-center">
-        <h2>Searches posted here with add to profile button</h2>
-        <h2>Searches posted here with add to profile button</h2>
-        <h2>Searches posted here with add to profile button</h2>
+        <h2>Check back soon for a list of legal resources in your area.</h2>
+        <a
+          href="https://selfhelp.courts.ca.gov/get-free-or-low-cost-legal-help"
+          style={styles.resourceLink}
+        >
+          Click for Legal Resource
+        </a>{" "}
       </Container>
     </Jumbotron>
   );
