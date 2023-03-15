@@ -40,6 +40,7 @@ const Profile = () => {
     }
 
     return (
+
         <div className="flex-row justify-center mb-3">
             <h1>Profile page</h1>
  
@@ -140,6 +141,7 @@ const Profile = () => {
 
   // function Profile() {
 //     // const {setAuthTokens} = authService(); 
+
 //     // const [userFormData, setUserFormData] = useState({username});
     
 //     // var user = JSON.parse(localStorage.username('username'));

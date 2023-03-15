@@ -220,7 +220,7 @@ const SignupForm = () => {
             !(
               userFormData.username &&
               userFormData.email &&
-              userFormData.password
+              userFormData.password 
             )
           }
           type="submit"
