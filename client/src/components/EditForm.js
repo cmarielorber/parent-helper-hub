@@ -4,7 +4,7 @@ import Auth from "../utils/auth";
 // refractor to use Apollo GraphQL API instead of RESTful API
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
+// import { QUERY_USER, QUERY_ME } from '../utils/queries';
 // create QUERY for child 
 
 {/* <button type="button" class="btn btn-success mx-3" data-mdb-ripple-color="dark" 
@@ -19,7 +19,9 @@ const EditForm = () => {
     email: "",
     password: "",
     childCount: 1,
+
     child: [],
+
     zipcode: "",
     ageGroup: ""
   });
@@ -43,7 +45,9 @@ const EditForm = () => {
 
     const newChild = event.target.value;
 
+
     let currentChild = userFormData.child;
+
 
     currentChild[index] = newChild;
 
@@ -75,8 +79,11 @@ const EditForm = () => {
       email: "",
       password: "",
       childCount: 1,
+
       child: [],
+
       zipcode: "",
+      ageGroup: ""
     });
   };
 
@@ -106,6 +113,22 @@ const EditForm = () => {
     return <div>Loading...</div>;
   }
   return (<h1>Hello</h1>)
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
   // return (
   //   <>
   //     {/* This is needed for the validation functionality above */}

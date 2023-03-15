@@ -1,7 +1,4 @@
 # Parent-Helper-Hub
-Final Project Full Stack Bootcamp Cohort 2022-202
-
-# -Project-3-Parent-Helper-Hub
 Project #3 
 
 # Project Description
