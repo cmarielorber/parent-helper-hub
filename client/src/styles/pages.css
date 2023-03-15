@@ -1,42 +1,41 @@
-  .form-group{
-    color: var(--DARK_ORANGE);
-    font-size: 1.2rem;
-    margin: 10px;
-  }
+.form-group {
+  color: var(--DARK_ORANGE);
+  font-size: 1.2rem;
+  margin: 10px;
+}
 
-  .searchschool{
-    border: 8px double var(--DARK);
-    border-radius: 10px;
-    margin-top: 25px;
-    padding-top: 10px;
-    background-color: var(--OFF_WHITE);
-    color: var(--DARK_ORANGE);
-    width: fit-content;
-  }
-  
-  .schoolposts{
-    border: 8px double var(--DARK);
-    border-radius: 10px;
-    margin-top: 25px;
-    background-color: var(--OFF_WHITE);
-    color: var(--DARK_ORANGE);
-    width: 100%;
-  }
+.searchschool {
+  border: 8px double var(--DARK);
+  border-radius: 10px;
+  margin-top: 25px;
+  padding-top: 10px;
+  background-color: var(--OFF_WHITE);
+  color: var(--DARK_ORANGE);
+  width: fit-content;
+}
 
-  .searchButton{
-    background-color: var(--DARK_ORANGE);
-    border-color: none;
-    font-weight: 600;
-  }
+.schoolposts {
+  border: 8px double var(--DARK);
+  border-radius: 10px;
+  margin-top: 25px;
+  background-color: var(--OFF_WHITE);
+  color: var(--DARK_ORANGE);
+  width: 100%;
+}
 
-  .searchButton:hover{
-    background-color: var(--TEAL);
-    border-color: none;
-  }
+.searchButton {
+  background-color: var(--DARK_ORANGE);
+  border-color: none;
+  font-weight: 600;
+}
 
-  /* .searchButton:after{
+.searchButton:hover {
+  background-color: var(--TEAL);
+  border-color: none;
+}
+
+/* .searchButton:after{
     background-color: var(--DARK);
     border-color: var(--ORANGE);
   } */
 
-  
