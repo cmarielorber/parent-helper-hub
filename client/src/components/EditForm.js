@@ -18,8 +18,8 @@ const EditForm = () => {
     username: "",
     email: "",
     password: "",
-    kidCount: 1,
-    kids: [],
+    childCount: 1,
+    children: [],
     zipcode: "",
     ageGroup: ""
   });
@@ -41,13 +41,13 @@ const EditForm = () => {
   const handleChildNameChange = (event) => {
     const index = event.target.id.split("-")[1];
 
-    const newKid = event.target.value;
+    const newChild = event.target.value;
 
-    let currentKids = userFormData.kids;
+    let currentChild = userFormData.child;
 
-    currentKids[index] = newKid;
+    currentChild[index] = newChild;
 
-    setUserFormData({ ...userFormData, kids: currentKids });
+    setUserFormData({ ...userFormData, child: currentChild });
   }
 
   const handleFormSubmit = async (event) => {
@@ -74,25 +74,26 @@ const EditForm = () => {
       username: "",
       email: "",
       password: "",
-      kidCount: 1,
-      kids: [],
+      childCount: 1,
+      children: [],
       zipcode: "",
+      ageGroup: ""
     });
   };
 
   function renderNameForm () {
-    console.log(userFormData.kidCount)
+    console.log(userFormData.childCount)
     return (
       <>
         {
-          Array.from({ length: userFormData.kidCount }).map((kid, index) => {
+          Array.from({ length: userFormData.childCount }).map((child, index) => {
             return <Form.Control
             type="string"
             placeholder={`Child #${index+1} Full Name`}
-            name="kids"
+            name="child"
             onChange={handleChildNameChange}
-            value={userFormData.kids[index]}
-            id={`kid-${index}`}
+            value={userFormData.child[index]}
+            id={`child-${index}`}
             required
           />
           })
@@ -154,17 +155,17 @@ const EditForm = () => {
   //         </Form.Control>
   //       </Form.Group>
   //       <Form.Group>
-  //         <Form.Label htmlFor="kidCount">
-  //           Number of Kids
+  //         <Form.Label htmlFor="childCount">
+  //           Number of Children
   //         </Form.Label>
   //         <Form.Control i
-  //           id="kidCount" 
+  //           id="childount" 
   //           as="select"
   //           type='number'
-  //           placeholder='Number of kids'
-  //           name='kidCount'
+  //           placeholder='Number of Children'
+  //           name='childCount'
   //           onChange={handleInputChange}
-  //           value={userFormData.kidCount}
+  //           value={userFormData.childCount}
   //           required
   //         >
   //          <option value="1">1</option>
@@ -177,7 +178,7 @@ const EditForm = () => {
   //         </Form.Control>
   //       </Form.Group>
   //       <Form.Group>
-  //         <Form.Label htmlFor="kids">Child's Full Name</Form.Label>
+  //         <Form.Label htmlFor="child">Child's Full Name</Form.Label>
   //         {
   //           renderNameForm()
   //         }
