@@ -421,3 +421,4 @@ export function Logo() {
     </svg>
   );
 }
+
