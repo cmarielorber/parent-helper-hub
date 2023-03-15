@@ -4,7 +4,6 @@ import Auth from "../utils/auth";
 // refractor to use Apollo GraphQL API instead of RESTful API
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
-import { ButtonGroup, Dropdown, DropdownButton } from "react-bootstrap";
 
 const SignupForm = () => {
   // set initial form state
@@ -13,7 +12,9 @@ const SignupForm = () => {
     email: "",
     password: "",
     childCount: 1,
+
     child: [],
+
     zipcode: "",
     ageGroup: ""
   });
@@ -68,7 +69,9 @@ const SignupForm = () => {
       email: "",
       password: "",
       childCount: 1,
+
       child: [],
+
       zipcode: "",
       ageGroup: ""
     });
@@ -85,7 +88,9 @@ const SignupForm = () => {
             placeholder={`Child #${index+1} Full Name`}
             name="child"
             onChange={handleChildNameChange}
+
             value={userFormData.child[index]}
+
             id={`child-${index}`}
             required
           />
@@ -158,8 +163,9 @@ const SignupForm = () => {
             placeholder='Number of Children'
             name='childCount'
             onChange={handleInputChange}
+
             value={userFormDate.childCount}
-            required
+
           >
            <option value="1">1</option>
            <option value="2">2</option>
