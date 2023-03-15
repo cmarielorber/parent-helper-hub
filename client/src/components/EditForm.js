@@ -4,7 +4,7 @@ import Auth from "../utils/auth";
 // refractor to use Apollo GraphQL API instead of RESTful API
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
+// import { QUERY_USER, QUERY_ME } from '../utils/queries';
 // create QUERY for child 
 
 {/* <button type="button" class="btn btn-success mx-3" data-mdb-ripple-color="dark" 
@@ -18,8 +18,8 @@ const EditForm = () => {
     username: "",
     email: "",
     password: "",
-    kidCount: 1,
-    kids: [],
+    childCount: 1,
+    Child: [],
     zipcode: "",
     ageGroup: ""
   });
@@ -41,13 +41,13 @@ const EditForm = () => {
   const handleChildNameChange = (event) => {
     const index = event.target.id.split("-")[1];
 
-    const newKid = event.target.value;
+    const newChild = event.target.value;
 
-    let currentKids = userFormData.kids;
+    let currentChild = userFormData.Child;
 
-    currentKids[index] = newKid;
+    currentChild[index] = newChild;
 
-    setUserFormData({ ...userFormData, kids: currentKids });
+    setUserFormData({ ...userFormData, child: currentChild });
   }
 
   const handleFormSubmit = async (event) => {
@@ -74,25 +74,26 @@ const EditForm = () => {
       username: "",
       email: "",
       password: "",
-      kidCount: 1,
-      kids: [],
+      childCount: 1,
+      Child: [],
       zipcode: "",
+      ageGroup: ""
     });
   };
 
   function renderNameForm () {
-    console.log(userFormData.kidCount)
+    console.log(userFormData.childCount)
     return (
       <>
         {
-          Array.from({ length: userFormData.kidCount }).map((kid, index) => {
+          Array.from({ length: userFormData.childCount }).map((child, index) => {
             return <Form.Control
             type="string"
             placeholder={`Child #${index+1} Full Name`}
-            name="kids"
+            name="child"
             onChange={handleChildNameChange}
-            value={userFormData.kids[index]}
-            id={`kid-${index}`}
+            value={userFormData.child[index]}
+            id={`child-${index}`}
             required
           />
           })
@@ -106,6 +107,22 @@ const EditForm = () => {
     return <div>Loading...</div>;
   }
   return (<h1>Hello</h1>)
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
   // return (
   //   <>
   //     {/* This is needed for the validation functionality above */}

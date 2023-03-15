@@ -50,15 +50,19 @@ const Profile = () => {
             {/* to include information from child form and zipcode obtained during signup */}
             <p class= "mx-3"> Username: {`${user.username}`}</p>
             <p class= "mx-3"> Email: {`${user.email}`}</p>
-            <p class= "mx-3"> Number of Kids: 
+            {/* <p class= "mx-3"> Password: {`${user.password}`}</p> */}
+            <p class= "mx-3"> Number of Children: 
                 {/* {`${user.kids}`} */}
             </p>
+            <p class= "mx-3"> Children's Age Group:</p>
+            <p class= "mx-3"> Children's Full Name:</p>
             <p class= "mx-3"> Zipcode: 
                 {/* {`${user.zipcode}`} */}
             </p>
             
+            {/* original code for edit button */}
             {isEdit?
-              (<EditForm/>)
+              (<EditForm></EditForm>)
             :
               (<button 
               type="button" 
@@ -70,6 +74,8 @@ const Profile = () => {
               </button>)
             }
             
+
+
        
             </div>
             <div>
