@@ -19,10 +19,7 @@ const EditForm = () => {
     email: "",
     password: "",
     childCount: 1,
-
-
     child: [],
-
     zipcode: "",
     ageGroup: ""
   });
