@@ -70,7 +70,7 @@ function Legal() {
   return (
     <Jumbotron fluid className="jumbo pt-2" style={styles.jumbotron}>
       <Container
-        className="searchreource d-flex flex-column justify-content-center align-items-center"
+        className="searchresource d-flex flex-column justify-content-center align-items-center"
         style={{ width: "60%" }}
       >
         <LegalType text={text} />
