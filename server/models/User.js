@@ -4,8 +4,8 @@ const bcrypt = require('bcrypt');
 // import schema from Children.js
 const childSchema = require('./Child');
 
-// import schema from Book.js
-// const bookSchema = require('./Book');
+//import schema from School.js
+const schoolSchema = require('./School');
 
 const userSchema = new Schema(
   {
@@ -37,6 +37,8 @@ const userSchema = new Schema(
     // savedBooks: [bookSchema],
     // set children to be an array of data that adheres to the childSchema
     children: [childSchema],
+
+    savedSchools: [schoolSchema]
   },
   // set this to use virtual below
   {
