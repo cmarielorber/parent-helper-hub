@@ -12,7 +12,9 @@ const SignupForm = () => {
     email: "",
     password: "",
     childCount: 1,
-    children: [],
+
+    child: [],
+
     zipcode: "",
     ageGroup: ""
   });
@@ -67,7 +69,9 @@ const SignupForm = () => {
       email: "",
       password: "",
       childCount: 1,
-      Child: [],
+
+      child: [],
+
       zipcode: "",
       ageGroup: ""
     });
@@ -84,8 +88,9 @@ const SignupForm = () => {
             placeholder={`Child #${index+1} Full Name`}
             name="child"
             onChange={handleChildNameChange}
-            value={userFormData.child
-              [index]}
+
+            value={userFormData.child[index]}
+
             id={`child-${index}`}
             required
           />
@@ -158,7 +163,9 @@ const SignupForm = () => {
             placeholder='Number of Children'
             name='childCount'
             onChange={handleInputChange}
-            value={userFormData.childCount}
+
+            value={userFormDate.childCount}
+
             required
           >
            <option value="1">1</option>
