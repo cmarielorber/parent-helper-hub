@@ -4,7 +4,6 @@ import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
 import SignUpForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 import Colors from "../utils/Colors";
-import logo2 from "../assets/logo2.svg";
 import Auth from "../utils/auth";
 import "../styles/navbar.css";
 import {
@@ -15,6 +14,7 @@ import {
   UserIcon,
   SchoolIcon,
 } from "./icons";
+import { Logo } from "./images";
 
 const styles = {
   navbar: {
@@ -42,17 +42,12 @@ const AppNavbar = () => {
       <Navbar style={styles.navbar} expand="md">
         <Container fluid>
           <Navbar.Brand style={styles.logo} as={Link} to="/">
-            <img id="logo2" src={logo2} alt="Parent Helper Hub Logo" />
+            <Logo />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar" />
           <Navbar.Collapse id="navbar">
             <Nav className="ml-auto">
-              <Nav.Link
-                //  style={styles.link}
-                as={Link}
-                to="/schools"
-                className="nav-link"
-              >
+              <Nav.Link as={Link} to="/schools" className="nav-link">
                 <SchoolIcon />
                 <p>Schools</p>
               </Nav.Link>
@@ -77,7 +72,7 @@ const AppNavbar = () => {
                     <p>Profile</p>
                   </Nav.Link>
                   <Nav.Link className="nav-link" onClick={Auth.logout}>
-                  <LogoutIcon />
+                    <LogoutIcon />
                     <p>Logout</p>
                   </Nav.Link>
                 </>

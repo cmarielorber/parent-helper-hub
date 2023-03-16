@@ -6,8 +6,12 @@ export const QUERY_USER = gql`
         _id
         username
         email
-        kids
+        childCount
         zipcode
+        child {
+            childName
+            ageGroup
+        }
     }
   }
 `;
@@ -18,15 +22,8 @@ export const QUERY_ME = gql`
             _id
             username
             email
-            bookCount
-            savedBooks {
-                bookId
-                title
-                description
-                authors
-                image
-                link
-            }
+            
+
         }
     }
 `;

@@ -4,6 +4,9 @@ const bcrypt = require('bcrypt');
 // import schema from Children.js
 const childSchema = require('./Child');
 
+// import schema from Book.js
+// const bookSchema = require('./Book');
+
 const userSchema = new Schema(
   {
     username: {
@@ -21,6 +24,8 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    // set savedBooks to be an array of data that adheres to the bookSchema
+    // savedBooks: [bookSchema],
     // set children to be an array of data that adheres to the childSchema
     children: [childSchema],
   },
@@ -48,9 +53,9 @@ userSchema.methods.isCorrectPassword = async function (password) {
 };
 
 // when we query a user, we'll also get another field called `bookCount` with the number of saved books we have
-userSchema.virtual('bookCount').get(function () {
-  return this.savedBooks.length;
-});
+// userSchema.virtual('bookCount').get(function () {
+//   return this.savedBooks.length;
+// });
 
 const User = model('User', userSchema);
 

@@ -2,12 +2,6 @@
   color: var(--DARK_ORANGE);
 }
 
-/* .nav-link:hover g line{
-    fill: var(--DARK_ORANGE);
-    stroke: var(--DARK_ORANGE);
-
-} */
-
 .nav-link:hover g {
     fill: var(--DARK_ORANGE);
     stroke: var(--DARK_ORANGE);
@@ -32,3 +26,10 @@
   flex-direction: column;
   align-items: center;
 }
+
+.logo-image{
+  margin: 0px;
+  padding: 0px;
+}
+
+
