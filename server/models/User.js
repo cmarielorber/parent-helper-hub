@@ -37,6 +37,8 @@ const userSchema = new Schema(
     // savedBooks: [bookSchema],
     // set children to be an array of data that adheres to the childSchema
     children: [childSchema],
+
+    savedSchools: [schoolSchema]
   },
   // set this to use virtual below
   {
