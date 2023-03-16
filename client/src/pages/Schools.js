@@ -78,19 +78,14 @@ function Schools() {
             isVirtualSchool: school.isVirtualSchool || "",
             isTitleISchool: school.isTitleISchool || "",
             isTitleISchoolwideSchool: school.isTitleISchoolwideSchool || "",
-            hasBundary: school.hasBoundary || "",
             districtName: school.district?.districtName || "",
-            districtURL: school.district?.url || "",
-            rankYear: school.rankHistory?.[0].year || "",
             rank: school.rankHistory?.[0].rank || "",
             rankOf: school.rankHistory?.[0].rankOf || "",
             rankStars: school.rankHistory?.[0].rankStars || "",
             rankStatewidePercentage: school.rankHistory?.[0]?.rankStatewidePercentage || "",
             averageStandardScore: school.rankHistory?.[0]?.averageStandardScore || "",
-            schoolDetailsYear: school.schoolYearlyDetails?.[0]?.year || "",
             numberOfStudents: school.schoolYearlyDetails?.[0]?.numberOfStudents || "",
             pupilTeacherRatio: school.schoolYearlyDetails?.[0]?.pupilTeacherRatio || "",
-            isPrivate: school.isPrivate || "",
           }));
           setSearchedSchools(schoolData);
       })
