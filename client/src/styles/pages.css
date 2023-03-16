@@ -4,33 +4,35 @@
     margin: 10px;
   }
 
-  .searchschool{
+  .searchresource{
     border: 8px double var(--DARK);
     border-radius: 10px;
-    margin-top: 25px;
+    margin-top: 15rem;
     padding-top: 10px;
     background-color: var(--OFF_WHITE);
     color: var(--DARK_ORANGE);
   }
   
-  .schoolposts{
+  .searchposts{
     border: 8px double var(--DARK);
     border-radius: 10px;
     margin-top: 25px;
     background-color: var(--OFF_WHITE);
     color: var(--DARK_ORANGE);
     width: 100%;
+    font-size: 25px;
+    font-weight: bold;
   }
 
   .searchButton{
     background-color: var(--DARK_ORANGE);
-    border-color: none;
+    border-color: var(--DARK_ORANGE);
     font-weight: 600;
   }
 
   .searchButton:hover{
     background-color: var(--TEAL);
-    border-color: none;
+    border-color: var(--TEAL);
   }
 
   /* .searchButton:after{
