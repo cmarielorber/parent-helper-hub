@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Jumbotron, Container, Form, Col, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Jumbotron, Container, Form, Col, CardColumns, Button } from "react-bootstrap";
 import { stateList, levelList } from "../utils/constants";
 import "../styles/pages.css";
 import booksImg from "../assets/booksImg.png";
 import { SchoolsType } from "../components/TypeWriter";
+import SingleSchool from "../components/SingleSchool";
 // import Colors from "../utils/Colors";
 
 const styles = {
@@ -35,14 +36,63 @@ function Schools() {
     searchLevel: "",
   });
 
-  useEffect(() => {}, []);
+  const [searchedSchools, setSearchedSchools] = useState([]);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    const formatedCity = formState.searchCity.trim().replace(/ /g, "%20");
 
+    // let apiURL = `https://cors-anywhere.herokuapp.com/https://api.schooldigger.com/v2.0/schools`;
+    let apiURL = `https://api.schooldigger.com/v2.0/schools`;
+    apiURL += `?st=${formState.searchState.trim()}`;
+    apiURL += `&city=${formatedCity}`;
+    apiURL += `&zip=${formState.searchZip.trim()}`;
+    apiURL += `&level=${formState.searchLevel.trim()}`;
+    apiURL += `&appID=${process.env.REACT_APP_API_ID}`;
+    apiURL += `&appKey=${process.env.REACT_APP_API_KEY}`;
+    console.log("***********apiURL", apiURL);
+
+    fetch(apiURL)
+      .then((response) => {
+        console.log("***********response", response);
+        return response.json();
+      })
+      .then((data) => {
+        console.log("***********data", data);
+        const schoolData = data.schoolList.map((school) => ({
+            schoolId: school.schoolid || "",
+            schoolName: school.schoolName || "",
+            phone: school.phone || "",
+            latitude: school.address?.latitude || "",
+            longtitude: school.address?.longitude || "",
+            street: school.address?.street || "",
+            city: school.address?.city  || "",
+            state: school.address?.state || "",
+            zip: school.address?.zip || "",
+            zip4: school.address?.zip4 || "",
+            lowGrade: school.lowGrade || "",
+            highGrade: school.highGrade || "",
+            schoolLevel: school.schoolLevel || "",
+            isCharterSchool: school.isCharterSchool || "",
+            isMagnateSchool: school.isMagnetSchool || "",
+            isVirtualSchool: school.isVirtualSchool || "",
+            isTitleISchool: school.isTitleISchool || "",
+            isTitleISchoolwideSchool: school.isTitleISchoolwideSchool || "",
+            districtName: school.district?.districtName || "",
+            rank: school.rankHistory?.[0].rank || "",
+            rankOf: school.rankHistory?.[0].rankOf || "",
+            rankStars: school.rankHistory?.[0].rankStars || "",
+            rankStatewidePercentage: school.rankHistory?.[0]?.rankStatewidePercentage || "",
+            averageStandardScore: school.rankHistory?.[0]?.averageStandardScore || "",
+            numberOfStudents: school.schoolYearlyDetails?.[0]?.numberOfStudents || "",
+            pupilTeacherRatio: school.schoolYearlyDetails?.[0]?.pupilTeacherRatio || "",
+          }));
+          setSearchedSchools(schoolData);
+      })
+      .catch((err) => console.error(err));
     setFormState({
       searchCity: "",
-      searchState: "",
+      searchState: "CA",
       searchZip: "",
       searchLevel: "",
     });
@@ -57,9 +107,10 @@ function Schools() {
   };
 
   return (
+    <>
     <Jumbotron fluid className="jumbo pt-2" style={styles.jumbotron}>
       <Container
-        className="searchschool d-flex flex-column justify-content-center align-items-center"
+        className="searchresource d-flex flex-column justify-content-center align-items-center"
         style={{ width: "60%" }}
       >
         <SchoolsType text={text} />
@@ -145,12 +196,22 @@ function Schools() {
           </Form.Row>
         </Form>
       </Container>
-      <Container className=" schoolposts d-flex flex-column justify-content-center align-items-center">
-        <h2>Searches posted here with add to profile button</h2>
-        <h2>Searches posted here with add to profile button</h2>
-        <h2>Searches posted here with add to profile button</h2>
+      <Container className="searchposts d-flex flex-column justify-content-center align-items-center"> SCHOOLS
+      <h2>
+          {searchedSchools.length
+            ? `Viewing ${searchedSchools.length} results:`
+            : ''}
+        </h2>
+        <CardColumns>
+          {searchedSchools.map((school) => {
+            return (
+              <SingleSchool school={school} key={school.schoolId} />
+            );
+          })}
+        </CardColumns>
       </Container>
     </Jumbotron>
+    </>
   );
 }
 
