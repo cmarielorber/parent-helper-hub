@@ -48,7 +48,9 @@ const EditForm = () => {
 
 
 
+
     let currentChild = userFormData.Child;
+
 
 
     currentChild[index] = newChild;
@@ -185,7 +187,9 @@ const EditForm = () => {
   //           Number of Children
   //         </Form.Label>
   //         <Form.Control i
-  //           id="childount" 
+
+  //           id="childCount" 
+
   //           as="select"
   //           type='number'
   //           placeholder='Number of Children'
