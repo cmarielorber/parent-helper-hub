@@ -6,8 +6,7 @@ export default function SingleSchool({ school }) {
       <Card.Body>
         {<h6>{school.schoolLevel || ""} {school.lowGrade || ""}-{school.highGrade || ""}</h6>}
         <Card.Title>{school.schoolName}</Card.Title>
-        <Card.Text>{school.street}</Card.Text>
-        <Card.Text>{`${school.stree}, ${school.city}, ${school.state} ${school.zip}-${school.zip4}`}</Card.Text>
+        <Card.Text>{`${school.street}, ${school.city}, ${school.state} ${school.zip}-${school.zip4}`}</Card.Text>
         <Card.Text>{school.phone}</Card.Text>
         <Card.Text>{school.districtName && `District: ${school.districtName}`}</Card.Text>
         <Card.Text>{school.numberOfStudents && `Number of Students: ${school.numberOfStudents}`}</Card.Text>
