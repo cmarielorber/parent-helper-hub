@@ -1,16 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 // import { EditFrom } from '../components/EditForm';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
 
+
 import Auth from '../utils/auth';
+import EditForm from '../components/EditForm';
   // refactored to use GraphQL API instead of RESTful API
 //   const [login, { loading }] = useMutation(LOGIN_USER);
 
 const Profile = () => {
     const { username: userParam } = useParams();
+    const  [isEdit, setIsEdit] = useState(false);
    
   
     const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -37,6 +40,7 @@ const Profile = () => {
     }
 
     return (
+
         <div className="flex-row justify-center mb-3">
             <h1>Profile page</h1>
  
@@ -47,17 +51,32 @@ const Profile = () => {
             {/* to include information from child form and zipcode obtained during signup */}
             <p class= "mx-3"> Username: {`${user.username}`}</p>
             <p class= "mx-3"> Email: {`${user.email}`}</p>
-            <p class= "mx-3"> Number of Kids: 
+            {/* <p class= "mx-3"> Password: {`${user.password}`}</p> */}
+            <p class= "mx-3"> Number of Children: 
                 {/* {`${user.kids}`} */}
             </p>
+            <p class= "mx-3"> Children's Age Group:</p>
+            <p class= "mx-3"> Children's Full Name:</p>
             <p class= "mx-3"> Zipcode: 
                 {/* {`${user.zipcode}`} */}
             </p>
             
+            {/* original code for edit button */}
+            {isEdit?
+              (<EditForm></EditForm>)
+            :
+              (<button 
+              type="button" 
+              class="btn btn-success mx-3" 
+              data-mdb-ripple-color="dark" 
+              onClick={() => setIsEdit(true)}            
+              >
+              Edit
+              </button>)
+            }
             
-            <button type="button" class="btn btn-success mx-3" data-mdb-ripple-color="dark" 
-            // onClick={edit form?} 
-            >Edit</button>
+
+
        
             </div>
             <div>
@@ -122,6 +141,7 @@ const Profile = () => {
 
   // function Profile() {
 //     // const {setAuthTokens} = authService(); 
+
 //     // const [userFormData, setUserFormData] = useState({username});
     
 //     // var user = JSON.parse(localStorage.username('username'));
