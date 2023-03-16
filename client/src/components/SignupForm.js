@@ -158,7 +158,7 @@ const SignupForm = () => {
             name='childCount'
             onChange={handleInputChange}
 
-            value={userFormDate.childCount}
+            value={userFormData.childCount}
 
 
             required
