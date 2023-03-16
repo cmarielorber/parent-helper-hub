@@ -3,23 +3,21 @@
 }
 
 .nav-link:hover g {
-    fill: var(--DARK_ORANGE);
-    stroke: var(--DARK_ORANGE);
-
+  fill: var(--DARK_ORANGE);
+  stroke: var(--DARK_ORANGE);
 }
 
 .nav-icons {
-    fill: var(--YELLOW);
-    stroke: var(--YELLOW)
+  fill: var(--YELLOW);
+  stroke: var(--YELLOW);
 }
 
 .navbar-light .navbar-nav .nav-link {
   color: var(--YELLOW);
 }
 
-
-.navbar-light .navbar-nav .nav-link:focus{
-color: var(--YELLOW);
+.navbar-light .navbar-nav .nav-link:focus {
+  color: var(--YELLOW);
 }
 
 .navbar-expand-md {
@@ -32,9 +30,8 @@ color: var(--YELLOW);
   align-items: center;
 }
 
-.logo-image{
+.logo-image {
   margin: 0px;
   padding: 0px;
 }
-
 
