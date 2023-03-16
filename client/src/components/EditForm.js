@@ -82,7 +82,9 @@ const EditForm = () => {
       password: "",
       childCount: 1,
 
-      Child: [],
+
+      child: [],
+
 
       zipcode: "",
       ageGroup: ""
