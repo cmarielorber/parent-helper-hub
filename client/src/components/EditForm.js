@@ -19,7 +19,10 @@ const EditForm = () => {
     email: "",
     password: "",
     childCount: 1,
-    Child: [],
+
+
+    child: [],
+
     zipcode: "",
     ageGroup: ""
   });
@@ -43,7 +46,10 @@ const EditForm = () => {
 
     const newChild = event.target.value;
 
+
+
     let currentChild = userFormData.Child;
+
 
     currentChild[index] = newChild;
 
@@ -75,7 +81,9 @@ const EditForm = () => {
       email: "",
       password: "",
       childCount: 1,
+
       Child: [],
+
       zipcode: "",
       ageGroup: ""
     });
@@ -171,17 +179,17 @@ const EditForm = () => {
   //         </Form.Control>
   //       </Form.Group>
   //       <Form.Group>
-  //         <Form.Label htmlFor="kidCount">
-  //           Number of Kids
+  //         <Form.Label htmlFor="childCount">
+  //           Number of Children
   //         </Form.Label>
   //         <Form.Control i
-  //           id="kidCount" 
+  //           id="childount" 
   //           as="select"
   //           type='number'
-  //           placeholder='Number of kids'
-  //           name='kidCount'
+  //           placeholder='Number of Children'
+  //           name='childCount'
   //           onChange={handleInputChange}
-  //           value={userFormData.kidCount}
+  //           value={userFormData.childCount}
   //           required
   //         >
   //          <option value="1">1</option>
@@ -194,7 +202,7 @@ const EditForm = () => {
   //         </Form.Control>
   //       </Form.Group>
   //       <Form.Group>
-  //         <Form.Label htmlFor="kids">Child's Full Name</Form.Label>
+  //         <Form.Label htmlFor="child">Child's Full Name</Form.Label>
   //         {
   //           renderNameForm()
   //         }
