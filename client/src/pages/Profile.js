@@ -13,7 +13,7 @@ import EditForm from '../components/EditForm';
 
 const Profile = () => {
     const { username: userParam } = useParams();
-    const { isEdit, setIsEdit} = useState(false);
+    const  [isEdit, setIsEdit] = useState(false);
    
   
     const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
