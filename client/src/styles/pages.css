@@ -24,13 +24,13 @@
 
   .searchButton{
     background-color: var(--DARK_ORANGE);
-    border-color: none;
+    border-color: var(--DARK_ORANGE);
     font-weight: 600;
   }
 
   .searchButton:hover{
     background-color: var(--TEAL);
-    border-color: none;
+    border-color: var(--TEAL);
   }
 
   /* .searchButton:after{
