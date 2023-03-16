@@ -110,7 +110,7 @@ function Schools() {
     <>
     <Jumbotron fluid className="jumbo pt-2" style={styles.jumbotron}>
       <Container
-        className="searchschool d-flex flex-column justify-content-center align-items-center"
+        className="searchresource d-flex flex-column justify-content-center align-items-center"
         style={{ width: "60%" }}
       >
         <SchoolsType text={text} />
@@ -196,14 +196,8 @@ function Schools() {
           </Form.Row>
         </Form>
       </Container>
-      <Container className=" schoolposts d-flex flex-column justify-content-center align-items-center">
-        <h2>Searches posted here with add to profile button</h2>
-        <h2>Searches posted here with add to profile button</h2>
-        <h2>Searches posted here with add to profile button</h2>
-      </Container>
-    </Jumbotron>
-    <Container>
-        <h2>
+      <Container className="searchposts d-flex flex-column justify-content-center align-items-center"> SCHOOLS
+      <h2>
           {searchedSchools.length
             ? `Viewing ${searchedSchools.length} results:`
             : ''}
@@ -216,6 +210,7 @@ function Schools() {
           })}
         </CardColumns>
       </Container>
+    </Jumbotron>
     </>
   );
 }

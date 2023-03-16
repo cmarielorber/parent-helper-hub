@@ -70,7 +70,7 @@ function Legal() {
   return (
     <Jumbotron fluid className="jumbo pt-2" style={styles.jumbotron}>
       <Container
-        className="searchschool d-flex flex-column justify-content-center align-items-center"
+        className="searchreource d-flex flex-column justify-content-center align-items-center"
         style={{ width: "60%" }}
       >
         <LegalType text={text} />
@@ -136,7 +136,7 @@ function Legal() {
           </Form.Row>
         </Form>
       </Container>
-      <Container className=" schoolposts d-flex flex-column justify-content-center align-items-center">
+      <Container className=" searchposts d-flex flex-column justify-content-center align-items-center">
         <h2>Check back soon for a list of legal resources in your area.</h2>
         <a
           href="https://selfhelp.courts.ca.gov/get-free-or-low-cost-legal-help"

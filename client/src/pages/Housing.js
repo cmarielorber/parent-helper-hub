@@ -70,7 +70,7 @@ function Housing() {
   return (
     <Jumbotron fluid className="jumbo pt-2" style={styles.jumbotron}>
       <Container
-        className="searchschool d-flex flex-column justify-content-center align-items-center"
+        className="searchresource d-flex flex-column justify-content-center align-items-center"
         style={{ width: "60%" }}
       >
         <HouseType text={text} />
@@ -136,7 +136,7 @@ function Housing() {
           </Form.Row>
         </Form>
       </Container>
-      <Container className=" schoolposts d-flex flex-column justify-content-center align-items-center">
+      <Container className=" searchposts d-flex flex-column justify-content-center align-items-center">
         <h2>Check back soon for a list of housing resources in your area.</h2>
         <a
           href="https://www.cdss.ca.gov/benefits-services/more-services/housing-programs"
