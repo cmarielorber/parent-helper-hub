@@ -20,6 +20,7 @@ const EditForm = () => {
     password: "",
     childCount: 1,
 
+
     child: [],
 
     zipcode: "",
@@ -44,6 +45,7 @@ const EditForm = () => {
     const index = event.target.id.split("-")[1];
 
     const newChild = event.target.value;
+
 
 
     let currentChild = userFormData.Child;
@@ -80,7 +82,9 @@ const EditForm = () => {
       password: "",
       childCount: 1,
 
+
       child: [],
+
 
       zipcode: "",
       ageGroup: ""
