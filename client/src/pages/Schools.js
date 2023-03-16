@@ -92,7 +92,7 @@ function Schools() {
       .catch((err) => console.error(err));
     setFormState({
       searchCity: "",
-      searchState: "",
+      searchState: "CA",
       searchZip: "",
       searchLevel: "",
     });
