@@ -38,24 +38,24 @@ const resolvers = {
       return { token, user};
     },
 
-    // retrieve the logged in user from the context and add the book to the user's savedBooks array
-    // saveBook: async (parent, book, context) => {
-    //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
-    //   if (context.user) {
-    //     return User.findOneAndUpdate(
-    //       { _id: context.user._id},
-    //       {
-    //         $addToSet: { savedBooks: book},
-    //       },
-    //       {
-    //         new: true,
-    //         runValidators: true 
-    //       }
-    //     );
-    //   }
-    //   // If user attempts to execute this mutation and isn't logged in, throw an error
-    //   throw new AuthenticationError('You need to be logged in!');
-    // },
+    // retrieve the logged in user from the context and add the book to the user's savedSchools array
+    saveSchool: async (parent, {school}, context) => {
+      // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
+      if (context.user) {
+        return User.findOneAndUpdate(
+          { _id: context.user._id},
+          {
+            $addToSet: { savedSchools: school},
+          },
+          {
+            new: true,
+            runValidators: true 
+          }
+        );
+      }
+      // If user attempts to execute this mutation and isn't logged in, throw an error
+      throw new AuthenticationError('You need to be logged in!');
+    },
     
     // // retrieve the logged in user from the context and remove the book from the user's savedBooks array
     // removeBook: async (parent, { bookId }, context) => {
