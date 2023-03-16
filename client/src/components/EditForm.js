@@ -57,6 +57,8 @@ const EditForm = () => {
     setUserFormData({ ...userFormData, child: currentChild });
   }
 
+
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -81,7 +83,7 @@ const EditForm = () => {
       username: "",
       email: "",
       password: "",
-      childCount: 1,
+      childCount: [],
       child: [],
       zipcode: "",
       ageGroup: ""
@@ -110,6 +112,33 @@ const EditForm = () => {
     )
   }
 
+  function renderAgeGroupForm () {
+    console.log(userFormData.childCount)
+    return (
+      <>
+        {
+          Array.from({ length: userFormData.childCount }).map((child, index) => {
+            return <Form.Control 
+            id={`child-${index}`}
+            as="select"
+            type='string'
+            placeholder='Child #${index+1} Age Group'
+            name='ageGroup'
+            onChange={handleInputChange}
+            value={userFormData.child[index]}
+          >
+           <option value="0-5">0-5</option>
+           <option value="6-18">6-18</option>
+           <option value="18+">18+</option>
+          </Form.Control>
+          }
+    )
+  }
+
+  </>
+    )
+}
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -121,11 +150,83 @@ const EditForm = () => {
     >
       <Modal.Dialog>
         <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title>Update Profile</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          <p>Modal body text goes here.</p>
+          <p> Update items that need to be edited, ensure to hit 'Save Changes'</p>
+          <Form.Group>
+           <Form.Label htmlFor="childCount">
+             Update Number of Children
+           </Form.Label>
+           <Form.Control i
+            id="childCount" 
+            as="select"
+            type='number'
+            placeholder='Number of Children'
+            name='childCount'
+            onChange={handleInputChange}
+            value={userFormData.childCount}
+          >
+           <option value="1">1</option>
+           <option value="2">2</option>
+           <option value="3">3</option>
+           <option value="4">4</option>
+           <option value="5">5</option>
+           <option value="6">6</option>
+           <option value="7">7</option>
+          </Form.Control>
+        </Form.Group>
+          <Form.Group>
+           <Form.Label htmlFor="ageGroup">
+             Update Child's Age Group
+           </Form.Label>
+           {
+            renderAgeGroupForm()
+          }
+           
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor="child">Update Child's Full Name</Form.Label>
+          {
+            renderNameForm()
+          }
+
+        </Form.Group>
+        <Form.Label htmlFor="zipcode"> Update Zipcode</Form.Label>
+        <Form.Control
+          type="string"
+          placeholder="Your zipcode"
+          name="zipcode"
+          onChange={handleInputChange}
+          value={userFormData.zipcode}
+          required
+        />
+
+        <Form.Group>
+          <Form.Label htmlFor="email">Change Email</Form.Label>
+          <Form.Control
+            type="email"
+            placeholder="Your email address"
+            name="email"
+            onChange={handleInputChange}
+            value={userFormData.email}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor="password">Change Password</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Your password"
+            name="password"
+            onChange={handleInputChange}
+            value={userFormData.password}
+            required
+          />
+        </Form.Group>
         </Modal.Body>
 
         <Modal.Footer>
