@@ -4,8 +4,8 @@ const bcrypt = require('bcrypt');
 // import schema from Children.js
 const childSchema = require('./Child');
 
-// import schema from Book.js
-// const bookSchema = require('./Book');
+//import schema from School.js
+const schoolSchema = require('./School');
 
 const userSchema = new Schema(
   {
