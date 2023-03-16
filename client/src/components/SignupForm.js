@@ -67,9 +67,7 @@ const SignupForm = () => {
       email: "",
       password: "",
       childCount: 1,
-
       child: [],
-
       zipcode: "",
       ageGroup: ""
     });
@@ -86,9 +84,7 @@ const SignupForm = () => {
             placeholder={`Child #${index+1} Full Name`}
             name="child"
             onChange={handleChildNameChange}
-
             value={userFormData.child[index]}
-
             id={`child-${index}`}
             required
           />
