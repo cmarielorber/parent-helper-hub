@@ -73,6 +73,7 @@ const SignupForm = () => {
     });
   };
 
+
   // function renderNameForm () {
   //   console.log(userFormData.childCount)
   //   return (
@@ -121,6 +122,7 @@ const SignupForm = () => {
 //   </>
 //     )
 // }
+
 
   if (loading) {
     return <div>Loading...</div>;
@@ -190,7 +192,9 @@ const SignupForm = () => {
            {
             renderAgeGroupForm()
           }
+
         </Form.Group> */}
+
 
 
         <Form.Label htmlFor="zipcode">Zipcode</Form.Label>
