@@ -24,14 +24,14 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    // zipcode: {
-    //   type: String,
-    //   required: false,
-    // },
-    // childCount: {
-    //   type: Number,
-    //   required: false,
-    // },
+    zipcode: {
+      type: String,
+      required: false,
+    },
+    childCount: {
+      type: Number,
+      required: false,
+    },
 
     // set savedBooks to be an array of data that adheres to the bookSchema
     // savedBooks: [bookSchema],
