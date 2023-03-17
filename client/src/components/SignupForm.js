@@ -12,9 +12,9 @@ const SignupForm = () => {
     email: "",
     password: "",
     childCount: 1,
-    child: [],
+    // child: [],
     zipcode: "",
-    ageGroup: ""
+    // ageGroup: ""
   });
   // set state for form validation
   const [validated] = useState(false);
@@ -67,60 +67,60 @@ const SignupForm = () => {
       email: "",
       password: "",
       childCount: 1,
-      child: [],
+      // child: [],
       zipcode: "",
-      ageGroup: ""
+      // ageGroup: ""
     });
   };
 
-  function renderNameForm () {
-    console.log(userFormData.childCount)
-    return (
-      <>
-        {
-          Array.from({ length: userFormData.childCount }).map((child, index) => {
-            return <Form.Control
-            type="string"
-            placeholder={`Child #${index+1} Full Name`}
-            name="child"
-            onChange={handleChildNameChange}
-            value={userFormData.child[index]}
-            id={`child-${index}`}
+  // function renderNameForm () {
+  //   console.log(userFormData.childCount)
+  //   return (
+  //     <>
+  //       {
+  //         Array.from({ length: userFormData.childCount }).map((child, index) => {
+  //           return <Form.Control
+  //           type="string"
+  //           placeholder={`Child #${index+1} Full Name`}
+  //           name="child"
+  //           onChange={handleChildNameChange}
+  //           value={userFormData.child[index]}
+  //           id={`child-${index}`}
            
-          />
-          })
-        }
+  //         />
+  //         })
+  //       }
 
-        </>
-    )
-  }
-    function renderAgeGroupForm () {
-    console.log(userFormData.childCount)
-    return (
-      <>
-        {
-          Array.from({ length: userFormData.childCount }).map((ageGroup, index) => {
-            return <Form.Control 
-            id={`child-${index}`}
-            as="select"
-            type='string'
-            placeholder={`Child #${index+1} Age Group`}
-            name='ageGroup'
+  //       </>
+  //   )
+  // }
+  //   function renderAgeGroupForm () {
+  //   console.log(userFormData.childCount)
+  //   return (
+  //     <>
+  //       {
+  //         Array.from({ length: userFormData.childCount }).map((ageGroup, index) => {
+  //           return <Form.Control 
+  //           id={`child-${index}`}
+  //           as="select"
+  //           type='string'
+  //           placeholder={`Child #${index+1} Age Group`}
+  //           name='ageGroup'
             // onChange={handleInputChange}
             // value={userFormData.child[index]}
-            value={userFormData.ageGroup[index]}
-          >
-           <option value="0-5">0-5</option>
-           <option value="6-18">6-18</option>
-           <option value="18+">18+</option>
-          </Form.Control>
-          }
-    )
-  }
+//             value={userFormData.ageGroup[index]}
+//           >
+//            <option value="0-5">0-5</option>
+//            <option value="6-18">6-18</option>
+//            <option value="18+">18+</option>
+//           </Form.Control>
+//           }
+//     )
+//   }
 
-  </>
-    )
-}
+//   </>
+//     )
+// }
 
   if (loading) {
     return <div>Loading...</div>;
@@ -159,7 +159,7 @@ const SignupForm = () => {
             Number of Children
           </Form.Label>
           <Form.Control i
-            id="childCount" 
+            // id="childCount" 
             as="select"
             type='number'
             placeholder='Number of Children'
@@ -177,7 +177,7 @@ const SignupForm = () => {
            <option value="7">7</option>
           </Form.Control>
         </Form.Group>
-        <Form.Group>
+        {/* <Form.Group>
           <Form.Label htmlFor="child">Child's Full Name</Form.Label>
           {
             renderNameForm()
@@ -190,7 +190,7 @@ const SignupForm = () => {
            {
             renderAgeGroupForm()
           }
-        </Form.Group>
+        </Form.Group> */}
 
 
         <Form.Label htmlFor="zipcode">Zipcode</Form.Label>

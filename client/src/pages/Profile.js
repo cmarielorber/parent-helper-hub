@@ -58,7 +58,7 @@ const Profile = () => {
             <p class= "mx-3"> Children's Age Group:</p>
             <p class= "mx-3"> Children's Full Name:</p>
             <p class= "mx-3"> Zipcode: 
-                {/* {`${user.zipcode}`} */}
+                {`${user.zipcode}`}
             </p>
             
             {/* original code for edit button */}
