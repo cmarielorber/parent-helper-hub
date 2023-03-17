@@ -7,6 +7,7 @@ import Legal from './pages/Legal';
 import Profile from './pages/Profile';
 import Healthcare from './pages/Healthcare';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
@@ -79,6 +80,7 @@ function App() {
               element={<h1 className='display-2'>Wrong page!</h1>}
             />
           </Routes>
+          <Footer />
         </>
       </Router>
     </ApolloProvider>
