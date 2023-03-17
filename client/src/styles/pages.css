@@ -35,6 +35,10 @@
     border-color: var(--TEAL);
   }
 
+  .jumbotron{
+    margin-bottom: 0px;
+  }
+
   /* .searchButton:after{
     background-color: var(--DARK);
     border-color: var(--ORANGE);
