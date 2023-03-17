@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Alert, Accordion, Modal, Button, Badge, Card } from 'react-bootstrap';
+import { Form, Modal, Button, Alert } from 'react-bootstrap';
 // import { Form, Button, Alert } from "react-bootstrap";
 import Auth from "../utils/auth";
 // refractor to use Apollo GraphQL API instead of RESTful API
@@ -8,9 +8,6 @@ import { ADD_USER } from "../utils/mutations";
 // import { QUERY_USER, QUERY_ME } from '../utils/queries';
 // create QUERY for child 
 
-{/* <button type="button" class="btn btn-success mx-3" data-mdb-ripple-color="dark" 
-            onClick={edit form?} 
-            >Edit</button>   */}
 
 
 const EditForm = () => {
@@ -103,7 +100,7 @@ const EditForm = () => {
             onChange={handleChildNameChange}
             value={userFormData.child[index]}
             id={`child-${index}`}
-            required
+            
           />
           })
         }
@@ -117,15 +114,19 @@ const EditForm = () => {
     return (
       <>
         {
-          Array.from({ length: userFormData.childCount }).map((child, index) => {
+
+          Array.from({ length: userFormData.childCount }).map((ageGroup, index) => {
+
             return <Form.Control 
             id={`child-${index}`}
             as="select"
             type='string'
-            placeholder='Child #${index+1} Age Group'
+
+            placeholder= {`Child #${index+1} Age Group`}
             name='ageGroup'
             onChange={handleInputChange}
-            value={userFormData.child[index]}
+            value={userFormData.ageGroup[index]}
+
           >
            <option value="0-5">0-5</option>
            <option value="6-18">6-18</option>
@@ -177,7 +178,16 @@ const EditForm = () => {
            <option value="7">7</option>
           </Form.Control>
         </Form.Group>
-          <Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor="child">Update Child's Full Name</Form.Label>
+          {
+            renderNameForm()
+          }
+
+        </Form.Group>
+        <Form.Group>
+
            <Form.Label htmlFor="ageGroup">
              Update Child's Age Group
            </Form.Label>
@@ -187,13 +197,9 @@ const EditForm = () => {
            
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="child">Update Child's Full Name</Form.Label>
-          {
-            renderNameForm()
-          }
 
-        </Form.Group>
+
+
         <Form.Label htmlFor="zipcode"> Update Zipcode</Form.Label>
         <Form.Control
           type="string"
