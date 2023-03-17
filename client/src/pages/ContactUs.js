@@ -9,12 +9,12 @@ import {
 
 const styles = {
     jumbotron: {
-      backgroundImage: `url(${Welcomehands})`,
       Image: "cover",
       backgroundSize: "cover",
       backgroundPosition: "center",
       overFlow: "hidden",
       width: "100%",
+      marginbottom: 0,
     },
     divstyle: {
       border: "5px dotted #264653 ",
@@ -23,7 +23,7 @@ const styles = {
       backgroundColor: "#f7ede2",
       width: "100%",
     },
-    welcomecontainer: {
+    contactcontainer: {
         display: "flex",
         justifyContent: "center",
         backgroundColor: "#f7ede2",
@@ -35,7 +35,7 @@ const styles = {
         width: "60%",
         color: "#e76f51",
       },
-    welcometext: {
+    conctacttext: {
         display: "flex",
         justifyContent: "center",
         margin: "10px",
@@ -47,14 +47,14 @@ const styles = {
     const [text] = useState("Need to contact us?");
   return (
     <Jumbotron fluid className="jumbo pt-2" style={styles.jumbotron}>
-    <container className="welcomecontainer d-flex flex-column justify-content-center align-items-center" style={styles.welcomecontainer}>
+    <container className="contactcontainer d-flex flex-column justify-content-center align-items-center" style={styles.contactcontainer}>
         <div 
-        className="welcomediv d-flex flex-column justify-content-center align-items-center"
+        className="contactdiv d-flex flex-column justify-content-center align-items-center"
         style={styles.divstyle}
         >
             <ContactUstype text={text} />
-            <div className="welcometext d-flex flex-column justify-content-center align-items-center"
-            style={styles.welcometext}>
+            <div className="contactustype d-flex flex-column justify-content-center align-items-center"
+            style={styles.contact}>
                 <Heading></Heading>
             
             </div>
@@ -64,4 +64,4 @@ const styles = {
   );
 }
 
-export default Welcome;
+export default ContactUs;

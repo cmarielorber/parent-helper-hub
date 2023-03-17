@@ -13,7 +13,6 @@ const styles = {
       backgroundPosition: "center",
       overFlow: "hidden",
       width: "100%",
-      height: "100%",
     },
     divstyle: {
       border: "5px dotted #264653 ",
@@ -21,7 +20,6 @@ const styles = {
       margin: "10px",
       backgroundColor: "#f7ede2",
       width: "100%",
-      height: "100%",
     },
     welcomecontainer: {
         display: "flex",
@@ -30,7 +28,7 @@ const styles = {
         padding: "10px 20px",
         borderRadius: "5px",
         textDecoration: "bold",
-        margin: "auto",
+        margin: "250px",
         decoration: "none",
         width: "60%",
         color: "#e76f51",
@@ -48,7 +46,7 @@ function Welcome() {
     const [text] = useState("Welcome to our Parent Helper Hub");
   return (
     <Jumbotron fluid className="jumbo pt-2" style={styles.jumbotron}>
-    <container className="welcomecontainer d-flex flex-column justify-content-center align-items-center" style={styles.welcomecontainer}>
+    <Container className="welcomecontainer d-flex flex-column justify-content-center align-items-center" style={styles.welcomecontainer}>
         <div 
         className="welcomediv d-flex flex-column justify-content-center align-items-center"
         style={styles.divstyle}
@@ -70,7 +68,7 @@ function Welcome() {
             </p>
             </div>
         </div>
-    </container>
+    </Container>
     </Jumbotron>
   );
 }
