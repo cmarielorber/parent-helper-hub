@@ -114,15 +114,19 @@ const EditForm = () => {
     return (
       <>
         {
+
           Array.from({ length: userFormData.childCount }).map((ageGroup, index) => {
+
             return <Form.Control 
             id={`child-${index}`}
             as="select"
             type='string'
+
             placeholder= {`Child #${index+1} Age Group`}
             name='ageGroup'
             onChange={handleInputChange}
             value={userFormData.ageGroup[index]}
+
           >
            <option value="0-5">0-5</option>
            <option value="6-18">6-18</option>
@@ -174,6 +178,7 @@ const EditForm = () => {
            <option value="7">7</option>
           </Form.Control>
         </Form.Group>
+
         <Form.Group>
           <Form.Label htmlFor="child">Update Child's Full Name</Form.Label>
           {
@@ -182,6 +187,7 @@ const EditForm = () => {
 
         </Form.Group>
         <Form.Group>
+
            <Form.Label htmlFor="ageGroup">
              Update Child's Age Group
            </Form.Label>
@@ -190,6 +196,8 @@ const EditForm = () => {
           }
            
         </Form.Group>
+
+
 
 
         <Form.Label htmlFor="zipcode"> Update Zipcode</Form.Label>

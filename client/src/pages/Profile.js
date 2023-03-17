@@ -3,7 +3,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 // import { EditFrom } from '../components/EditForm';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
-
+import Button from 'react-bootstrap/Button';
 
 
 import Auth from '../utils/auth';
@@ -94,14 +94,40 @@ const Profile = () => {
             <button type="button" class="btn btn-success mx-2" data-mdb-ripple-color="dark" 
             // onClick={search} 
             >Education</button>
-            
-            <button type="button" class="btn btn-warning mx-2" data-mdb-ripple-color="dark" 
-            // onClick={search} 
-            >Legal</button>
-           
+
+              {/* same code as above but with link added */}
+              {/* link needs to be changed to correct link */}
+              {/* <button href = "https://www.khanacademy.org/"type="button" class="btn btn-success mx-2" data-mdb-ripple-color="dark" 
+            onClick={search} 
+            >Education</button> */}
+
             <button type="button" class="btn btn-info mx-2" data-mdb-ripple-color="dark" 
             // onClick={search} 
             >Housing</button>
+
+              {/* same code as above but with link added */}
+            {/* <button href = "https://www.cdss.ca.gov/benefits-services/more-services/housing-programs" type="button" class="btn btn-info mx-2" data-mdb-ripple-color="dark" 
+            onClick={search} 
+            >Housing</button> */}
+
+            <button type="button" class="btn btn-secondary mx-2" data-mdb-ripple-color="dark" 
+            // onClick={search} 
+            >Legal</button>
+
+              {/* same code as above but with link added */}
+            {/* <button href = "https://selfhelp.courts.ca.gov/get-free-or-low-cost-legal-help" type="button" class="btn btn-secondary mx-2" data-mdb-ripple-color="dark" 
+            onClick={search} 
+            >Legal</button> */}
+           
+            <button type="button" class="btn btn-warning mx-2" data-mdb-ripple-color="dark" 
+            // onClick={search} 
+            >Healthcare</button>
+
+            {/* same code as above but with link added */}
+           {/* <button href = "https://www.dmhc.ca.gov/healthcareincalifornia/resourcelist.aspx" type="button" class="btn btn-warning mx-2" data-mdb-ripple-color="dark" 
+            onClick={search} 
+            >Healthcare</button> */}
+            
             
             </div>
 
