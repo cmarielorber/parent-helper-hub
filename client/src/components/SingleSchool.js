@@ -1,6 +1,8 @@
-import {Card} from "react-bootstrap";
+import {Card, Button} from "react-bootstrap";
+import Auth from "../utils/auth";
 
-export default function SingleSchool({ school }) {
+export default function SingleSchool({ school, handleSaveSchool, savedSchoolIds }) {
+
   return (
     <Card border="dark">
       <Card.Body>
@@ -15,7 +17,23 @@ export default function SingleSchool({ school }) {
         <Card.Text>{school.rank && `Rank: ${school.rank} of ${school.rankOf} (${school.rankStatewidePercentage}%)`}</Card.Text>
         <Card.Text>{school.rankStars && `Stars: ${school.rankStars}`}</Card.Text>
         <Card.Text>
-          {school.isCharterSchool && "Charter"} {school.isMagnateSchool && "Magnate"} {school.isVirtualSchool && "Virtual"} {school.isTitleISchool && "Title I"} {school.isTitleISchoolwideSchool && "Title I Schoolwide"}</Card.Text>
+          {school.isCharterSchool && "Charter"} {school.isMagnateSchool && "Magnate"} {school.isVirtualSchool && "Virtual"} {school.isTitleISchool && "Title I"} {school.isTitleISchoolwideSchool && "Title I Schoolwide"}
+        </Card.Text>
+
+
+        {Auth.loggedIn() && (
+          <Button
+            disabled={savedSchoolIds?.some((savedSchoolId) => savedSchoolId === school.schoolId)}
+            className='btn-block btn-info'
+            onClick={() => handleSaveSchool(school.schoolId)}>
+            {savedSchoolIds?.some((savedSchoolId) => savedSchoolId === school.schoolId)
+              ? 'This school has already been saved!'
+              : 'Save this school!'}
+          </Button>
+        )}
+
+
+
         </Card.Body>
     </Card>
   );

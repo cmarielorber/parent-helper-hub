@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Jumbotron, Container, Form, Col, CardColumns, Button } from "react-bootstrap";
 import { stateList, levelList } from "../utils/constants";
 import "../styles/pages.css";
 import booksImg from "../assets/booksImg.png";
 import { SchoolsType } from "../components/TypeWriter";
 import SingleSchool from "../components/SingleSchool";
+import { getSavedSchoolIds, saveSchoolIds } from "../utils/localStorage";
+import { SAVE_SCHOOL } from "../utils/mutations";
+import { useMutation } from "@apollo/client";
+import Auth from "../utils/auth";
+
 // import Colors from "../utils/Colors";
 
 const styles = {
@@ -37,6 +42,12 @@ function Schools() {
   });
 
   const [searchedSchools, setSearchedSchools] = useState([]);
+  const [savedSchoolIds, setSavedSchoolIds] = useState(getSavedSchoolIds());
+  const [saveSchool] = useMutation(SAVE_SCHOOL);
+  // set up useEffect hook to save `savedSchoolIds` list to localStorage on component unmount
+  useEffect(() => {
+    return () => saveSchoolIds(savedSchoolIds);
+  });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -54,7 +65,6 @@ function Schools() {
 
     fetch(apiURL)
       .then((response) => {
-        console.log("***********response", response);
         return response.json();
       })
       .then((data) => {
@@ -63,8 +73,8 @@ function Schools() {
             schoolId: school.schoolid || "",
             schoolName: school.schoolName || "",
             phone: school.phone || "",
-            latitude: school.address?.latitude || "",
-            longtitude: school.address?.longitude || "",
+            latitude: school.address?.latLong?.latitude || "",
+            longtitude: school.address?.latLong?.longitude || "",
             street: school.address?.street || "",
             city: school.address?.city  || "",
             state: school.address?.state || "",
@@ -105,6 +115,32 @@ function Schools() {
       [name]: value,
     });
   };
+
+// create function to handle saving a school to our database
+const handleSaveSchool = async (schoolId) => {
+  // find the school in `searchedSchools` state by the matching id
+  const schoolToSave = searchedSchools.find((school) => school.schoolId === schoolId);
+  console.log("*********schoolToSave", schoolToSave);
+
+  if (!Auth.loggedIn()) {
+    return false;
+  }
+  
+  try {
+    // update database
+    await saveSchool(
+      {
+        variables: {...schoolToSave}
+      }
+    );
+    // update localStorage
+    setSavedSchoolIds([...savedSchoolIds, schoolToSave.schoolId]);
+  } catch (err) {
+    console.error(err);
+  }
+
+
+};
 
   return (
     <>
@@ -205,7 +241,7 @@ function Schools() {
         <CardColumns>
           {searchedSchools.map((school) => {
             return (
-              <SingleSchool school={school} key={school.schoolId} />
+              <SingleSchool school={school} key={school.schoolId} handleSaveSchool={handleSaveSchool} savedSchoolIds={savedSchoolIds}/>
             );
           })}
         </CardColumns>
