@@ -34,6 +34,15 @@ const styles = {
     margin: "10px",
     decoration: "none",
   },
+  welcomecontainer: {
+    display: "flex",
+    backgroundColor: "white",
+    padding: "10px 20px",
+    borderRadius: "5px",
+    textDecoration: "bold",
+    margin: "10px",
+    decoration: "none",
+  },
 };
 
 function Healthcare() {
