@@ -8,7 +8,12 @@ const typeDefs = gql`
     childCount: Int
     zipcode: String!
     savedSchools: [School]
-  
+    children: [Child]
+  }
+
+  type Child {
+    ageGroup: String!
+    childName: String!
   }
 
 
@@ -88,7 +93,9 @@ const typeDefs = gql`
     addUser(
       username: String!, 
       email: String!, 
-      password: String!
+      password: String!,
+      childCount: Int,
+      zipcode: String!,
     ): Auth
 
     saveSchool(school: SchoolData): User

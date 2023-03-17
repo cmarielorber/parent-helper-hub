@@ -31,8 +31,8 @@ const resolvers = {
       return { token, user };
     },
 
-    addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
+    addUser: async (parent, { username, email, password, childCount, zipcode }) => {
+      const user = await User.create({ username, email, password, childCount, zipcode, children: [], savedSchools: [] });
       const token = signToken(user);
       
       return { token, user};
