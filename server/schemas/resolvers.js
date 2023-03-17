@@ -31,21 +31,21 @@ const resolvers = {
       return { token, user };
     },
 
-    addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
+    addUser: async (parent, { username, email, password, childCount, zipcode }) => {
+      const user = await User.create({ username, email, password, childCount, zipcode, children: [], savedSchools: [] });
       const token = signToken(user);
       
       return { token, user};
     },
 
-    // retrieve the logged in user from the context and add the book to the user's savedBooks array
-    saveBook: async (parent, book, context) => {
+    // retrieve the logged in user from the context and add the book to the user's savedSchools array
+    saveSchool: async (parent, {school}, context) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id},
           {
-            $addToSet: { savedBooks: book},
+            $addToSet: { savedSchools: school},
           },
           {
             new: true,
@@ -57,17 +57,17 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     
-    // retrieve the logged in user from the context and remove the book from the user's savedBooks array
-    removeBook: async (parent, { bookId }, context) => {
-      if (context.user) {
-        return User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { savedBooks: { bookId: bookId } } },
-          { new: true }
-        );
-      }
-      throw new AuthenticationError('You need to be logged in!');
-    },
+    // // retrieve the logged in user from the context and remove the book from the user's savedBooks array
+    // removeBook: async (parent, { bookId }, context) => {
+    //   if (context.user) {
+    //     return User.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //       { $pull: { savedBooks: { bookId: bookId } } },
+    //       { new: true }
+    //     );
+    //   }
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
   },
 };
 

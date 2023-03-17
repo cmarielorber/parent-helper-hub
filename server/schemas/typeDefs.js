@@ -5,22 +5,79 @@ const typeDefs = gql`
     _id: ID!
     username: String!
     email: String!
-    bookCount: Int
-    savedBooks: [Book]
+    childCount: Int
+    zipcode: String!
+    savedSchools: [School]
+    children: [Child]
   }
 
-  type Book {
-    bookId: String!
-    authors:[String]
-    description: String!
-    title: String!
-    image: String
-    link: String
+  type Child {
+    ageGroup: String!
+    childName: String!
   }
+
 
   type Auth {
     token: ID!
     user: User
+  }
+
+  type School {
+    _id: ID!
+    schoolId: String!
+    schoolName: String
+    phone: String
+    latitude: String
+    longtitude: String
+    street: String
+    city: String
+    state: String
+    zip: String
+    zip4: String
+    lowGrade: String
+    highGrade: String
+    schoolLevel: String
+    isCharterSchool: String
+    isMagnateSchool: String
+    isVirtualSchool: String
+    isTitleISchool: String
+    isTitleISchoolwideSchool: String
+    districtName: String
+    rank: String
+    rankOf: String
+    rankStars: String
+    rankStatewidePercentage: String
+    averageStandardScore: String
+    numberOfStudents: String
+    pupilTeacherRatio: String
+  }
+  input SchoolData {
+    schoolId: String!
+    schoolName: String
+    phone: String
+    latitude: String
+    longtitude: String
+    street: String
+    city: String
+    state: String
+    zip: String
+    zip4: String
+    lowGrade: String
+    highGrade: String
+    schoolLevel: String
+    isCharterSchool: String
+    isMagnateSchool: String
+    isVirtualSchool: String
+    isTitleISchool: String
+    isTitleISchoolwideSchool: String
+    districtName: String
+    rank: String
+    rankOf: String
+    rankStars: String
+    rankStatewidePercentage: String
+    averageStandardScore: String
+    numberOfStudents: String
+    pupilTeacherRatio: String
   }
 
   type Query {
@@ -36,21 +93,13 @@ const typeDefs = gql`
     addUser(
       username: String!, 
       email: String!, 
-      password: String!
+      password: String!,
+      childCount: Int,
+      zipcode: String!,
     ): Auth
 
-    saveBook(
-      bookId: String!,
-      authors:[String],
-      description: String!,
-      title: String!,
-      image: String,
-      link: String
-    ): User
-    
-    removeBook(
-      bookId: String!
-    ): User
+    saveSchool(school: SchoolData): User
+
   }
 `;
 

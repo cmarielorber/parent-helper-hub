@@ -19,6 +19,10 @@ import { Logo } from "./images";
 const styles = {
   navbar: {
     backgroundColor: Colors.DARK,
+    position: "fixed",
+    top: "0",
+    width: "100%",
+    zIndex: "1",
   },
   link: {
     color: Colors.YELLOW,

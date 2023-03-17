@@ -79,7 +79,7 @@ function Healthcare() {
   return (
     <Jumbotron fluid className="jumbo pt-2" style={styles.jumbotron}>
       <Container
-        className="searchschool d-flex flex-column justify-content-center align-items-center"
+        className="searchresource d-flex flex-column justify-content-center align-items-center"
         style={{ width: "60%" }}
       >
         <HealthType text={text} />
@@ -145,7 +145,7 @@ function Healthcare() {
           </Form.Row>
         </Form>
       </Container>
-      <Container className=" schoolposts d-flex flex-column justify-content-center align-items-center">
+      <Container className=" searchposts d-flex flex-column justify-content-center align-items-center">
         <h2>
           Check back soon for a list of healthcare resources in your area.
         </h2>

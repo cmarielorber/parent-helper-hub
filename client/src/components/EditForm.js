@@ -1,24 +1,24 @@
 import React, { useState } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Modal, Button, Alert } from 'react-bootstrap';
+// import { Form, Button, Alert } from "react-bootstrap";
 import Auth from "../utils/auth";
 // refractor to use Apollo GraphQL API instead of RESTful API
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
+// import { QUERY_USER, QUERY_ME } from '../utils/queries';
 // create QUERY for child 
 
-{/* <button type="button" class="btn btn-success mx-3" data-mdb-ripple-color="dark" 
-            onClick={edit form?} 
-            >Edit</button>  */}
+
 
 const EditForm = () => {
+  console.log("inside EditForm");
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: "",
     email: "",
     password: "",
-    kidCount: 1,
-    kids: [],
+    childCount: 1,
+    child: [],
     zipcode: "",
     ageGroup: ""
   });
@@ -40,14 +40,21 @@ const EditForm = () => {
   const handleChildNameChange = (event) => {
     const index = event.target.id.split("-")[1];
 
-    const newKid = event.target.value;
+    const newChild = event.target.value;
 
-    let currentKids = userFormData.kids;
 
-    currentKids[index] = newKid;
 
-    setUserFormData({ ...userFormData, kids: currentKids });
+
+    let currentChild = userFormData.Child;
+
+
+
+    currentChild[index] = newChild;
+
+    setUserFormData({ ...userFormData, child: currentChild });
   }
+
+
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -73,26 +80,27 @@ const EditForm = () => {
       username: "",
       email: "",
       password: "",
-      kidCount: 1,
-      kids: [],
+      childCount: [],
+      child: [],
       zipcode: "",
+      ageGroup: ""
     });
   };
 
   function renderNameForm () {
-    console.log(userFormData.kidCount)
+    console.log(userFormData.childCount)
     return (
       <>
         {
-          Array.from({ length: userFormData.kidCount }).map((kid, index) => {
+          Array.from({ length: userFormData.childCount }).map((child, index) => {
             return <Form.Control
             type="string"
             placeholder={`Child #${index+1} Full Name`}
-            name="kids"
+            name="child"
             onChange={handleChildNameChange}
-            value={userFormData.kids[index]}
-            id={`kid-${index}`}
-            required
+            value={userFormData.child[index]}
+            id={`child-${index}`}
+            
           />
           })
         }
@@ -101,70 +109,65 @@ const EditForm = () => {
     )
   }
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  function renderAgeGroupForm () {
+    console.log(userFormData.childCount)
+    return (
+      <>
+        {
 
-  return (
-    <>
-      {/* This is needed for the validation functionality above */}
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-        {/* show alert if server response is bad */}
-        <Alert
-          dismissible
-          onClose={() => setShowAlert(false)}
-          show={showAlert}
-          variant="danger"
-        >
-          Something went wrong with your signup!
-        </Alert>
+          Array.from({ length: userFormData.childCount }).map((ageGroup, index) => {
 
-        <Form.Group>
-          <Form.Label htmlFor="username">Username</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Your username"
-            name="username"
-            onChange={handleInputChange}
-            value={userFormData.username}
-            required
-          />
-          <Form.Control.Feedback type="invalid">
-            Username is required!
-          </Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group>
-          <Form.Label htmlFor="ageGroup">
-            Child's Age Group
-          </Form.Label>
-          <Form.Control i
-            id="ageGroup" 
+            return <Form.Control 
+            id={`child-${index}`}
             as="select"
             type='string'
-            placeholder='Child Age Group'
+
+            placeholder= {`Child #${index+1} Age Group`}
             name='ageGroup'
             onChange={handleInputChange}
-            value={userFormData.ageGroup}
-            required
+            value={userFormData.ageGroup[index]}
+
           >
            <option value="0-5">0-5</option>
            <option value="6-18">6-18</option>
            <option value="18+">18+</option>
           </Form.Control>
-        </Form.Group>
-        <Form.Group>
-          <Form.Label htmlFor="kidCount">
-            Number of Kids
-          </Form.Label>
-          <Form.Control i
-            id="kidCount" 
+          }
+    )
+  }
+
+  </>
+    )
+}
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  return (
+    <>
+    <div
+      className="modal show"
+      style={{ display: 'block', position: 'initial' }}
+    >
+      <Modal.Dialog>
+        <Modal.Header closeButton>
+          <Modal.Title>Update Profile</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body>
+          <p> Update items that need to be edited, ensure to hit 'Save Changes'</p>
+          <Form.Group>
+           <Form.Label htmlFor="childCount">
+             Update Number of Children
+           </Form.Label>
+           <Form.Control i
+            id="childCount" 
             as="select"
             type='number'
-            placeholder='Number of kids'
-            name='kidCount'
+            placeholder='Number of Children'
+            name='childCount'
             onChange={handleInputChange}
-            value={userFormData.kidCount}
-            required
+            value={userFormData.childCount}
           >
            <option value="1">1</option>
            <option value="2">2</option>
@@ -175,13 +178,29 @@ const EditForm = () => {
            <option value="7">7</option>
           </Form.Control>
         </Form.Group>
+
         <Form.Group>
-          <Form.Label htmlFor="kids">Child's Full Name</Form.Label>
+          <Form.Label htmlFor="child">Update Child's Full Name</Form.Label>
           {
             renderNameForm()
           }
+
         </Form.Group>
-        <Form.Label htmlFor="zipcode">Zipcode</Form.Label>
+        <Form.Group>
+
+           <Form.Label htmlFor="ageGroup">
+             Update Child's Age Group
+           </Form.Label>
+           {
+            renderAgeGroupForm()
+          }
+           
+        </Form.Group>
+
+
+
+
+        <Form.Label htmlFor="zipcode"> Update Zipcode</Form.Label>
         <Form.Control
           type="string"
           placeholder="Your zipcode"
@@ -192,7 +211,7 @@ const EditForm = () => {
         />
 
         <Form.Group>
-          <Form.Label htmlFor="email">Email</Form.Label>
+          <Form.Label htmlFor="email">Change Email</Form.Label>
           <Form.Control
             type="email"
             placeholder="Your email address"
@@ -201,13 +220,10 @@ const EditForm = () => {
             value={userFormData.email}
             required
           />
-          <Form.Control.Feedback type="invalid">
-            Email is required!
-          </Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor="password">Password</Form.Label>
+          <Form.Label htmlFor="password">Change Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Your password"
@@ -216,26 +232,166 @@ const EditForm = () => {
             value={userFormData.password}
             required
           />
-          <Form.Control.Feedback type="invalid">
-            Password is required!
-          </Form.Control.Feedback>
         </Form.Group>
-        <Button
-          disabled={
-            !(
-              userFormData.username &&
-              userFormData.email &&
-              userFormData.password
-            )
-          }
-          type="submit"
-          variant="success"
-        >
-          Submit
-        </Button>
-      </Form>
-    </>
-  );
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button variant="secondary">Close</Button>
+          <Button variant="primary">Save changes</Button>
+        </Modal.Footer>
+      </Modal.Dialog>
+    </div>
+  </>
+  )
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  // return (
+  //   <>
+  //     {/* This is needed for the validation functionality above */}
+  //     <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+  //       {/* show alert if server response is bad */}
+  //       <Alert
+  //         dismissible
+  //         onClose={() => setShowAlert(false)}
+  //         show={showAlert}
+  //         variant="danger"
+  //       >
+  //         Something went wrong with your signup!
+  //       </Alert>
+
+  //       <Form.Group>
+  //         <Form.Label htmlFor="username">Username</Form.Label>
+  //         <Form.Control
+  //           type="text"
+  //           placeholder="Your username"
+  //           name="username"
+  //           onChange={handleInputChange}
+  //           value={userFormData.username}
+  //           required
+  //         />
+  //         <Form.Control.Feedback type="invalid">
+  //           Username is required!
+  //         </Form.Control.Feedback>
+  //       </Form.Group>
+  //       <Form.Group>
+  //         <Form.Label htmlFor="ageGroup">
+  //           Child's Age Group
+  //         </Form.Label>
+  //         <Form.Control i
+  //           id="ageGroup" 
+  //           as="select"
+  //           type='string'
+  //           placeholder='Child Age Group'
+  //           name='ageGroup'
+  //           onChange={handleInputChange}
+  //           value={userFormData.ageGroup}
+  //           required
+  //         >
+  //          <option value="0-5">0-5</option>
+  //          <option value="6-18">6-18</option>
+  //          <option value="18+">18+</option>
+  //         </Form.Control>
+  //       </Form.Group>
+  //       <Form.Group>
+  //         <Form.Label htmlFor="childCount">
+  //           Number of Children
+  //         </Form.Label>
+  //         <Form.Control i
+
+  //           id="childCount" 
+
+  //           as="select"
+  //           type='number'
+  //           placeholder='Number of Children'
+  //           name='childCount'
+  //           onChange={handleInputChange}
+  //           value={userFormData.childCount}
+  //           required
+  //         >
+  //          <option value="1">1</option>
+  //          <option value="2">2</option>
+  //          <option value="3">3</option>
+  //          <option value="4">4</option>
+  //          <option value="5">5</option>
+  //          <option value="6">6</option>
+  //          <option value="7">7</option>
+  //         </Form.Control>
+  //       </Form.Group>
+  //       <Form.Group>
+  //         <Form.Label htmlFor="child">Child's Full Name</Form.Label>
+  //         {
+  //           renderNameForm()
+  //         }
+  //       </Form.Group>
+  //       <Form.Label htmlFor="zipcode">Zipcode</Form.Label>
+  //       <Form.Control
+  //         type="string"
+  //         placeholder="Your zipcode"
+  //         name="zipcode"
+  //         onChange={handleInputChange}
+  //         value={userFormData.zipcode}
+  //         required
+  //       />
+
+  //       <Form.Group>
+  //         <Form.Label htmlFor="email">Email</Form.Label>
+  //         <Form.Control
+  //           type="email"
+  //           placeholder="Your email address"
+  //           name="email"
+  //           onChange={handleInputChange}
+  //           value={userFormData.email}
+  //           required
+  //         />
+  //         <Form.Control.Feedback type="invalid">
+  //           Email is required!
+  //         </Form.Control.Feedback>
+  //       </Form.Group>
+
+  //       <Form.Group>
+  //         <Form.Label htmlFor="password">Password</Form.Label>
+  //         <Form.Control
+  //           type="password"
+  //           placeholder="Your password"
+  //           name="password"
+  //           onChange={handleInputChange}
+  //           value={userFormData.password}
+  //           required
+  //         />
+  //         <Form.Control.Feedback type="invalid">
+  //           Password is required!
+  //         </Form.Control.Feedback>
+  //       </Form.Group>
+  //       <Button
+  //         disabled={
+  //           !(
+  //             userFormData.username &&
+  //             userFormData.email &&
+  //             userFormData.password
+  //           )
+  //         }
+  //         type="submit"
+  //         variant="success"
+  //       >
+  //         Submit
+  //       </Button>
+  //     </Form>
+  //   </>
+  // );
 };
 
 export default EditForm;

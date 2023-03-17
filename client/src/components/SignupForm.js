@@ -4,7 +4,6 @@ import Auth from "../utils/auth";
 // refractor to use Apollo GraphQL API instead of RESTful API
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
-import { ButtonGroup, Dropdown, DropdownButton } from "react-bootstrap";
 
 const SignupForm = () => {
   // set initial form state
@@ -12,10 +11,10 @@ const SignupForm = () => {
     username: "",
     email: "",
     password: "",
-    kidCount: 1,
-    kids: [],
+    childCount: 1,
+    // child: [],
     zipcode: "",
-    ageGroup: ""
+    // ageGroup: ""
   });
   // set state for form validation
   const [validated] = useState(false);
@@ -34,13 +33,13 @@ const SignupForm = () => {
   const handleChildNameChange = (event) => {
     const index = event.target.id.split("-")[1];
 
-    const newKid = event.target.value;
+    const newChild = event.target.value;
 
-    let currentKids = userFormData.kids;
+    let currentChild = userFormData.child;
 
-    currentKids[index] = newKid;
+    currentChild[index] = newChild;
 
-    setUserFormData({ ...userFormData, kids: currentKids });
+    setUserFormData({ ...userFormData, child: currentChild });
   }
 
   const handleFormSubmit = async (event) => {
@@ -67,33 +66,63 @@ const SignupForm = () => {
       username: "",
       email: "",
       password: "",
-      kidCount: 1,
-      kids: [],
+      childCount: 1,
+      // child: [],
       zipcode: "",
+      // ageGroup: ""
     });
   };
 
-  function renderNameForm () {
-    console.log(userFormData.kidCount)
-    return (
-      <>
-        {
-          Array.from({ length: userFormData.kidCount }).map((kid, index) => {
-            return <Form.Control
-            type="string"
-            placeholder={`Child #${index+1} Full Name`}
-            name="kids"
-            onChange={handleChildNameChange}
-            value={userFormData.kids[index]}
-            id={`kid-${index}`}
-            required
-          />
-          })
-        }
 
-        </>
-    )
-  }
+  // function renderNameForm () {
+  //   console.log(userFormData.childCount)
+  //   return (
+  //     <>
+  //       {
+  //         Array.from({ length: userFormData.childCount }).map((child, index) => {
+  //           return <Form.Control
+  //           type="string"
+  //           placeholder={`Child #${index+1} Full Name`}
+  //           name="child"
+  //           onChange={handleChildNameChange}
+  //           value={userFormData.child[index]}
+  //           id={`child-${index}`}
+           
+  //         />
+  //         })
+  //       }
+
+  //       </>
+  //   )
+  // }
+  //   function renderAgeGroupForm () {
+  //   console.log(userFormData.childCount)
+  //   return (
+  //     <>
+  //       {
+  //         Array.from({ length: userFormData.childCount }).map((ageGroup, index) => {
+  //           return <Form.Control 
+  //           id={`child-${index}`}
+  //           as="select"
+  //           type='string'
+  //           placeholder={`Child #${index+1} Age Group`}
+  //           name='ageGroup'
+            // onChange={handleInputChange}
+            // value={userFormData.child[index]}
+//             value={userFormData.ageGroup[index]}
+//           >
+//            <option value="0-5">0-5</option>
+//            <option value="6-18">6-18</option>
+//            <option value="18+">18+</option>
+//           </Form.Control>
+//           }
+//     )
+//   }
+
+//   </>
+//     )
+// }
+
 
   if (loading) {
     return <div>Loading...</div>;
@@ -127,38 +156,19 @@ const SignupForm = () => {
             Username is required!
           </Form.Control.Feedback>
         </Form.Group>
-        <Form.Group>
-          <Form.Label htmlFor="ageGroup">
-            Child's Age Group
+                <Form.Group>
+          <Form.Label htmlFor="childCount">
+            Number of Children
           </Form.Label>
           <Form.Control i
-            id="ageGroup" 
-            as="select"
-            type='string'
-            placeholder='Child Age Group'
-            name='ageGroup'
-            onChange={handleInputChange}
-            value={userFormData.ageGroup}
-            required
-          >
-           <option value="0-5">0-5</option>
-           <option value="6-18">6-18</option>
-           <option value="18+">18+</option>
-          </Form.Control>
-        </Form.Group>
-        <Form.Group>
-          <Form.Label htmlFor="kidCount">
-            Number of Kids
-          </Form.Label>
-          <Form.Control i
-            id="kidCount" 
+            // id="childCount" 
             as="select"
             type='number'
-            placeholder='Number of kids'
-            name='kidCount'
+            placeholder='Number of Children'
+            name='childCount'
             onChange={handleInputChange}
-            value={userFormData.kidCount}
-            required
+            value={userFormData.childCount}
+           
           >
            <option value="1">1</option>
            <option value="2">2</option>
@@ -169,12 +179,24 @@ const SignupForm = () => {
            <option value="7">7</option>
           </Form.Control>
         </Form.Group>
-        <Form.Group>
-          <Form.Label htmlFor="kids">Child's Full Name</Form.Label>
+        {/* <Form.Group>
+          <Form.Label htmlFor="child">Child's Full Name</Form.Label>
           {
             renderNameForm()
           }
         </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="ageGroup">
+            Child's Age Group
+          </Form.Label>
+           {
+            renderAgeGroupForm()
+          }
+
+        </Form.Group> */}
+
+
+
         <Form.Label htmlFor="zipcode">Zipcode</Form.Label>
         <Form.Control
           type="string"
@@ -219,7 +241,7 @@ const SignupForm = () => {
             !(
               userFormData.username &&
               userFormData.email &&
-              userFormData.password
+              userFormData.password 
             )
           }
           type="submit"
