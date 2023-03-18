@@ -42,15 +42,10 @@ const EditForm = () => {
 
     const newChild = event.target.value;
 
-
-
-
     let currentChild = userFormData.Child;
 
-
-
     currentChild[index] = newChild;
-
+    
     setUserFormData({ ...userFormData, child: currentChild });
   }
 
@@ -59,7 +54,7 @@ const EditForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // check if form has everything (as per react-bootstrap docs)
+// check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -81,64 +76,60 @@ const EditForm = () => {
       email: "",
       password: "",
       childCount: [],
-      child: [],
+      // child: [],
       zipcode: "",
-      ageGroup: ""
+      // ageGroup: ""
     });
   };
 
-  function renderNameForm () {
-    console.log(userFormData.childCount)
-    return (
-      <>
-        {
-          Array.from({ length: userFormData.childCount }).map((child, index) => {
-            return <Form.Control
-            type="string"
-            placeholder={`Child #${index+1} Full Name`}
-            name="child"
-            onChange={handleChildNameChange}
-            value={userFormData.child[index]}
-            id={`child-${index}`}
-            
-          />
-          })
-        }
 
-        </>
-    )
-  }
+// // ===== For future updates on childcount and names ===== // // 
 
-  function renderAgeGroupForm () {
-    console.log(userFormData.childCount)
-    return (
-      <>
-        {
+//   function renderNameForm () {
+//     console.log(userFormData.childCount)
+//     return (
+//       <>
+//         {
+//           Array.from({ length: userFormData.childCount }).map((child, index) => {
+//             return <Form.Control
+//             type="string"
+//             placeholder={`Child #${index+1} Full Name`}
+//             name="child"
+//             onChange={handleChildNameChange}
+//             value={userFormData.child[index]}
+//             id={`child-${index}`}            
+//           />
+//           })
+//         }
+//         </>
+//     )
+//   }
 
-          Array.from({ length: userFormData.childCount }).map((ageGroup, index) => {
-
-            return <Form.Control 
-            id={`child-${index}`}
-            as="select"
-            type='string'
-
-            placeholder= {`Child #${index+1} Age Group`}
-            name='ageGroup'
-            onChange={handleInputChange}
-            value={userFormData.ageGroup[index]}
-
-          >
-           <option value="0-5">0-5</option>
-           <option value="6-18">6-18</option>
-           <option value="18+">18+</option>
-          </Form.Control>
-          }
-    )
-  }
-
-  </>
-    )
-}
+//   function renderAgeGroupForm () {
+//     console.log(userFormData.childCount)
+//     return (
+//       <>
+//         {
+//           Array.from({ length: userFormData.childCount }).map((ageGroup, index) => {
+//             return <Form.Control 
+//             id={`child-${index}`}
+//             as="select"
+//             type='string'
+//             placeholder= {`Child #${index+1} Age Group`}
+//             name='ageGroup'
+//             onChange={handleInputChange}
+//             value={userFormData.ageGroup[index]}
+//           >
+//            <option value="0-5">0-5</option>
+//            <option value="6-18">6-18</option>
+//            <option value="18+">18+</option>
+//           </Form.Control>
+//           }
+//     )
+//   }
+//   </>
+//     )
+// }
 
   if (loading) {
     return <div>Loading...</div>;
@@ -179,26 +170,20 @@ const EditForm = () => {
           </Form.Control>
         </Form.Group>
 
-        <Form.Group>
+        {/* <Form.Group>
           <Form.Label htmlFor="child">Update Child's Full Name</Form.Label>
           {
             renderNameForm()
           }
-
         </Form.Group>
         <Form.Group>
-
            <Form.Label htmlFor="ageGroup">
              Update Child's Age Group
            </Form.Label>
            {
             renderAgeGroupForm()
           }
-           
-        </Form.Group>
-
-
-
+        </Form.Group> */}
 
         <Form.Label htmlFor="zipcode"> Update Zipcode</Form.Label>
         <Form.Control
@@ -221,7 +206,7 @@ const EditForm = () => {
             required
           />
         </Form.Group>
-
+{/* 
         <Form.Group>
           <Form.Label htmlFor="password">Change Password</Form.Label>
           <Form.Control
@@ -232,7 +217,8 @@ const EditForm = () => {
             value={userFormData.password}
             required
           />
-        </Form.Group>
+        </Form.Group> */}
+
         </Modal.Body>
 
         <Modal.Footer>
