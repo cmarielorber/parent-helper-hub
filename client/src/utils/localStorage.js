@@ -31,7 +31,7 @@ export const removeSchoolId = (schoolId) => {
 
 
 
-// local storage for edit form
+// local storage for saving updates on edit form
 
 export const getSavedUserIds = () => {
   const savedUserIds = localStorage.getItem('saved_user')
@@ -44,7 +44,8 @@ export const getSavedUserIds = () => {
 export const saveUserId = (userIdArr) => {
   if (userIdArr.length) {
     localStorage.setItem('saved_user', JSON.stringify(userIdArr));
-  } else {
+  } 
+  else {
     localStorage.removeItem('saved_user');
   }
 };
@@ -58,10 +59,10 @@ export const removeId = (userId) => {
     return false;
   }
 
-  // const updatedSavedUserIds = savedUserIds?.filter((savedUserId) => savedUserId !== userId);
-  // localStorage.setItem('saved_users', JSON.stringify(updatedSavedUsersIds));
+  // const updateSavedUserIds = savedUserIds?.filter((savedUserId) => savedUserId !== userId);
+  // localStorage.setItem('saved_users', JSON.stringify(updateSavedUsersIds));
 
-  // return true;
+  return true;
 };
 
 
