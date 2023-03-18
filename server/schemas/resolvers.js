@@ -37,6 +37,12 @@ const resolvers = {
       
       return { token, user};
     },
+    saveUser: async (parent, { username, email, password, childCount, zipcode }) => {
+      const user = await User.create({ username, email, password, childCount, zipcode, children: [], savedSchools: [] });
+      const token = signToken(user);
+      
+      return { token, user};
+    },
 
     // retrieve the logged in user from the context and add the book to the user's savedSchools array
     saveSchool: async (parent, school, context) => {
