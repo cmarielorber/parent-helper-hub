@@ -252,12 +252,10 @@ const EditForm = () => {
                     </Button> */}
           <Button variant="primary">Save changes</Button>
           {/* <Button
-                      disabled={savedUserIds?.some((savedUserId) => savedUserId === user.userId)}
-                      className='btn-block btn-info'
                       onClick={() => handleSaveUser(user.userId)}>
-                      {savedBookIds?.some((savedUserId) => savedUserId === user.userId)
-                        ? 'The updates has already been saved!'
-                        : 'Save My Updates!'}
+                      {savedUserIds?.some((savedUserId) => savedUserId === user.userId)
+                        ? ''
+                        : 'Exit From Updates'}
                     </Button> */}
         
         

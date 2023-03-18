@@ -1,85 +1,90 @@
 # Parent-Helper-Hub
-Project #3 
 
-# Project Description
-This app  allows single parents access resources that they need in one app. 
- 
-# Table of Contents
-* [User Story](#User-Story)
-* [Acceptance Criteria](#Acceptance-Criteria) 
-* [Motivation for Development](#Motivation-for-Development) 
-* [Process](#Process) 
-* [Technologies Used](#Technology-Used) 
-* [Challenges](#Challenges) 
-* [Successes](#Successes) 
-* [Usage](#Usage) 
-* [Goals for Future Development](#Goals-for-Future-Development) 
-* [Support](#Support) 
-* [Deployed Site](#Deployed-Site) 
-* [Tasks and Roles](#Tasks-and-Roles) 
-* [Credits and Contributors](#Credits-and-Contributors)
+Project #3
 
+## Project Description
 
-# User-Story 
-- AS A developer who is interested in helping single parents easilly find resources for ...
-- I WANT an Parent Helper Hub site to support the single parents .... 
-- SO THAT 
-- AND SO THAT
+This app  allows single parents access resources that they need in one app.
 
+## Table of Contents
 
+* [User Story](#user-story)
+* [Acceptance Criteria](#acceptance-criteria)
+* [Motivation for Development](#motivation-for-development)
+* [Process](#process)
+* [Technologies Used](#technologies-used)
+* [Challenges](#challenges)
+* [Successes](#successes)
+* [Usage](#usage)
+* [Goals for Future Development](#goals-for-future-development)
+* [Support](#support)
+* [Deployed Site](#deployed-site)
+* [Tasks and Roles](#tasks-and-roles)
+* [Credits and Contributors](#credits-and-contributors)
 
-# Acceptance Criteria
-- GIVEN a Parent Helper Hub Site
-- WHEN I visit the site for the first time
-- THEN I am presented on a homepage, landing site, which includes information about the site, signup, and contact us info 
-- WHEN I click on login 
-- THEN I am prompted to sign up or login in
-- WHEN I sign up 
-- THEN I must provide a valid email address and password
-- WHEN I am done signing up
-- THEN I am automatically directed to the home page
-- WHEN I already have an account
-- THEN I can login using an email and password
-- WHEN I am logged in and my username appears on the top middle of the profile page
-- THEN I can select either to view my Saved Searches, search a specific .... within the category, or edit my child(ren) form(s).
-- WHEN I want to make a modification to child form
-- THEN select Edit Form to edit
-- WHEN 
-- THEN 
-- WHEN 
-- THEN 
-- WHEN I select search
-- THEN I select a category
-- WHEN I select a category
-- THEN I search a specific term within that category
-- WHEN 
-- THEN 
-- WHEN
-- THEN 
-- WHEN
-- THEN 
-- WHEN
-- THEN 
-- WHEN
-- THEN 
-- WHEN I select Logout 
-- THEN I am logged out of the site
+## User-Story
 
+* AS A developer who is interested in helping single parents easilly find resources for ...
 
+* I WANT an Parent Helper Hub site to support the single parents ....
+* SO THAT
+* AND SO THAT
 
-# Motivation for Development
-- We all came to an agreement that single parents resources aren't easily accessible. This application allows single parents be able to search for resources easily and
+## Acceptance Criteria
 
+* GIVEN a Parent Helper Hub Site
 
-# Process
-- Topic / Project defined
-- Defined a high level breakdown of the project
-- Assigned tasks to team members
-- High collaboration throughout
-    - Working together via zooms, meetings, slack, etc to help with sudo coding and/or brainstorming how to effectively move ahead in the process
-- Set team goals and reasses as needed throughout
+* WHEN I visit the site for the first time
+* THEN I am presented on a homepage, landing site, which includes information about the site, signup, and contact us info
+* WHEN I click on login
+* THEN I am prompted to sign up or login in
+* WHEN I sign up
+* THEN I must provide a valid email address and password
+* WHEN I am done signing up
+* THEN I am automatically directed to the home page
+* WHEN I already have an account
+* THEN I can login using an email and password
+* WHEN I am logged in and my username appears on the top middle of the profile page
+* THEN I can select either to view my Saved Searches, search a specific .... within the category, or edit my child(ren) form(s).
+* WHEN I want to make a modification to child form
+* THEN select Edit Form to edit
+* WHEN
+* THEN
+* WHEN
+* THEN
+* WHEN I select search
+* THEN I select a category
+* WHEN I select a category
+* THEN I search a specific term within that category
+* WHEN
+* THEN
+* WHEN
+* THEN
+* WHEN
+* THEN
+* WHEN
+* THEN
+* WHEN
+* THEN
+* WHEN I select Logout
+* THEN I am logged out of the site
 
-## Technologies Used 
+## Motivation for Development
+
+* We all came to an agreement that single parents resources aren't easily accessible. This application allows single parents be able to search for resources easily and
+
+## Process
+
+* Topic / Project defined
+
+* Defined a high level breakdown of the project
+* Assigned tasks to team members
+* High collaboration throughout
+  * Working together via zooms, meetings, slack, etc to help with sudo coding and/or brainstorming how to effectively move ahead in the process
+* Set team goals and reasses as needed throughout
+
+## Technologies Used
+
 ![Technologies](https://img.shields.io/badge/Trello-F7DF1E?style=for-the-badge&logo=trello&logoColor=purple) was used to help define tasks, schedule, and ownership throughout the different phases of the project.
 
 ![Technologies](https://img.shields.io/badge/HTML5-F7DF1E?style=for-the-badge&logo=html5&logoColor=blue)
@@ -105,27 +110,30 @@ This app  allows single parents access resources that they need in one app.
 ![Technologies](https://img.shields.io/badge/-npm-CB3837?logo=npm&logoColor=white)
 ![Technologies](https://img.shields.io/badge/npm%20package-moment-%3CCOLOR%3E?style=flat-square&logo=npm)
 ![Technologies](https://img.shields.io/badge/npm%20package-express-green?style=flat-square&logo=npm)
-![Technologies](https://img.shields.io/badge/npm%20package-mongoose-purple?style=flat-square&logo=npm) 
-![Technologies](https://img.shields.io/badge/Database-MongoDB-yellow?style=flat-square&logo=mongoDB) 
+![Technologies](https://img.shields.io/badge/npm%20package-mongoose-purple?style=flat-square&logo=npm)
+![Technologies](https://img.shields.io/badge/Database-MongoDB-yellow?style=flat-square&logo=mongoDB)
 
 ## Challenges
-- Material UI - new repo had to be created 
-- New repo had to be created
-- had to reclone repo multiple times
-- 
-- 
 
-## Successes 
+* Material UI - new repo had to be created
 
-- 
-- 
-- 
-- 
-- 
+* New repo had to be created
+* had to reclone repo multiple times
+* d
+* d
 
-# Usage
+## Successes
 
-The following screenshots show examples of the interaction and options presented to the user when application is initiated. 
+* d
+
+* d
+* d
+* d
+* d
+
+## Usage
+
+The following screenshots show examples of the interaction and options presented to the user when application is initiated.
 
 <!-- Homepage:
 
@@ -142,7 +150,6 @@ Below shows the key to the map and what the different icons/numbers represent in
 In order to make a reservation, click on the "Reserve Station" as seen in image:
 
 ![showing reserve station](./public/assets/images/MapSelection.png)
-
 
 Required Login to make new reservation(s) or register a new charging station: 
 
@@ -168,7 +175,6 @@ Viewing User Reservation(s) "My Reservations":
 
 ![showing no reservations view](./public/assets/images/noreservations.png)
 
-
 Viewing User Charging Stations "My Charging Stations": 
 
 ![showing charging stations owned by user](./public/assets/images/mychargingstations.png)
@@ -181,86 +187,74 @@ Logout:
 
 ![showing where logout is located](./public/assets/images/Logout.png) -->
 
-# Goals for Future Development
+## Goals for Future Development
 
-## Short Term Goals 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
+### Short Term Goals
 
-## Long Term Goals
-- 
-- 
-- 
-- 
-- 
-- 
-- 
+*
+*
+*
+*
+*
+*
+*
 
-# Support
-If you need support or have any questions about the repo, please [open an issue](https://github.com/hannybear88/Project-3-Parent-Helper-Hub/issues) or contact us via email at parenthelperhub@gmail.com. 
+### Long Term Goals
 
-# Deployed Site
+*
+*
+*
+*
+*
+*
+*
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)]()
+## Support
+
+If you need support or have any questions about the repo, please [open an issue](https://github.com/hannybear88/Project-3-Parent-Helper-Hub/issues) or contact us via email at parenthelperhub@gmail.com.
+
+## Deployed Site
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://parent-helper-hub.herokuapp.com/)
 
 You can find more of our work on our GitHub, [hannybear88](https://github.com/hannybear88/), [heidiwu3388](https://github.com/heidiwu3388), [TrianaD](https://github.com/TrianaD), [cmarielorber](https://github.com/cmarielorber), [fmaldmed](https://github.com/fmaldmed).
 
+## Tasks and Roles
 
-# Tasks and Roles
+Hannah Chung:
 
-Hannah Chung: 
-    
     Focus: Signup, Profile, App.js, Auth, Mutations, Queries, App, Models, Schemas, README, Presentation
     Support: Presentation, Trello
 
-Triana Deguzman: 
-    
-    Focus:  Trello Coordination, Signup, Profile, Schemas
-    Support: Queries, README, 
+Triana Deguzman
 
-Christen Lorber: 
+    Focus:  Trello Coordination, Signup, Profile, Schemas, App.js, Mutations, Queries, App, Models, Schemas
+    Support: Queries and  README, 
 
-    Focus: Navbar, Login/Logout, 
-    Support: App, LoginForm, 
+* Christen Lorber
+  * Focus: Navbar and Login/Logout
+  * Support: App and  LoginForm
 
-Fernando Maldonado: 
-    
-    Focus: Welcome page
-    Support: API, 
+* Fernando Maldonado
+  * Focus: Welcome page
+  * Support: API
 
-Heidi Wu: 
-    
-    Focus: Server Side, API,
-    Support: Auth
+* Heidi Wu
+  * Focus: Server Side, API, Schools,
+  * Support: Auth
 
-Team Collaboration:
-    
-    team pseudo coding, reviewing, presentation runs
+* Team Collaboration
+  * team pseudo coding
+  * reviewing
+  * presentation runs
 
-# Credits and Contributors 
+## Credits and Contributors
 
-- Hannah Chung
-- Triana Deguzman
-- Christen Lorber
-- Fernando Maldonado
-- Heidi Wu
-
-
-
-
-
-
-
-
-
-
-
-
+* Hannah Chung
+* Triana Deguzman
+* Christen Lorber
+* Fernando Maldonado
+* Heidi Wu
 
 <!-- # Getting Started with Create React App
 
