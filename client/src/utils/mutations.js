@@ -24,6 +24,18 @@ export const ADD_USER = gql`
   }
 `;
 
+export const SAVE_USER = gql`
+  mutation saveUser($username: String!, $email: String!, $password: String!, $childCount: Int, $zipcode: String! ) {
+    saveUser(username: $username, email: $email, password: $password, childCount: $childCount, zipcode: $zipcode ) {
+      token
+      user {
+        _id
+        username
+      }
+    }
+  }
+`;
+
 export const SAVE_SCHOOL = gql`
   mutation saveSchool(
     $schoolId: String!

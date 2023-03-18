@@ -70,6 +70,13 @@ const typeDefs = gql`
       zipcode: String!,
     ): Auth
 
+    saveUser (
+      username: String!, 
+      email: String!, 
+      childCount: Int,
+      zipcode: String!,
+    ): Auth
+
     saveSchool(
     schoolId: String!,
     schoolName: String,

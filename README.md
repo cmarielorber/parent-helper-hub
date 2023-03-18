@@ -110,8 +110,8 @@ This app  allows single parents access resources that they need in one app.
 
 ## Challenges
 - Material UI - new repo had to be created 
-- 
-- 
+- New repo had to be created
+- had to reclone repo multiple times
 - 
 - 
 
