@@ -221,26 +221,24 @@ You can find more of our work on our GitHub, [hannybear88](https://github.com/ha
 
 ## Tasks and Roles
 
-Hannah Chung:
+* Hannah Chung
+  * Focus: pages, components, utils, models, schemas, Models, Schemas, README, and Presentation
+  * Support: Trello
 
-    Focus: Signup, Profile, App.js, Auth, Mutations, Queries, App, Models, Schemas, README, Presentation
-    Support: Presentation, Trello
-
-Triana Deguzman
-
-    Focus:  Trello Coordination, Signup, Profile, Schemas, App.js, Mutations, Queries, App, Models, Schemas
-    Support: Queries and  README, 
+* Triana Deguzman
+  * Focus:  Trello Coordination, pages, Schemas, App.js, Models, and Schemas
+  * Support: Presetation and  README
 
 * Christen Lorber
-  * Focus: Navbar and Login/Logout
-  * Support: App and  LoginForm
+  * Focus: Navbar, Styling, Login/Logout
+  * Support: App
 
 * Fernando Maldonado
-  * Focus: Welcome page
+  * Focus: Welcome page and footer
   * Support: API
 
 * Heidi Wu
-  * Focus: Server Side, API, Schools,
+  * Focus: Server Side, API, and Schools
   * Support: Auth
 
 * Team Collaboration
