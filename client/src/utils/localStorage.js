@@ -28,3 +28,40 @@ export const removeSchoolId = (schoolId) => {
 
   return true;
 };
+
+
+
+// local storage for edit form
+
+export const getSavedUserIds = () => {
+  const savedUserIds = localStorage.getItem('saved_user')
+    ? JSON.parse(localStorage.getItem('saved_user'))
+    : [];
+
+  return savedUserIds;
+};
+
+export const saveUserId = (userIdArr) => {
+  if (userIdArr.length) {
+    localStorage.setItem('saved_user', JSON.stringify(userIdArr));
+  } else {
+    localStorage.removeItem('saved_user');
+  }
+};
+
+export const removeId = (userId) => {
+  const savedUserIds = localStorage.getItem('saved_users')
+    ? JSON.parse(localStorage.getItem('saved_users'))
+    : null;
+
+  if (!savedUserIds) {
+    return false;
+  }
+
+  // const updatedSavedUserIds = savedUserIds?.filter((savedUserId) => savedUserId !== userId);
+  // localStorage.setItem('saved_users', JSON.stringify(updatedSavedUsersIds));
+
+  // return true;
+};
+
+

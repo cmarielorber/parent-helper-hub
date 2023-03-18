@@ -8,6 +8,11 @@ import { ADD_USER } from "../utils/mutations";
 // import { QUERY_USER, QUERY_ME } from '../utils/queries';
 // create QUERY for child 
 
+// lines 12-15 testing -
+// import React, { useState, useEffect } from 'react';
+// import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
+// import { saveEditFormIds, getEditFormIds } from '../utils/localStorage';
+// import {SAVE_USER} from '../utils/mutations';
 
 
 const EditForm = () => {
@@ -220,10 +225,42 @@ const EditForm = () => {
         </Form.Group> */}
 
         </Modal.Body>
-
+        {/* function closeButton() {
+            alert('You clicked close!')
+          }
+          <button onClick={}>Close</button>; */}
         <Modal.Footer>
+          
+
+
+
+
+
+
+{/* 
+ // create state to hold saved editFormId values */}
+ {/* const [savedEditFormIds, setSavedEditFormIds] = useState(getSavedEditFormIds());
+ const [saveEditForm] = useMutation(ADD_USER) */}
           <Button variant="secondary">Close</Button>
+          {/* <Button
+                      disabled={savedUserIds?.some((userId) => savedUserId === user.userId)}
+                      className='btn-block btn-info'
+                      onClick={() => handleSaveUser(user.userId)}>
+                      {savedBookIds?.some((savedUserId) => savedUserId === user.userId)
+                        ? 'This book has already been saved!'
+                        : 'Save this Book!'}
+                    </Button> */}
           <Button variant="primary">Save changes</Button>
+          {/* <Button
+                      disabled={savedUserIds?.some((savedUserId) => savedUserId === user.userId)}
+                      className='btn-block btn-info'
+                      onClick={() => handleSaveUser(user.userId)}>
+                      {savedBookIds?.some((savedUserId) => savedUserId === user.userId)
+                        ? 'The updates has already been saved!'
+                        : 'Save My Updates!'}
+                    </Button> */}
+        
+        
         </Modal.Footer>
       </Modal.Dialog>
     </div>
