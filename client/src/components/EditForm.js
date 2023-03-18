@@ -238,25 +238,26 @@ const EditForm = () => {
 
 
 {/* 
- // create state to hold saved editFormId values */}
- {/* const [savedEditFormIds, setSavedEditFormIds] = useState(getSavedEditFormIds());
- const [saveEditForm] = useMutation(ADD_USER) */}
+ // create state to hold saved saveUserId values */}
+ const [savedUserIds, setSavedUserIds] = useState(getSavedUserIds());
+ const [saveUser] = useMutation(ADD_USER)
+ 
           <Button variant="secondary">Close</Button>
-          {/* <Button
+          <Button
                       disabled={savedUserIds?.some((userId) => savedUserId === user.userId)}
                       className='btn-block btn-info'
                       onClick={() => handleSaveUser(user.userId)}>
-                      {savedBookIds?.some((savedUserId) => savedUserId === user.userId)
+                      {savedUserIds?.some((savedUserId) => savedUserId === user.userId)
                         ? 'This book has already been saved!'
                         : 'Save this Book!'}
-                    </Button> */}
+                    </Button>
           <Button variant="primary">Save changes</Button>
-          {/* <Button
+          <Button
                       onClick={() => handleSaveUser(user.userId)}>
                       {savedUserIds?.some((savedUserId) => savedUserId === user.userId)
                         ? ''
                         : 'Exit From Updates'}
-                    </Button> */}
+                    </Button>
         
         
         </Modal.Footer>
