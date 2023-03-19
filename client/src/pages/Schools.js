@@ -18,6 +18,18 @@ const styles = {
     backgroundSize: "fill",
     backgroundPosition: "center",
   },
+  font:{
+    fontFamily: 'Crushed, cursive',
+    fontSize: "35px",
+  },
+  fontView:{
+    fontFamily: 'Crushed, cursive',
+    fontSize: "25px",
+  },
+  fontSearch:{
+    fontFamily: 'Crushed, cursive',
+    fontSize: "15px",
+  },
   formstyle: {
     border: "5px dotted #264653 ",
     borderRadius: "10px",
@@ -232,13 +244,13 @@ const handleSaveSchool = async (schoolId) => {
           </Form.Row>
         </Form>
       </Container>
-      <Container className="searchposts d-flex flex-column justify-content-center align-items-center"> SCHOOLS
-      <h2>
+      <Container className="searchposts d-flex flex-column justify-content-center align-items-center" style={styles.font}> SCHOOLS
+      <h2 style={styles.fontView}>
           {searchedSchools.length
             ? `Viewing ${searchedSchools.length} results:`
-            : ''}
+            : '' }
         </h2>
-        <CardColumns>
+        <CardColumns style={styles.fontSearch} >
           {searchedSchools.map((school) => {
             return (
               <SingleSchool school={school} key={school.schoolId} handleSaveSchool={handleSaveSchool} savedSchoolIds={savedSchoolIds}/>
