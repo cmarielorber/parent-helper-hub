@@ -1,7 +1,7 @@
 import styled from 'styled-components';
    
 export const Box = styled.div`
-  padding: 50px 30px;
+  padding: 15px 30px 0px;
   font-family: 'Crushed', sans-serif;
   background: #264653;
   position: relative;
@@ -28,7 +28,7 @@ export const Column = styled.div`
   font-family: 'Crushed', sans-serif;
   flex-direction: column;
   text-align: center;
-  margin-left: 60px;
+justify-content: center;
 `;
    
 export const Row = styled.div`

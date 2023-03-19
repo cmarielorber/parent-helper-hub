@@ -7,7 +7,7 @@
   .welcomecontainer{
     margin-top: 15rem;
   }
-  
+
   .searchresource{
     border: 8px double var(--DARK);
     border-radius: 10px;
@@ -57,6 +57,12 @@
 
   .jumbotron{
     margin-bottom: 0px;
+  }
+   
+  .hCtEYE{
+    justify-content: center;
+    align-items: center;
+    justify-items: end;
   }
 
   /* .searchButton:after{
