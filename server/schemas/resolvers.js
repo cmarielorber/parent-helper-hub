@@ -37,17 +37,23 @@ const resolvers = {
       
       return { token, user};
     },
-    saveUser: async (parent, { username, email, password, childCount, zipcode }) => {
-      const user = await User.findOneAndUpdate(
-        { _id: context.user._id},
-        // {
-        //   $addToSet: { savedSchools: {...school}}
-        // },
-        { username, email, password, childCount, zipcode, children: [], savedSchools: [] });
-      const token = signToken(user);
-      
-      return { token, user};
-    },
+    saveUser: async (parent, email, childCount, zipcode) => {
+      if (constext.user) {
+        return User.findOneAndReplace(
+        { _id: context.user},
+        {
+          $addToSet: { childCount, zipcode, email},
+          
+        },
+        { returnNewDocument: true,
+          new: false,
+          runValidators: true 
+          // returnDocument: username, email, password, childCount, zipcode, children: [], savedSchools: [] 
+        }
+        );
+     
+    }
+  },
 
     // retrieve the logged in user from the context and add the book to the user's savedSchools array
     saveSchool: async (parent, school, context) => {
