@@ -59,8 +59,16 @@ export const FooterLink = styled.a`
    
 export const Heading = styled.p`
   font-size: 10px;
-  font-family: 'Crushed', sans-serif;
+  font-family: 'Crushed', sans-serif;   
   color: #e9c46a;
   margin-bottom: 15px;
   font-weight: bold;
+`;
+
+export const ContactUsPopup = styled.p`
+color: #e9c46a;
+font-family: 'Crushed', sans-serif;
+margin-bottom: 5px;
+font-size: 8px;
+text-decoration: none;
 `;

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Jumbotron, Container, Form, Col, Button } from "react-bootstrap";
-import { stateList } from "../utils/constants";
+import React, { useEffect, useState, useRef } from "react";
+import { Jumbotron, Container, Form, Col} from "react-bootstrap";
 import "../styles/pages.css";
 import welcomeImg from "../assets/welcomeImg.png";
 import { Welcomeheader } from "../components/TypeWriter";
+import Popup from "../components/Popup";
 
 const styles = {
   jumbotron: {
@@ -41,7 +41,8 @@ const styles = {
 };
 
 function Welcome() {
-  const [text] = useState("Welcome to Parent Helper Hub");
+    const [text] = useState("Welcome to our Parent Helper Hub");
+    const [buttonPopup, setButtonPopup] = useState(false);
   return (
     <Jumbotron fluid className="jumbo pt-2" style={styles.jumbotron}>
       <Container
@@ -78,9 +79,20 @@ function Welcome() {
               <li>Legal</li>
               <li>Healthcare</li>
             </p>
-          </div>
+            </div>
+            <button onClick={() => setButtonPopup(true)}>Contact Us</button>
+            <br/><br/>
+            <div>
+            <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+              <h3>Email Address:</h3>
+                <p>parenthelpersupport@bhhsupport.com</p>
+                <br/><br/>
+              <h3>Phone Number:</h3>
+                <p>1-800-000-0000</p>
+            </Popup>
+            </div>
         </div>
-      </Container>
+    </Container>
     </Jumbotron>
   );
 }

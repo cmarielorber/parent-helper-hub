@@ -8,6 +8,7 @@ import Profile from './pages/Profile';
 import Healthcare from './pages/Healthcare';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ContactUs from './components/Popup'
 import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
@@ -81,6 +82,11 @@ function App() {
             />
           </Routes>
           <Footer />
+          <Routes>
+            <Route path='/ContactUs'
+            element={<ContactUs/>}
+            />
+          </Routes>
         </>
       </Router>
     </ApolloProvider>
