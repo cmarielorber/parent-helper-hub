@@ -11,6 +11,7 @@
     padding-top: 10px;
     background-color: var(--OFF_WHITE);
     color: var(--DARK_ORANGE);
+    font-family: 'Crushed', cursive;
   }
   
   .searchposts{
@@ -20,8 +21,8 @@
     background-color: var(--OFF_WHITE);
     color: var(--DARK_ORANGE);
     width: 100%;
-    font-size: 25px;
     font-weight: bold;
+    font-family: 'Crushed', cursive;
   }
 
   .searchButton{

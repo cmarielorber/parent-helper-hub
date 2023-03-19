@@ -33,6 +33,7 @@ const styles = {
     textDecoration: "bold",
     margin: "10px",
     decoration: "none",
+    fontSize: "15px",
   },
   welcomecontainer: {
     display: "flex",
