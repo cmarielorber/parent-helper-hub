@@ -33,36 +33,36 @@ export const removeSchoolId = (schoolId) => {
 
 // local storage for saving updates on edit form
 
-export const getSavedUserIds = () => {
-  const savedUserIds = localStorage.getItem('saved_user')
-    ? JSON.parse(localStorage.getItem('saved_user'))
-    : [];
+// export const getSavedUserIds = () => {
+//   const savedUserIds = localStorage.getItem('saved_user')
+//     ? JSON.parse(localStorage.getItem('saved_user'))
+//     : [];
 
-  return savedUserIds;
-};
+//   return savedUserIds;
+// };
 
-export const saveUserId = (userIdArr) => {
-  if (userIdArr.length) {
-    localStorage.setItem('saved_user', JSON.stringify(userIdArr));
-  } 
-  else {
-    localStorage.removeItem('saved_user');
-  }
-};
+// export const saveUserId = (userIdArr) => {
+//   if (userIdArr.length) {
+//     localStorage.setItem('saved_user', JSON.stringify(userIdArr));
+//   } 
+//   else {
+//     localStorage.removeItem('saved_user');
+//   }
+// };
 
-export const removeId = (userId) => {
-  const savedUserIds = localStorage.getItem('saved_users')
-    ? JSON.parse(localStorage.getItem('saved_users'))
-    : null;
+// export const removeId = (userId) => {
+//   const savedUserIds = localStorage.getItem('saved_users')
+//     ? JSON.parse(localStorage.getItem('saved_users'))
+//     : null;
 
-  if (!savedUserIds) {
-    return false;
-  }
+//   if (!savedUserIds) {
+//     return false;
+//   }
 
-  // const updateSavedUserIds = savedUserIds?.filter((savedUserId) => savedUserId !== userId);
-  // localStorage.setItem('saved_users', JSON.stringify(updateSavedUsersIds));
+//   // const updateSavedUserIds = savedUserIds?.filter((savedUserId) => savedUserId !== userId);
+//   // localStorage.setItem('saved_users', JSON.stringify(updateSavedUsersIds));
 
-  return true;
-};
+//   return true;
+// };
 
 
