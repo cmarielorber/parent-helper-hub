@@ -6,9 +6,7 @@ export const Box = styled.div`
   background: #264653;
   position: relative;
   bottom: 0;
-  width: 100%;
-  
-   
+  width: 100%; 
   @media (max-width: 1000px) {
     padding: 70px 30px;
   }
@@ -21,7 +19,7 @@ export const FooterContainer = styled.div`
     justify-content: center;
     max-width: 1000px;
     margin: 0 auto;
-    font-size: .5rem;
+    font-size: 2rem;
     /* background: red; */
 `
    
@@ -50,7 +48,7 @@ export const FooterLink = styled.a`
   color: #e9c46a;
   font-family: 'Crushed', sans-serif;
   margin-bottom: 5px;
-  font-size: 8px;
+  font-size: 12px;
   text-decoration: none;
    
   &:hover {

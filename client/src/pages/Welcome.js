@@ -2,18 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Jumbotron, Container, Form, Col, Button } from "react-bootstrap";
 import { stateList } from "../utils/constants";
 import "../styles/pages.css";
-import Welcomehands from "../assets/Welcomehands.jpg";
+import welcomeImg from "../assets/welcomeImg.png";
 import { Welcomeheader } from "../components/TypeWriter";
 
 const styles = {
     jumbotron: {
-      backgroundImage: `url(${Welcomehands})`,
+      backgroundImage: `url(${welcomeImg})`,
       Image: "cover",
       backgroundSize: "cover",
       backgroundPosition: "center",
       overFlow: "hidden",
-      width: "100%",
-      height: "100%",
     },
     divstyle: {
       border: "5px dotted #264653 ",
@@ -30,7 +28,6 @@ const styles = {
         padding: "10px 20px",
         borderRadius: "5px",
         textDecoration: "bold",
-        margin: "auto",
         decoration: "none",
         width: "60%",
         color: "#e76f51",
@@ -45,10 +42,10 @@ const styles = {
 
 
 function Welcome() {
-    const [text] = useState("Welcome to our Parent Helper Hub");
+    const [text] = useState("Welcome to Parent Helper Hub");
   return (
     <Jumbotron fluid className="jumbo pt-2" style={styles.jumbotron}>
-    <container className="welcomecontainer d-flex flex-column justify-content-center align-items-center" style={styles.welcomecontainer}>
+    <Container className="welcomecontainer d-flex flex-column justify-content-center align-items-center" style={styles.welcomecontainer}>
         <div 
         className="welcomediv d-flex flex-column justify-content-center align-items-center"
         style={styles.divstyle}
@@ -58,19 +55,18 @@ function Welcome() {
             style={styles.welcometext}>
             
             <p>This project began with a newly single parent suddenly having to fend for themselves.</p>
-            <p>Often times after a separation, divorce, or sudden passing parents are faced with the sudden</p>
-            <p>struggle to identify what resources are available to them. Wether it be childcare, schooling</p>
-            <p>healthcare, legal assistance, or housing. Here at Parent Helper Hub realize that there's a need</p>
-            <p>for parents</p>
-            <p>Resources such as:
-                    <li>Schools</li>
+            <p>Often times after a separation, divorce, or tragic passing, parents are faced with a sudden</p>
+            <p>struggle to identify what resources are available to them. </p>
+            <p>Parent Helper Hub sees that need and lends a hand and space for our parent community.</p> 
+            <p> The Hub offers resources such as: </p>
+                <p>    <li>Schools</li>
                     <li>Housing</li>
                     <li>Legal</li>
                     <li>Healthcare</li>
             </p>
             </div>
         </div>
-    </container>
+    </Container>
     </Jumbotron>
   );
 }

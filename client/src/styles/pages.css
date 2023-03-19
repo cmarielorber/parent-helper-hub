@@ -4,6 +4,10 @@
     margin: 10px;
   }
 
+  .welcomecontainer{
+    margin-top: 15rem;
+  }
+  
   .searchresource{
     border: 8px double var(--DARK);
     border-radius: 10px;
@@ -13,7 +17,7 @@
     color: var(--DARK_ORANGE);
     font-family: 'Crushed', cursive;
   }
-  
+
   .searchposts{
     border: 8px double var(--DARK);
     border-radius: 10px;
@@ -21,7 +25,6 @@
     background-color: var(--OFF_WHITE);
     color: var(--DARK_ORANGE);
     width: 100%;
-    font-weight: bold;
     font-family: 'Crushed', cursive;
   }
 
