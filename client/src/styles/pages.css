@@ -35,6 +35,22 @@
     border-color: var(--TEAL);
   }
 
+  .btn-primary:not(:disabled):not(.disabled):active:focus{
+    background-color: var(--TEAL);
+    border-color: var(--TEAL);
+  }
+
+  .btn-primary:not(:disabled):not(.disabled):active{
+    background-color: var(--TEAL);
+    border-color: var(--TEAL);
+  }
+
+  .btn-primary:focus{
+    background-color: var(--TEAL);
+    border-color: var(--TEAL);
+    box-shadow: 0 0 0 0.2rem rgba(75, 81, 88, 0.5);
+  }
+
   .jumbotron{
     margin-bottom: 0px;
   }
