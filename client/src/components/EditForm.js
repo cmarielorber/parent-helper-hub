@@ -31,10 +31,10 @@ const EditForm = () => {
   // set state for alert
   const [show, setShow] = useState(false);
   // const [savedUserIds, setSavedUserIds] = useState(getSavedUserIds());
-  const [saveUser] = useMutation(SAVE_USER);
+  const [saveUser, {loading}] = useMutation(SAVE_USER);
   // get a function 'addUser' returned by useMutation hook
   // to execute the ADD_USER mutation in the functions below
-  const [addUser, { loading }] = useMutation(ADD_USER);
+  // const [addUser, { loading }] = useMutation(ADD_USER);
 
   // keep this code lines 33-37
   const handleInputChange = (event) => {
@@ -44,6 +44,7 @@ const EditForm = () => {
 
   const handleShow = () => setShow(true);
   const handleSave = () => {
+      setShow(false);
     // get user input 
     console.log("user input:", userFormData);
     // save user input in database
@@ -76,10 +77,10 @@ const EditForm = () => {
     }
 
     try {
-      const { data } = await addUser({
+      const { data } = await saveUser({
         variables: userFormData,
       });
-      Auth.login(data.addUser.token);
+      Auth.login(data.saveUser.token);
     } catch (err) {
       console.log(err);
       setShow(true);
@@ -261,7 +262,7 @@ const EditForm = () => {
                         
             <Button 
               variant="primary"
-              onClick={() => handleClose()}
+              onClick={() => handleSave()}
             >
 
               Save changes
