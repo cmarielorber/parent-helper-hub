@@ -29,7 +29,7 @@ const EditForm = () => {
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
-  const [showAlert, setShowAlert] = useState(false);
+  const [show, setShow] = useState(false);
   // const [savedUserIds, setSavedUserIds] = useState(getSavedUserIds());
   const [saveUser] = useMutation(SAVE_USER);
   // get a function 'addUser' returned by useMutation hook
@@ -42,17 +42,16 @@ const EditForm = () => {
     setUserFormData({ ...userFormData, [name]: value });
   };
 
+  const handleShow = () => setShow(true);
   const handleSave = () => {
     // get user input 
     console.log("user input:", userFormData);
     // save user input in database
 
-    // if okay display message "your updates have been saved
-    // close the modal 
+  //   // if okay display message "your updates have been saved
+  //   // close the modal 
   }
-  const handleClose = () => {
-    console.log( "edit form closed" );
-  }
+  const handleClose = () => setShow(false);
 
   // const handleChildNameChange = (event) => {
   //   const index = event.target.id.split("-")[1];
@@ -83,7 +82,7 @@ const EditForm = () => {
       Auth.login(data.addUser.token);
     } catch (err) {
       console.log(err);
-      setShowAlert(true);
+      setShow(true);
     }
 
     setUserFormData({
@@ -149,15 +148,26 @@ const EditForm = () => {
     return <div>Loading...</div>;
   }
   return (
-    <>
+   
+   <>
       <div
-        className="modal show"
-        style={{ display: "block", position: "initial" }}
+
+      >      
+        <Button variant="primary" onClick={handleShow}>
+        Edit Profile
+        </Button>
+        <Modal
+        show={show}
+        onHide={handleClose}
+
       >
-        <Modal.Dialog>
+        <Modal.Dialog show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Update Profile</Modal.Title>
           </Modal.Header>
+
+
+
 
           <Modal.Body>
             <p>
@@ -244,14 +254,14 @@ const EditForm = () => {
 
             <Button 
               variant="secondary"
-              onClick={() => handleClose ()}
+              onClick= {handleClose}
             >
               Close
             </Button>
                         
             <Button 
               variant="primary"
-              onClick={() => handleSave()}
+              onClick={() => handleClose()}
             >
 
               Save changes
@@ -260,6 +270,7 @@ const EditForm = () => {
      
           </Modal.Footer>
         </Modal.Dialog>
+        </Modal>
       </div>
     </>
   );

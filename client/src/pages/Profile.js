@@ -60,18 +60,9 @@ const Profile = () => {
             </p>
             
             {/* original code for edit button */}
-            {isEdit?
-              (<EditForm></EditForm>)
-            :
-              (<button 
-              type="button" 
-              class="btn btn-success mx-3" 
-              data-mdb-ripple-color="dark" 
-              onClick={() => setIsEdit(true)}            
-              >
-              Edit
-              </button>)
-            }
+
+              <EditForm></EditForm>
+            
             
 
 
