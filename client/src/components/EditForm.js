@@ -4,7 +4,7 @@ import { Form, Modal, Button, Alert } from 'react-bootstrap';
 import Auth from "../utils/auth";
 // refractor to use Apollo GraphQL API instead of RESTful API
 import { useMutation } from "@apollo/client";
-import { ADD_USER } from "../utils/mutations";
+import { ADD_USER, SAVE_USER } from "../utils/mutations";
 // import { QUERY_USER, QUERY_ME } from '../utils/queries';
 // create QUERY for child 
 
@@ -31,7 +31,8 @@ const EditForm = () => {
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
-
+  const [savedUserIds, setSavedUserIds] = useState(getSavedUserIds());
+  const [saveUser] = useMutation(SAVE_USER)
   // get a function 'addUser' returned by useMutation hook
   // to execute the ADD_USER mutation in the functions below
   const [addUser, { loading }] = useMutation(ADD_USER);
@@ -239,8 +240,7 @@ const EditForm = () => {
 
 {/* 
  // create state to hold saved saveUserId values */}
- const [savedUserIds, setSavedUserIds] = useState(getSavedUserIds());
- const [saveUser] = useMutation(ADD_USER)
+
  
           <Button variant="secondary">Close</Button>
           <Button
