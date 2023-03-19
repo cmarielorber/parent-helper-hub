@@ -38,7 +38,12 @@ const resolvers = {
       return { token, user};
     },
     saveUser: async (parent, { username, email, password, childCount, zipcode }) => {
-      const user = await User.create({ username, email, password, childCount, zipcode, children: [], savedSchools: [] });
+      const user = await User.findOneAndUpdate(
+        { _id: context.user._id},
+        // {
+        //   $addToSet: { savedSchools: {...school}}
+        // },
+        { username, email, password, childCount, zipcode, children: [], savedSchools: [] });
       const token = signToken(user);
       
       return { token, user};
