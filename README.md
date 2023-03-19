@@ -222,11 +222,11 @@ You can find more of our work on our GitHub, [hannybear88](https://github.com/ha
 ## Tasks and Roles
 
 * Hannah Chung
-  * Focus: pages, components, utils, models, schemas, Models, Schemas, README, and Presentation
-  * Support: Trello
+  * Focus: profile, edit, pages, components, utils, models, schemas, README, and Presentation
+  * Support: Trello and searchlist
 
 * Triana Deguzman
-  * Focus:  Trello Coordination, pages, Schemas, App.js, Models, and Schemas
+  * Focus:  Trello Coordination, profile, edit, searchlist, pages, components, utils, models, and schemas
   * Support: Presetation and  README
 
 * Christen Lorber
