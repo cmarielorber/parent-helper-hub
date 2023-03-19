@@ -27,7 +27,6 @@ import {
                     <Column>
                     <Heading>About Us</Heading>
                     <FooterLink href="#">Vision</FooterLink>
-                    <FooterLink href="#">Contact Us</FooterLink>
                     </Column>
                     
                     <Column>

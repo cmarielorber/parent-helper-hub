@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Jumbotron, Container, Form, Col, Button } from "react-bootstrap";
-import { stateList } from "../utils/constants";
+import React, { useEffect, useState, useRef } from "react";
+import { Jumbotron, Container, Form, Col} from "react-bootstrap";
 import "../styles/pages.css";
 import Welcomehands from "../assets/Welcomehands.jpg";
 import { Welcomeheader } from "../components/TypeWriter";
+import Popup from "../components/Popup";
 
 const styles = {
     jumbotron: {
@@ -13,6 +13,7 @@ const styles = {
       backgroundPosition: "center",
       overFlow: "hidden",
       width: "100%",
+       
     },
     divstyle: {
       border: "5px dotted #264653 ",
@@ -33,6 +34,18 @@ const styles = {
         width: "60%",
         color: "#e76f51",
       },
+      tooltip: {
+        display: "flex",
+        justifyContent: "center",
+        backgroundColor: "#f7ede2",
+        padding: "10px 20px",
+        borderRadius: "5px",
+        textDecoration: "bold",
+        margin: "auto",
+        decoration: "none",
+        width: "60%",
+        color: "#e76f51",
+      },
     welcometext: {
         display: "flex",
         justifyContent: "center",
@@ -44,6 +57,7 @@ const styles = {
 
 function Welcome() {
     const [text] = useState("Welcome to our Parent Helper Hub");
+    const [buttonPopup, setButtonPopup] = useState(false);
   return (
     <Jumbotron fluid className="jumbo pt-2" style={styles.jumbotron}>
     <Container className="welcomecontainer d-flex flex-column justify-content-center align-items-center" style={styles.welcomecontainer}>
@@ -66,6 +80,17 @@ function Welcome() {
                     <li>Legal</li>
                     <li>Healthcare</li>
             </p>
+            </div>
+            <button onClick={() => setButtonPopup(true)}>Contact Us</button>
+            <br/><br/>
+            <div>
+            <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+              <h3>Email Address:</h3>
+                <p>parenthelpersupport@bhhsupport.com</p>
+                <br/><br/>
+              <h3>Phone Number:</h3>
+                <p>1-800-000-0000</p>
+            </Popup>
             </div>
         </div>
     </Container>
