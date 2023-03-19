@@ -23,6 +23,7 @@ const styles = {
     top: "0",
     width: "100%",
     zIndex: "1",
+    fontFamily: 'Crushed, cursive'
   },
   link: {
     color: Colors.YELLOW,

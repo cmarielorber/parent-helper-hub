@@ -1,27 +1,26 @@
 import React, { useState } from "react";
-import Colors from "../utils/Colors";
 import {
-    Box,
-    FooterContainer,
-    Row,
-    Column,
-    FooterLink,
-    Heading,
-  } from "./Footerstyles";
+  Box,
+  FooterContainer,
+  Row,
+  Column,
+  FooterLink,
+  Heading,
+} from "./Footerstyles";
+import "../styles/pages.css";
+import { GithubIcon } from "./icons";
 
-
-
-  const Footer = () => {
-    const [showModal, setShowModal] = useState(false)
+const Footer = () => {
+  const [showModal, setShowModal] = useState(false);
 
     return (
         <Box>
-            <h1 style= {{   color: Colors.DARK_ORANGE,
+            {/* <h1 style= {{   color: Colors.DARK_ORANGE,
                             textAlign: "center",
                             marginTop: "-50px"
-                            }}>
+                            }}> 
                 Parent Helper Hub
-            </h1>
+            </h1> */ }
             <FooterContainer>
                 <Row>
                     <Column>

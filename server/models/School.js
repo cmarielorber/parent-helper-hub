@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose');
+const { Schema, Types} = require('mongoose');
 
 // This is a subdocument schema, it won't become its own model but we'll use it as the schema for the User's `savedBooks` array in User.js
 const schoolSchema = new Schema({
@@ -10,8 +10,8 @@ const schoolSchema = new Schema({
   },
   schoolName: {type: String},
   phone: {type: String},
-  latitude: {type: String},
-  longtitude: {type: String},
+  latitude: {type: Types.Decimal128},
+  longtitude: {type: Types.Decimal128},
   street: {type: String},
   city: {type: String},
   state: {type: String},
@@ -26,13 +26,13 @@ const schoolSchema = new Schema({
   isTitleISchool: {type: String},
   isTitleISchoolwideSchool: {type: String},
   districtName: {type: String},
-  rank: {type: String},
-  rankOf: {type: String},
-  rankStars: {type: String},
-  rankStatewidePercentage: {type: String},
-  averageStandardScore: {type: String},
-  numberOfStudents: {type: String},
-  pupilTeacherRatio: {type: String},
+  rank: {type: Number},
+  rankOf: {type: Number},
+  rankStars: {type: Number},
+  rankStatewidePercentage: {type: Types.Decimal128},
+  averageStandardScore: {type: Types.Decimal128},
+  numberOfStudents: {type: Number},
+  pupilTeacherRatio: {type: Types.Decimal128},
 });
 
 module.exports = schoolSchema;

@@ -52,28 +52,17 @@ const Profile = () => {
             <p class= "mx-3"> Username: {`${user.username}`}</p>
             <p class= "mx-3"> Email: {`${user.email}`}</p>
             {/* <p class= "mx-3"> Password: {`${user.password}`}</p> */}
-            <p class= "mx-3"> Number of Children: 
-                {/* {`${user.kids}`} */}
+            <p class= "mx-3"> Number of Children: {`${user.childCount}`}
             </p>
-            <p class= "mx-3"> Children's Age Group:</p>
-            <p class= "mx-3"> Children's Full Name:</p>
-            <p class= "mx-3"> Zipcode: 
-                {`${user.zipcode}`}
+            {/* <p class= "mx-3"> Children's Age Group:</p> */}
+            {/* <p class= "mx-3"> Children's Full Name:</p> */}
+            <p class= "mx-3"> Zipcode: {`${user.zipcode}`}
             </p>
             
             {/* original code for edit button */}
-            {isEdit?
-              (<EditForm></EditForm>)
-            :
-              (<button 
-              type="button" 
-              class="btn btn-success mx-3" 
-              data-mdb-ripple-color="dark" 
-              onClick={() => setIsEdit(true)}            
-              >
-              Edit
-              </button>)
-            }
+
+              <EditForm></EditForm>
+            
             
 
 
@@ -84,16 +73,35 @@ const Profile = () => {
 
                 <p class= "mx-3"> Search List </p>
 
+                <div className="col-12 col-md-10 mb-5">
+             {/* <SearchList
+              searchSaves={user.saves}
+              title={`${user.username}'s saves...`}
+              showTitle={false}
+              showUsername={false}
+            />
+          </div>
+          {!userParam && (
+            <div
+              className="col-12 col-md-10 mb-3 p-3"
+              style={{ border: '1px dotted #1a1a1a' }}
+            >
+              <SearchForm /> */}
             </div>
 
 
-            <div> 
+
+
+            </div>
+
+
+            {/* <div> 
                 <h3 className="col-12 col-md-12 p-3 mb-5"> Quick Links </h3>
                
             
             <button type="button" class="btn btn-success mx-2" data-mdb-ripple-color="dark" 
             // onClick={search} 
-            >Education</button>
+            >Education</button> */}
 
               {/* same code as above but with link added */}
               {/* link needs to be changed to correct link */}
@@ -101,27 +109,27 @@ const Profile = () => {
             onClick={search} 
             >Education</button> */}
 
-            <button type="button" class="btn btn-info mx-2" data-mdb-ripple-color="dark" 
+            {/* <button type="button" class="btn btn-info mx-2" data-mdb-ripple-color="dark" 
             // onClick={search} 
-            >Housing</button>
+            >Housing</button> */}
 
               {/* same code as above but with link added */}
             {/* <button href = "https://www.cdss.ca.gov/benefits-services/more-services/housing-programs" type="button" class="btn btn-info mx-2" data-mdb-ripple-color="dark" 
             onClick={search} 
             >Housing</button> */}
 
-            <button type="button" class="btn btn-secondary mx-2" data-mdb-ripple-color="dark" 
+            {/* <button type="button" class="btn btn-secondary mx-2" data-mdb-ripple-color="dark" 
             // onClick={search} 
-            >Legal</button>
+            >Legal</button> */}
 
               {/* same code as above but with link added */}
             {/* <button href = "https://selfhelp.courts.ca.gov/get-free-or-low-cost-legal-help" type="button" class="btn btn-secondary mx-2" data-mdb-ripple-color="dark" 
             onClick={search} 
             >Legal</button> */}
            
-            <button type="button" class="btn btn-warning mx-2" data-mdb-ripple-color="dark" 
+            {/* <button type="button" class="btn btn-warning mx-2" data-mdb-ripple-color="dark" 
             // onClick={search} 
-            >Healthcare</button>
+            >Healthcare</button> */}
 
             {/* same code as above but with link added */}
            {/* <button href = "https://www.dmhc.ca.gov/healthcareincalifornia/resourcelist.aspx" type="button" class="btn btn-warning mx-2" data-mdb-ripple-color="dark" 
@@ -129,7 +137,7 @@ const Profile = () => {
             >Healthcare</button> */}
             
             
-            </div>
+            {/* </div> */}
 
         </div>
     )

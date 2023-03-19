@@ -27,8 +27,8 @@ const typeDefs = gql`
     schoolId: String!
     schoolName: String
     phone: String
-    latitude: String
-    longtitude: String
+    latitude: Float
+    longtitude: Float
     street: String
     city: String
     state: String
@@ -43,43 +43,15 @@ const typeDefs = gql`
     isTitleISchool: String
     isTitleISchoolwideSchool: String
     districtName: String
-    rank: String
-    rankOf: String
-    rankStars: String
-    rankStatewidePercentage: String
-    averageStandardScore: String
-    numberOfStudents: String
-    pupilTeacherRatio: String
+    rank: Int
+    rankOf: Int
+    rankStars: Int
+    rankStatewidePercentage: Float
+    averageStandardScore: Float
+    numberOfStudents: Int
+    pupilTeacherRatio: Float
   }
-  input SchoolData {
-    schoolId: String!
-    schoolName: String
-    phone: String
-    latitude: String
-    longtitude: String
-    street: String
-    city: String
-    state: String
-    zip: String
-    zip4: String
-    lowGrade: String
-    highGrade: String
-    schoolLevel: String
-    isCharterSchool: String
-    isMagnateSchool: String
-    isVirtualSchool: String
-    isTitleISchool: String
-    isTitleISchoolwideSchool: String
-    districtName: String
-    rank: String
-    rankOf: String
-    rankStars: String
-    rankStatewidePercentage: String
-    averageStandardScore: String
-    numberOfStudents: String
-    pupilTeacherRatio: String
-  }
-
+  
   type Query {
     me: User
   }
@@ -98,7 +70,41 @@ const typeDefs = gql`
       zipcode: String!,
     ): Auth
 
-    saveSchool(school: SchoolData): User
+    saveUser (
+      username: String!, 
+      email: String!, 
+      childCount: Int,
+      zipcode: String!,
+    ): Auth
+
+    saveSchool(
+    schoolId: String!,
+    schoolName: String,
+    phone: String,
+    latitude: Float,
+    longtitude: Float,
+    street: String,
+    city: String,
+    state: String,
+    zip: String,
+    zip4: String,
+    lowGrade: String,
+    highGrade: String,
+    schoolLevel: String,
+    isCharterSchool: String,
+    isMagnateSchool: String,
+    isVirtualSchool: String,
+    isTitleISchool: String,
+    isTitleISchoolwideSchool: String,
+    districtName: String,
+    rank: Int,
+    rankOf: Int,
+    rankStars: Int,
+    rankStatewidePercentage: Float,
+    averageStandardScore: Float,
+    numberOfStudents: Int,
+    pupilTeacherRatio: Float,
+    ): User
 
   }
 `;

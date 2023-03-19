@@ -22,7 +22,8 @@ export const QUERY_ME = gql`
             _id
             username
             email
-            
+            childCount
+            zipcode
 
         }
     }
