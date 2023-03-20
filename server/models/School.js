@@ -10,8 +10,6 @@ const schoolSchema = new Schema({
   },
   schoolName: {type: String},
   phone: {type: String},
-  latitude: {type: Types.Decimal128},
-  longtitude: {type: Types.Decimal128},
   street: {type: String},
   city: {type: String},
   state: {type: String},
@@ -29,10 +27,10 @@ const schoolSchema = new Schema({
   rank: {type: Number},
   rankOf: {type: Number},
   rankStars: {type: Number},
-  rankStatewidePercentage: {type: Types.Decimal128},
-  averageStandardScore: {type: Types.Decimal128},
+  rankStatewidePercentage: {type: String},
+  averageStandardScore: {type: String},
   numberOfStudents: {type: Number},
-  pupilTeacherRatio: {type: Types.Decimal128},
+  pupilTeacherRatio: {type: String},
 });
 
 module.exports = schoolSchema;

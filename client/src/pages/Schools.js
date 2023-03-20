@@ -73,8 +73,6 @@ function Schools() {
             schoolId: school.schoolid || "",
             schoolName: school.schoolName || "",
             phone: school.phone || "",
-            latitude: school.address?.latLong?.latitude || "",
-            longtitude: school.address?.latLong?.longitude || "",
             street: school.address?.street || "",
             city: school.address?.city  || "",
             state: school.address?.state || "",
@@ -92,10 +90,10 @@ function Schools() {
             rank: school.rankHistory?.[0].rank || "",
             rankOf: school.rankHistory?.[0].rankOf || "",
             rankStars: school.rankHistory?.[0].rankStars || "",
-            rankStatewidePercentage: school.rankHistory?.[0]?.rankStatewidePercentage || "",
-            averageStandardScore: school.rankHistory?.[0]?.averageStandardScore || "",
+            rankStatewidePercentage: school.rankHistory?.[0]?.rankStatewidePercentage?.toString() || "",
+            averageStandardScore: school.rankHistory?.[0]?.averageStandardScore?.toString() || "",
             numberOfStudents: school.schoolYearlyDetails?.[0]?.numberOfStudents || "",
-            pupilTeacherRatio: school.schoolYearlyDetails?.[0]?.pupilTeacherRatio || "",
+            pupilTeacherRatio: school.schoolYearlyDetails?.[0]?.pupilTeacherRatio?.toString() || "",
           }));
           setSearchedSchools(schoolData);
       })
