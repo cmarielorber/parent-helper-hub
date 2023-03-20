@@ -99,3 +99,18 @@ export const SAVE_SCHOOL = gql`
     }
   }
 `;
+
+export const REMOVE_SCHOOL = gql`
+  mutation removeSchool($schoolId: String!) {
+    removeSchool(schoolId: $schoolId) {
+      _id
+      username
+      email
+      savedSchools {
+        schoolId
+        schoolName
+      }
+    }
+  }
+`;
+      
