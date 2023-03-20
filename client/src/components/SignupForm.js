@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Button, Alert, Container } from "react-bootstrap";
 import Auth from "../utils/auth";
 // refractor to use Apollo GraphQL API instead of RESTful API
 import { useMutation } from "@apollo/client";
@@ -199,6 +199,7 @@ const SignupForm = () => {
             Password is required!
           </Form.Control.Feedback>
         </Form.Group>
+        <Container style={{textAlign: "center"}}>
         <Button style={styles.buttonIn}
           disabled={
             !(
@@ -211,6 +212,7 @@ const SignupForm = () => {
         >
           Submit
         </Button>
+        </Container>
       </Form>
     </>
   );

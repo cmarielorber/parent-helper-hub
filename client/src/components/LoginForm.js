@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Button, Alert, Container } from "react-bootstrap";
 import Auth from "../utils/auth";
 
 // refactored to use GraphQL API instead of RESTful API
@@ -123,6 +123,7 @@ const LoginForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
         <Form.Group>
+          <Container style={{textAlign: "center"}}>
           <Button
             style={styles.buttonIn}
             disabled={!(userFormData.email && userFormData.password)}
@@ -130,6 +131,7 @@ const LoginForm = () => {
           >
             Submit
           </Button>
+          </Container>
         </Form.Group>
       </Form>
     </>

@@ -4,8 +4,36 @@
   margin: 10px;
 }
 
-.welcomecontainer {
+.welcomeContainer {
   margin-top: 15rem;
+}
+
+.welcomeUser {
+  margin-top: 15rem;
+}
+
+/* .profileicon {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #000;
+} */
+
+.profileInfo {
+  background-color: var(--OFF_WHITE);
+  border: 8px double var(--DARK);
+  border-radius: 10px;
+  color: var(--DARK_ORANGE);
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.personalInfo {
+  display: flex;
+  flex-direction: column;
 }
 
 .searchresource {
@@ -93,17 +121,17 @@
 }
 
 .githublink {
-color: var(--YELLOW);
-text-decoration: none;
+  color: var(--YELLOW);
+  text-decoration: none;
 }
 
-.github-icon:hover g{
-  fill: var(--DARK_ORANGE)
+.github-icon:hover g {
+  fill: var(--DARK_ORANGE);
 }
 
 .githublink:hover {
-color: var(--DARK_ORANGE);
-text-decoration: none;
+  color: var(--DARK_ORANGE);
+  text-decoration: none;
 }
 
 .first-name {
