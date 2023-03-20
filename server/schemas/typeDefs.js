@@ -6,14 +6,8 @@ const typeDefs = gql`
     username: String!
     email: String!
     childCount: Int
-    zipcode: String!
+    zipcode: String
     savedSchools: [School]
-    children: [Child]
-  }
-
-  type Child {
-    ageGroup: String!
-    childName: String!
   }
 
 
@@ -27,8 +21,6 @@ const typeDefs = gql`
     schoolId: String!
     schoolName: String
     phone: String
-    latitude: Float
-    longtitude: Float
     street: String
     city: String
     state: String
@@ -46,10 +38,10 @@ const typeDefs = gql`
     rank: Int
     rankOf: Int
     rankStars: Int
-    rankStatewidePercentage: Float
-    averageStandardScore: Float
+    rankStatewidePercentage: String
+    averageStandardScore: String
     numberOfStudents: Int
-    pupilTeacherRatio: Float
+    pupilTeacherRatio: String
   }
   
   type Query {
@@ -81,8 +73,8 @@ const typeDefs = gql`
     schoolId: String!,
     schoolName: String,
     phone: String,
-    latitude: Float,
-    longtitude: Float,
+    latitude: String,
+    longtitude: String,
     street: String,
     city: String,
     state: String,
@@ -100,10 +92,14 @@ const typeDefs = gql`
     rank: Int,
     rankOf: Int,
     rankStars: Int,
-    rankStatewidePercentage: Float,
-    averageStandardScore: Float,
+    rankStatewidePercentage: String,
+    averageStandardScore: String,
     numberOfStudents: Int,
-    pupilTeacherRatio: Float,
+    pupilTeacherRatio: String,
+    ): User
+
+    removeSchool(
+      schoolId: String!
     ): User
 
   }

@@ -4,6 +4,19 @@ import Auth from "../utils/auth";
 // refractor to use Apollo GraphQL API instead of RESTful API
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
+import Colors from "../utils/Colors";
+
+const styles = {
+  formLabel: {
+    color: Colors.DARK_ORANGE,
+    fontSize: "1.5rem",
+    fontFamily: "Crushed, sans-serif",
+  },
+  buttonIn:{
+    backgroundColor: Colors.TEAL,
+    borderColor: Colors.TEAL,
+    },
+};
 
 const SignupForm = () => {
   // set initial form state
@@ -30,18 +43,6 @@ const SignupForm = () => {
     setUserFormData({ ...userFormData, [name]: value });
   };
 
-  const handleChildNameChange = (event) => {
-    const index = event.target.id.split("-")[1];
-
-    const newChild = event.target.value;
-
-    let currentChild = userFormData.child;
-
-    currentChild[index] = newChild;
-
-    setUserFormData({ ...userFormData, child: currentChild });
-  }
-
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -53,6 +54,7 @@ const SignupForm = () => {
     }
 
     try {
+      console.log("userFormData:", userFormData);
       const { data } = await addUser({
         variables: userFormData,
       });
@@ -73,65 +75,15 @@ const SignupForm = () => {
     });
   };
 
-
-  // function renderNameForm () {
-  //   console.log(userFormData.childCount)
-  //   return (
-  //     <>
-  //       {
-  //         Array.from({ length: userFormData.childCount }).map((child, index) => {
-  //           return <Form.Control
-  //           type="string"
-  //           placeholder={`Child #${index+1} Full Name`}
-  //           name="child"
-  //           onChange={handleChildNameChange}
-  //           value={userFormData.child[index]}
-  //           id={`child-${index}`}
-           
-  //         />
-  //         })
-  //       }
-
-  //       </>
-  //   )
-  // }
-  //   function renderAgeGroupForm () {
-  //   console.log(userFormData.childCount)
-  //   return (
-  //     <>
-  //       {
-  //         Array.from({ length: userFormData.childCount }).map((ageGroup, index) => {
-  //           return <Form.Control 
-  //           id={`child-${index}`}
-  //           as="select"
-  //           type='string'
-  //           placeholder={`Child #${index+1} Age Group`}
-  //           name='ageGroup'
-            // onChange={handleInputChange}
-            // value={userFormData.child[index]}
-//             value={userFormData.ageGroup[index]}
-//           >
-//            <option value="0-5">0-5</option>
-//            <option value="6-18">6-18</option>
-//            <option value="18+">18+</option>
-//           </Form.Control>
-//           }
-//     )
-//   }
-
-//   </>
-//     )
-// }
-
-
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
     <>
+    
       {/* This is needed for the validation functionality above */}
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <Form style={{ border: "8px double #264653", borderRadius:"5px", padding: "20px" }} noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
         <Alert
           dismissible
@@ -143,7 +95,9 @@ const SignupForm = () => {
         </Alert>
 
         <Form.Group>
-          <Form.Label htmlFor="username">Username</Form.Label>
+          <Form.Label style={styles.formLabel} htmlFor="username">
+            Username
+          </Form.Label>
           <Form.Control
             type="text"
             placeholder="Your username"
@@ -156,27 +110,27 @@ const SignupForm = () => {
             Username is required!
           </Form.Control.Feedback>
         </Form.Group>
-                <Form.Group>
-          <Form.Label htmlFor="childCount">
+        <Form.Group>
+          <Form.Label style={styles.formLabel} htmlFor="childCount">
             Number of Children
           </Form.Label>
-          <Form.Control i
-            // id="childCount" 
+          <Form.Control
+            i
+            // id="childCount"
             as="select"
-            type='number'
-            placeholder='Number of Children'
-            name='childCount'
+            type="number"
+            placeholder="Number of Children"
+            name="childCount"
             onChange={handleInputChange}
             value={userFormData.childCount}
-           
           >
-           <option value="1">1</option>
-           <option value="2">2</option>
-           <option value="3">3</option>
-           <option value="4">4</option>
-           <option value="5">5</option>
-           <option value="6">6</option>
-           <option value="7">7</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
           </Form.Control>
         </Form.Group>
         {/* <Form.Group>
@@ -195,20 +149,27 @@ const SignupForm = () => {
 
         </Form.Group> */}
 
-
-
-        <Form.Label htmlFor="zipcode">Zipcode</Form.Label>
-        <Form.Control
-          type="string"
-          placeholder="Your zipcode"
-          name="zipcode"
-          onChange={handleInputChange}
-          value={userFormData.zipcode}
-          required
-        />
+<Form.Group>
+  <Form.Label style={styles.formLabel} htmlFor="zipcode">
+    Zipcode
+  </Form.Label>
+  <Form.Control
+    type="string"
+    placeholder="Your zipcode"
+    name="zipcode"
+    onChange={handleInputChange}
+    value={userFormData.zipcode}
+    required
+  />
+  <Form.Control.Feedback type="invalid">
+    Zipcode is required!
+  </Form.Control.Feedback>
+</Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor="email">Email</Form.Label>
+          <Form.Label style={styles.formLabel} htmlFor="email">
+            Email
+          </Form.Label>
           <Form.Control
             type="email"
             placeholder="Your email address"
@@ -223,7 +184,9 @@ const SignupForm = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor="password">Password</Form.Label>
+          <Form.Label style={styles.formLabel} htmlFor="password">
+            Password
+          </Form.Label>
           <Form.Control
             type="password"
             placeholder="Your password"
@@ -236,16 +199,15 @@ const SignupForm = () => {
             Password is required!
           </Form.Control.Feedback>
         </Form.Group>
-        <Button
+        <Button style={styles.buttonIn}
           disabled={
             !(
               userFormData.username &&
               userFormData.email &&
-              userFormData.password 
+              userFormData.password
             )
           }
           type="submit"
-          variant="success"
         >
           Submit
         </Button>

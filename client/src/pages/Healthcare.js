@@ -29,10 +29,10 @@ const styles = {
     backgroundColor: "#e76f51",
     color: "white",
     padding: "10px 20px",
-    borderRadius: "5px",
-    textDecoration: "bold",
+    borderRadius: "5px",   
     margin: "10px",
     decoration: "none",
+    fontSize: "15px",
   },
   welcomecontainer: {
     display: "flex",
