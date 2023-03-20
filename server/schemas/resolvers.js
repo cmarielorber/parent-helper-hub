@@ -6,11 +6,8 @@ const resolvers = {
   Query: {
     // retrieve the logged in user from the context and find the user details in the database
     me: async (parent, args, context) => {
-      console.log("*************inside resolvers Query me");
-      console.log("context.user: ", context.user);
       if (context.user) {
         data = await User.findOne({ _id: context.user._id });
-        console.log("data: ", data);
         return data;
       }
       throw new AuthenticationError('You need to be logged in!');

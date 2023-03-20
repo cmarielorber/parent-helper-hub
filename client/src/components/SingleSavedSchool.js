@@ -1,25 +1,19 @@
-import {Card} from "react-bootstrap";
-import Stars from "../components/Stars";
+import {Card, Button} from "react-bootstrap";
+import SchoolInfo from "./SchoolInfo";
 
-export default function SingleSchool({ school, handleSaveSchool, savedSchoolIds }) {
+export default function SingleSavedSchool({school, handleDeleteSchool}) {
 
   return (
-    <Card border="dark">
-      <Card.Body>
-        {<h6>{school.schoolLevel || ""} {school.lowGrade || ""}-{school.highGrade || ""}</h6>}
-        <Card.Title>{school.schoolName}</Card.Title>
-        <Card.Text>{`${school.street}, ${school.city}, ${school.state} ${school.zip}-${school.zip4}`}</Card.Text>
-        <Card.Text>{school.phone}</Card.Text>
-        <Card.Text>{school.districtName && `District: ${school.districtName}`}</Card.Text>
-        <Card.Text>{school.numberOfStudents && `Number of Students: ${school.numberOfStudents}`}</Card.Text>
-        <Card.Text>{school.pupilTeacherRatio && `Student-Teacher Ratio: ${school.pupilTeacherRatio}`}</Card.Text>
-        <Card.Text>{school.averageStandardScore && `Average Standard Score: ${school.averageStandardScore}`}</Card.Text>
-        <Card.Text>{school.rank && `Rank: ${school.rank} of ${school.rankOf} (${school.rankStatewidePercentage}%)`}</Card.Text>
-        <Card.Text>{school.rankStars && (<Stars rankStars={school.rankStars}/>)}</Card.Text>
-        <Card.Text>
-          {school.isCharterSchool==="Yes" && "Charter"} {school.isMagnateSchool==="Yes" && "Magnate"} {school.isVirtualSchool==="Yes" && "Virtual"} {school.isTitleISchool==="Yes" && "Title I"} {school.isTitleISchoolwideSchool==="Yes" && "Title I Schoolwide"}
-        </Card.Text>
-        </Card.Body>
+    <Card border="dark" className="school-card">
+      <Card.Body className="school-body">
+        <SchoolInfo school={school} />
+        <Button
+          className="btn-block btn-info"
+          onClick={() => handleDeleteSchool(school.schoolId)}
+        >
+          Remove this school!
+        </Button>
+      </Card.Body>
     </Card>
   );
 }

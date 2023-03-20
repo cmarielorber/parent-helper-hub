@@ -73,14 +73,12 @@ function Schools() {
     apiURL += `&level=${formState.searchLevel.trim()}`;
     apiURL += `&appID=${process.env.REACT_APP_API_ID}`;
     apiURL += `&appKey=${process.env.REACT_APP_API_KEY}`;
-    console.log("***********apiURL", apiURL);
 
     fetch(apiURL)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        console.log("***********data", data);
         const schoolData = data.schoolList.map((school) => ({
             schoolId: school.schoolid || "",
             schoolName: school.schoolName || "",
@@ -130,7 +128,6 @@ function Schools() {
 const handleSaveSchool = async (schoolId) => {
   // find the school in `searchedSchools` state by the matching id
   const schoolToSave = searchedSchools.find((school) => school.schoolId === schoolId);
-  console.log("*********schoolToSave", schoolToSave);
 
   if (!Auth.loggedIn()) {
     return false;

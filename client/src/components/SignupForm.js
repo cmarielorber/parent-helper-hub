@@ -30,18 +30,6 @@ const SignupForm = () => {
     setUserFormData({ ...userFormData, [name]: value });
   };
 
-  const handleChildNameChange = (event) => {
-    const index = event.target.id.split("-")[1];
-
-    const newChild = event.target.value;
-
-    let currentChild = userFormData.child;
-
-    currentChild[index] = newChild;
-
-    setUserFormData({ ...userFormData, child: currentChild });
-  }
-
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -73,57 +61,6 @@ const SignupForm = () => {
       // ageGroup: ""
     });
   };
-
-
-  // function renderNameForm () {
-  //   console.log(userFormData.childCount)
-  //   return (
-  //     <>
-  //       {
-  //         Array.from({ length: userFormData.childCount }).map((child, index) => {
-  //           return <Form.Control
-  //           type="string"
-  //           placeholder={`Child #${index+1} Full Name`}
-  //           name="child"
-  //           onChange={handleChildNameChange}
-  //           value={userFormData.child[index]}
-  //           id={`child-${index}`}
-           
-  //         />
-  //         })
-  //       }
-
-  //       </>
-  //   )
-  // }
-  //   function renderAgeGroupForm () {
-  //   console.log(userFormData.childCount)
-  //   return (
-  //     <>
-  //       {
-  //         Array.from({ length: userFormData.childCount }).map((ageGroup, index) => {
-  //           return <Form.Control 
-  //           id={`child-${index}`}
-  //           as="select"
-  //           type='string'
-  //           placeholder={`Child #${index+1} Age Group`}
-  //           name='ageGroup'
-            // onChange={handleInputChange}
-            // value={userFormData.child[index]}
-//             value={userFormData.ageGroup[index]}
-//           >
-//            <option value="0-5">0-5</option>
-//            <option value="6-18">6-18</option>
-//            <option value="18+">18+</option>
-//           </Form.Control>
-//           }
-//     )
-//   }
-
-//   </>
-//     )
-// }
-
 
   if (loading) {
     return <div>Loading...</div>;

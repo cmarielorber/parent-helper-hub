@@ -11,9 +11,7 @@ const Profile = () => {
     if (loading) {
       return <div>Loading...</div>;
     }
-    else {
-      console.log("data.me: ", data?.me);
-    }
+    
     return (
       <>
         <div className="flex-row justify-center mb-3">
