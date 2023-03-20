@@ -75,17 +75,16 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     
-    // // retrieve the logged in user from the context and remove the book from the user's savedBooks array
-    // removeBook: async (parent, { bookId }, context) => {
-    //   if (context.user) {
-    //     return User.findOneAndUpdate(
-    //       { _id: context.user._id },
-    //       { $pull: { savedBooks: { bookId: bookId } } },
-    //       { new: true }
-    //     );
-    //   }
-    //   throw new AuthenticationError('You need to be logged in!');
-    // },
+    removeSchool: async (parent, { schoolId }, context) => {
+      if (context.user) {
+        return User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { savedSchools: { schoolId: schoolId } } },
+          { new: true }
+        );
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
   },
 };
 

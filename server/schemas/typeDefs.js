@@ -98,6 +98,10 @@ const typeDefs = gql`
     pupilTeacherRatio: String,
     ): User
 
+    removeSchool(
+      schoolId: String!
+    ): User
+
   }
 `;
 

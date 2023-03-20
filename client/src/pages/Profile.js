@@ -1,17 +1,32 @@
-import { useQuery } from '@apollo/client';
-import { QUERY_ME } from '../utils/queries';
-import SingleSavedSchool from '../components/SingleSavedSchool';
-import { Container, CardColumns } from 'react-bootstrap';
+
 import React from 'react';
+import { useQuery, useMutation } from '@apollo/client';
+import { Container, CardColumns } from 'react-bootstrap';
+import { QUERY_ME } from '../utils/queries';
+import { REMOVE_SCHOOL } from '../utils/mutations';
+import SingleSavedSchool from '../components/SingleSavedSchool';
+import { removeSchoolId } from '../utils/localStorage';
 
 const Profile = () => {
     const { loading, data } = useQuery(QUERY_ME);
+    const [removeSchool] = useMutation(REMOVE_SCHOOL);
     const user = data?.me || {};
+  
+    async function handleDeleteSchool(schoolId) {
+      try {
+        await removeSchool({
+          variables: {schoolId: schoolId}
+        });
+        removeSchoolId(schoolId);
+      } catch (err) {
+        console.error(err);
+      }
+    }
   
     if (loading) {
       return <div>Loading...</div>;
     }
-    
+
     return (
       <>
         <div className="flex-row justify-center mb-3">
@@ -31,7 +46,9 @@ const Profile = () => {
               <CardColumns>
                 {user.savedSchools.map((school) => {
                   return (
-                    <SingleSavedSchool school={school} key={school.schoolId}/>
+
+                    <SingleSavedSchool school={school} key={school.schoolId} handleDeleteSchool={handleDeleteSchool}/>
+
                   );
                 })}
               </CardColumns>
