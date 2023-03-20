@@ -41,8 +41,6 @@ export const SAVE_SCHOOL = gql`
     $schoolId: String!
     $schoolName: String
     $phone: String
-    $latitude: Float
-    $longtitude: Float
     $street: String
     $city: String
     $state: String
@@ -60,17 +58,15 @@ export const SAVE_SCHOOL = gql`
     $rank: Int
     $rankOf: Int
     $rankStars: Int
-    $rankStatewidePercentage: Float
-    $averageStandardScore: Float
+    $rankStatewidePercentage: String
+    $averageStandardScore: String
     $numberOfStudents: Int
-    $pupilTeacherRatio: Float  
+    $pupilTeacherRatio: String  
   ) {
     saveSchool(
     schoolId: $schoolId
     schoolName: $schoolName
     phone: $phone
-    latitude: $latitude
-    longtitude: $longtitude
     street: $street
     city: $city
     state: $state

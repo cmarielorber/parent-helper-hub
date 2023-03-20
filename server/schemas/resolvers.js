@@ -7,7 +7,8 @@ const resolvers = {
     // retrieve the logged in user from the context and find the user details in the database
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id });
+        data = await User.findOne({ _id: context.user._id });
+        return data;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -32,7 +33,7 @@ const resolvers = {
     },
 
     addUser: async (parent, { username, email, password, childCount, zipcode }) => {
-      const user = await User.create({ username, email, password, childCount, zipcode, children: [], savedSchools: [] });
+      const user = await User.create({ username, email, password, childCount, zipcode});
       const token = signToken(user);
       
       return { token, user};
