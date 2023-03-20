@@ -7,7 +7,7 @@
   
   .school-level {
     color: var(--DARK);
-    font-size: 20px;
+    font-size: 2px;
     margin-bottom: 5px;
     border-bottom: #f4a261 2px dashed;
     display: flex;
