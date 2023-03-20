@@ -35,3 +35,6 @@
   padding: 0px;
 }
 
+.nav-pills .nav-link.active {
+  background-color: var(--DARK);
+}

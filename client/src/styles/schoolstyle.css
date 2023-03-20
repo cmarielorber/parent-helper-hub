@@ -6,8 +6,8 @@
   }
   
   .school-level {
-    font-size: 18px;
-    font-weight: bold;
+    color: var(--DARK);
+    font-size: 2px;
     margin-bottom: 5px;
     border-bottom: #f4a261 2px dashed;
     display: flex;
@@ -15,7 +15,8 @@
   }
   
   .school-name {
-    font-size: 24px;
+    color: var(--DARK);
+    font-size: 30px;
     font-weight: bold;
     margin-bottom: 10px;
     border: #264653 2px solid;
@@ -35,6 +36,8 @@
   .school-rank,
   .school-stars,
   .school-type {
+    color: var(--DARK);
+    font-size: 20px;
     margin-bottom: 5px;
     border-bottom: #f4a261 2px;
     display: flex;
