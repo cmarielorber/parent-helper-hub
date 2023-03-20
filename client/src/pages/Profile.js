@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { Container, CardColumns } from 'react-bootstrap';
@@ -45,7 +46,9 @@ const Profile = () => {
               <CardColumns>
                 {user.savedSchools.map((school) => {
                   return (
+
                     <SingleSavedSchool school={school} key={school.schoolId} handleDeleteSchool={handleDeleteSchool}/>
+
                   );
                 })}
               </CardColumns>
