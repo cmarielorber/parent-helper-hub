@@ -4,6 +4,10 @@
     margin: 10px;
   }
 
+  .welcomecontainer{
+    margin-top: 15rem;
+  }
+
   .searchresource{
     border: 8px double var(--DARK);
     border-radius: 10px;
@@ -11,8 +15,9 @@
     padding-top: 10px;
     background-color: var(--OFF_WHITE);
     color: var(--DARK_ORANGE);
+    font-family: 'Crushed', cursive;
   }
-  
+
   .searchposts{
     border: 8px double var(--DARK);
     border-radius: 10px;
@@ -20,8 +25,7 @@
     background-color: var(--OFF_WHITE);
     color: var(--DARK_ORANGE);
     width: 100%;
-    font-size: 25px;
-    font-weight: bold;
+    font-family: 'Crushed', cursive;
   }
 
   .searchButton{
@@ -35,8 +39,30 @@
     border-color: var(--TEAL);
   }
 
+  .btn-primary:not(:disabled):not(.disabled):active:focus{
+    background-color: var(--TEAL);
+    border-color: var(--TEAL);
+  }
+
+  .btn-primary:not(:disabled):not(.disabled):active{
+    background-color: var(--TEAL);
+    border-color: var(--TEAL);
+  }
+
+  .btn-primary:focus{
+    background-color: var(--TEAL);
+    border-color: var(--TEAL);
+    box-shadow: 0 0 0 0.2rem rgba(75, 81, 88, 0.5);
+  }
+
   .jumbotron{
     margin-bottom: 0px;
+  }
+   
+  .hCtEYE{
+    justify-content: center;
+    align-items: center;
+    justify-items: end;
   }
 
   /* .searchButton:after{
