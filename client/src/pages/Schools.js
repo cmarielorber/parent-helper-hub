@@ -97,13 +97,13 @@ function Schools() {
             isTitleISchool: school.isTitleISchool || "",
             isTitleISchoolwideSchool: school.isTitleISchoolwideSchool || "",
             districtName: school.district?.districtName || "",
-            rank: school.rankHistory?.[0].rank || "",
-            rankOf: school.rankHistory?.[0].rankOf || "",
-            rankStars: school.rankHistory?.[0].rankStars || "",
-            rankStatewidePercentage: school.rankHistory?.[0]?.rankStatewidePercentage?.toString() || "",
-            averageStandardScore: school.rankHistory?.[0]?.averageStandardScore?.toString() || "",
-            numberOfStudents: school.schoolYearlyDetails?.[0]?.numberOfStudents || "",
-            pupilTeacherRatio: school.schoolYearlyDetails?.[0]?.pupilTeacherRatio?.toString() || "",
+            rank: school.rankHistory?.[0].rank || null,
+            rankOf: school.rankHistory?.[0].rankOf || null,
+            rankStars: school.rankHistory?.[0].rankStars || null,
+            rankStatewidePercentage: school.rankHistory?.[0]?.rankStatewidePercentage || null,
+            averageStandardScore: school.rankHistory?.[0]?.averageStandardScore || null,
+            numberOfStudents: school.schoolYearlyDetails?.[0]?.numberOfStudents || null,
+            pupilTeacherRatio: school.schoolYearlyDetails?.[0]?.pupilTeacherRatio || null,
           }));
           setSearchedSchools(schoolData);
       })
@@ -126,6 +126,7 @@ function Schools() {
 
 // create function to handle saving a school to our database
 const handleSaveSchool = async (schoolId) => {
+  console.log("handleSaveSchool-schoolId",schoolId);
   // find the school in `searchedSchools` state by the matching id
   const schoolToSave = searchedSchools.find((school) => school.schoolId === schoolId);
 
