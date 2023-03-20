@@ -1,195 +1,107 @@
-import React, {useState} from 'react';
-import { Navigate, useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-// import { EditFrom } from '../components/EditForm';
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
-import Button from 'react-bootstrap/Button';
+import React from "react";
+import { useQuery, useMutation } from "@apollo/client";
+import { Container, CardColumns, Jumbotron, Card } from "react-bootstrap";
+import { QUERY_ME } from "../utils/queries";
+import { REMOVE_SCHOOL } from "../utils/mutations";
+import SingleSavedSchool from "../components/SingleSavedSchool";
+import { removeSchoolId } from "../utils/localStorage";
+import profileImg from "../assets/profileImg.png";
+import {
+  UserIcon,
+} from "../components/icons";
+import "../styles/pages.css";
 
-
-import Auth from '../utils/auth';
-import EditForm from '../components/EditForm';
-  // refactored to use GraphQL API instead of RESTful API
-//   const [login, { loading }] = useMutation(LOGIN_USER);
+const styles = {
+    bg: {
+      backgroundImage: `url(${profileImg}`,
+      Image: "cover",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      overFlow: "hidden",
+    },
+    profileicon: {
+      width: 150,
+      height: 150,
+      borderRadius: "50%",
+      border: "3px solid #000",
+    },
+    card:{
+      backgroundColor: "#f7ede2",
+      border: "5px double #264653 ",
+      borderRadius: "10px",
+    },
+    cardHeader:{
+      borderBottom: "5px double #264653 ",
+      textAlign: "center",
+      color: "#e76f51",
+      fontSize: "25px",
+      fontWeight: "bold",
+      fontFamily: 'Crushed, cursive',
+    },
+    cardBody:{
+      textAlign: "start",
+      color: "#e76f51",
+      fontSize: "20px",
+      fontFamily: 'Crushed, sans-serif',
+    },
+    cardBorder:{
+      borderBottom: "2px dotted #264653 ",
+    }
+  };
 
 const Profile = () => {
-    const { username: userParam } = useParams();
-    const  [isEdit, setIsEdit] = useState(false);
-   
-  
-    const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-      variables: { username: userParam },
-    });
-  
-    const user = data?.me || data?.user || {};
-    // navigate to personal profile page if username is yours
-    if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-      return <Navigate to="/me" />;
+  const { loading, data } = useQuery(QUERY_ME);
+  const [removeSchool] = useMutation(REMOVE_SCHOOL);
+  const user = data?.me || {};
+
+  async function handleDeleteSchool(schoolId) {
+    try {
+      await removeSchool({
+        variables: { schoolId: schoolId },
+      });
+      removeSchoolId(schoolId);
+    } catch (err) {
+      console.error(err);
     }
-  
-    if (loading) {
-      return <div>Loading...</div>;
-    }
-  
-    if (!user?.username) {
-      return (
-        <h4>
-          You need to be logged in to see this. Use the navigation links above to
-          sign up or log in!
-        </h4>
-      );
-    }
+  }
 
-    return (
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-        <div className="flex-row justify-center mb-3">
-            <h1>Profile page</h1>
- 
-            <h2 className="col-12 col-md-12 bg-dark text-light p-3 mb-5">Welcome to { `${user.username}'s`} profile!</h2>
+  return (
+    <>
+      <Jumbotron fluid className="jumbo pt-2" style={styles.bg}>
+        <Container 
+        className="welcomeUser d-flex flex-column justify-content-center align-items-center">  </Container>
+         <UserIcon style={styles.profileicon}/>
+         <Card style={{ width: "25%", ...styles.card }}>
+            <Card.Header  style={styles.cardHeader}className="cardHeader">Welcome, {`${user.username}`}</Card.Header>
+            <Card.Body style={styles.cardBody}className="cardBody">
+            <p className="prouser" style={styles.cardBorder}> Username: {`${user.username}`}</p>
+            <p style={styles.cardBorder} className="proemail"> Email: {`${user.email}`}</p>
+            <p style={styles.cardBorder} className="childnum"> Number of Children: {`${user.childCount}`}</p>
+            <p style={styles.cardBorder} className="zip"> Zipcode: {`${user.zipcode}`}</p>
+            </Card.Body>
+          </Card>
+     
+        <Container className="searchposts d-flex flex-column justify-content-center align-items-center ml-auto">
+          {`${user.username}'s`} SCHOOLS
+          <CardColumns>
+            {user.savedSchools.map((school) => {
+              return (
+                <SingleSavedSchool
+                  school={school}
+                  key={school.schoolId}
+                  handleDeleteSchool={handleDeleteSchool}
+                />
+              );
+            })}
+          </CardColumns>
+        </Container>
+      </Jumbotron>
+    </>
+  );
+};
 
-            <div> 
-                <h3 className="col-12 col-md-12 p-3 mb-5"> Personal Information </h3>
-            {/* to include information from child form and zipcode obtained during signup */}
-            <p class= "mx-3"> Username: {`${user.username}`}</p>
-            <p class= "mx-3"> Email: {`${user.email}`}</p>
-            {/* <p class= "mx-3"> Password: {`${user.password}`}</p> */}
-            <p class= "mx-3"> Number of Children: {`${user.childCount}`}
-            </p>
-            {/* <p class= "mx-3"> Children's Age Group:</p> */}
-            {/* <p class= "mx-3"> Children's Full Name:</p> */}
-            <p class= "mx-3"> Zipcode: {`${user.zipcode}`}
-            </p>
-            
-            {/* original code for edit button */}
-
-              <EditForm></EditForm>
-            
-            
-
-
-       
-            </div>
-            <div>
-                <h3 className="col-12 col-md-12"> Saved Searches </h3>
-
-                <p class= "mx-3"> Search List </p>
-
-                <div className="col-12 col-md-10 mb-5">
-             {/* <SearchList
-              searchSaves={user.saves}
-              title={`${user.username}'s saves...`}
-              showTitle={false}
-              showUsername={false}
-            />
-          </div>
-          {!userParam && (
-            <div
-              className="col-12 col-md-10 mb-3 p-3"
-              style={{ border: '1px dotted #1a1a1a' }}
-            >
-              <SearchForm /> */}
-            </div>
-
-
-
-
-            </div>
-
-
-            {/* <div> 
-                <h3 className="col-12 col-md-12 p-3 mb-5"> Quick Links </h3>
-               
-            
-            <button type="button" class="btn btn-success mx-2" data-mdb-ripple-color="dark" 
-            // onClick={search} 
-            >Education</button> */}
-
-              {/* same code as above but with link added */}
-              {/* link needs to be changed to correct link */}
-              {/* <button href = "https://www.khanacademy.org/"type="button" class="btn btn-success mx-2" data-mdb-ripple-color="dark" 
-            onClick={search} 
-            >Education</button> */}
-
-            {/* <button type="button" class="btn btn-info mx-2" data-mdb-ripple-color="dark" 
-            // onClick={search} 
-            >Housing</button> */}
-
-              {/* same code as above but with link added */}
-            {/* <button href = "https://www.cdss.ca.gov/benefits-services/more-services/housing-programs" type="button" class="btn btn-info mx-2" data-mdb-ripple-color="dark" 
-            onClick={search} 
-            >Housing</button> */}
-
-            {/* <button type="button" class="btn btn-secondary mx-2" data-mdb-ripple-color="dark" 
-            // onClick={search} 
-            >Legal</button> */}
-
-              {/* same code as above but with link added */}
-            {/* <button href = "https://selfhelp.courts.ca.gov/get-free-or-low-cost-legal-help" type="button" class="btn btn-secondary mx-2" data-mdb-ripple-color="dark" 
-            onClick={search} 
-            >Legal</button> */}
-           
-            {/* <button type="button" class="btn btn-warning mx-2" data-mdb-ripple-color="dark" 
-            // onClick={search} 
-            >Healthcare</button> */}
-
-            {/* same code as above but with link added */}
-           {/* <button href = "https://www.dmhc.ca.gov/healthcareincalifornia/resourcelist.aspx" type="button" class="btn btn-warning mx-2" data-mdb-ripple-color="dark" 
-            onClick={search} 
-            >Healthcare</button> */}
-            
-            
-            {/* </div> */}
-
-        </div>
-    )
-  
-    // Below is sample code to be used later for search saves //
-
-
-  
-    //       <div className="col-12 col-md-10 mb-5">
-    //         <SearchList
-    //           searchSaves={user.saves}
-    //           title={`${user.username}'s saves...`}
-    //           showTitle={false}
-    //           showUsername={false}
-    //         />
-    //       </div>
-    //       {!userParam && (
-    //         <div
-    //           className="col-12 col-md-10 mb-3 p-3"
-    //           style={{ border: '1px dotted #1a1a1a' }}
-    //         >
-    //           <SearchForm />
-    //         </div>
-    //       )}
-    //     </div>
-    //   </div>
-    // );
-  };
-  
-  export default Profile;
-
-
-
-//first iteration of code below - to be DELETED 
-
-  // function Profile() {
-//     // const {setAuthTokens} = authService(); 
-
-//     // const [userFormData, setUserFormData] = useState({username});
-    
-//     // var user = JSON.parse(localStorage.username('username'));
-
-//     return (
-//         <div>
-//             <h1>Profile page</h1>
-//             {/* <p>Welcome, {username}!</p> */}
-
-//             <button type="button" class="btn btn-warning" data-mdb-ripple-color="dark"
-//             // onClick={logout} 
-//             >Search</button>
-//         </div>
-//     )
-// }
-
-// export default Profile;
+export default Profile;

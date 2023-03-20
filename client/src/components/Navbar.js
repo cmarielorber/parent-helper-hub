@@ -6,6 +6,8 @@ import LoginForm from "./LoginForm";
 import Colors from "../utils/Colors";
 import Auth from "../utils/auth";
 import "../styles/navbar.css";
+import welcomeImg from "../assets/welcomeImg.png";
+
 import {
   HealthIcon,
   HouseIcon,
@@ -17,12 +19,23 @@ import {
 import { Logo } from "./images";
 
 const styles = {
+  formbg: {
+    backgroundImage: `url(${welcomeImg})`,
+    Image: "cover",
+    backgroundSize: "cover",
+    backgroundPosition: "center -120px",
+    overFlow: "hidden",
+  },
+  loginsign: {
+    color: "white",
+  },
   navbar: {
     backgroundColor: Colors.DARK,
     position: "fixed",
     top: "0",
     width: "100%",
     zIndex: "1",
+    fontFamily: "Crushed, cursive",
   },
   link: {
     color: Colors.YELLOW,
@@ -31,10 +44,11 @@ const styles = {
     innerWidth: "100px",
     innerHeight: "100px",
   },
-  navdrop: {
-    backgroundColor: Colors.DARK,
-    color: Colors.YELLOW,
-  },
+  modalBody:{
+    backgroundColor: Colors.OFF_WHITE,
+    fontFamily: "Crushed, sans-serif",
+    borderRadius: "10px",
+  }
 };
 
 const AppNavbar = () => {
@@ -102,19 +116,19 @@ const AppNavbar = () => {
       >
         {/* tab container to do either signup or login component */}
         <Tab.Container defaultActiveKey="login">
-          <Modal.Header closeButton>
+          <Modal.Header style={styles.formbg} closeButton>
             <Modal.Title id="signup-modal">
               <Nav variant="pills">
                 <Nav.Item>
-                  <Nav.Link eventKey="login">Login</Nav.Link>
+                  <Nav.Link style={styles.loginsign} eventKey="login">Login</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="signup">Sign Up</Nav.Link>
+                  <Nav.Link style={styles.loginsign} eventKey="signup">Sign Up</Nav.Link>
                 </Nav.Item>
               </Nav>
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body style={styles.modalBody}>
             <Tab.Content>
               <Tab.Pane eventKey="login">
                 <LoginForm handleModalClose={() => setShowModal(false)} />

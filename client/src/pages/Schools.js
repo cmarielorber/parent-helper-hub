@@ -18,6 +18,18 @@ const styles = {
     backgroundSize: "fill",
     backgroundPosition: "center",
   },
+  font:{
+    fontFamily: 'Crushed, cursive',
+    fontSize: "35px",
+  },
+  fontView:{
+    fontFamily: 'Crushed, cursive',
+    fontSize: "25px",
+  },
+  fontSearch:{
+    fontFamily: 'Crushed, cursive',
+    fontSize: "15px",
+  },
   formstyle: {
     border: "5px dotted #264653 ",
     borderRadius: "10px",
@@ -61,20 +73,16 @@ function Schools() {
     apiURL += `&level=${formState.searchLevel.trim()}`;
     apiURL += `&appID=${process.env.REACT_APP_API_ID}`;
     apiURL += `&appKey=${process.env.REACT_APP_API_KEY}`;
-    console.log("***********apiURL", apiURL);
 
     fetch(apiURL)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        console.log("***********data", data);
         const schoolData = data.schoolList.map((school) => ({
             schoolId: school.schoolid || "",
             schoolName: school.schoolName || "",
             phone: school.phone || "",
-            latitude: school.address?.latLong?.latitude || "",
-            longtitude: school.address?.latLong?.longitude || "",
             street: school.address?.street || "",
             city: school.address?.city  || "",
             state: school.address?.state || "",
@@ -92,10 +100,10 @@ function Schools() {
             rank: school.rankHistory?.[0].rank || "",
             rankOf: school.rankHistory?.[0].rankOf || "",
             rankStars: school.rankHistory?.[0].rankStars || "",
-            rankStatewidePercentage: school.rankHistory?.[0]?.rankStatewidePercentage || "",
-            averageStandardScore: school.rankHistory?.[0]?.averageStandardScore || "",
+            rankStatewidePercentage: school.rankHistory?.[0]?.rankStatewidePercentage?.toString() || "",
+            averageStandardScore: school.rankHistory?.[0]?.averageStandardScore?.toString() || "",
             numberOfStudents: school.schoolYearlyDetails?.[0]?.numberOfStudents || "",
-            pupilTeacherRatio: school.schoolYearlyDetails?.[0]?.pupilTeacherRatio || "",
+            pupilTeacherRatio: school.schoolYearlyDetails?.[0]?.pupilTeacherRatio?.toString() || "",
           }));
           setSearchedSchools(schoolData);
       })
@@ -120,7 +128,6 @@ function Schools() {
 const handleSaveSchool = async (schoolId) => {
   // find the school in `searchedSchools` state by the matching id
   const schoolToSave = searchedSchools.find((school) => school.schoolId === schoolId);
-  console.log("*********schoolToSave", schoolToSave);
 
   if (!Auth.loggedIn()) {
     return false;
@@ -232,13 +239,13 @@ const handleSaveSchool = async (schoolId) => {
           </Form.Row>
         </Form>
       </Container>
-      <Container className="searchposts d-flex flex-column justify-content-center align-items-center"> SCHOOLS
-      <h2>
+      <Container className="searchposts d-flex flex-column justify-content-center align-items-center" style={styles.font}> SCHOOLS
+      <h2 style={styles.fontView}>
           {searchedSchools.length
             ? `Viewing ${searchedSchools.length} results:`
-            : ''}
+            : '' }
         </h2>
-        <CardColumns>
+        <CardColumns style={styles.fontSearch} >
           {searchedSchools.map((school) => {
             return (
               <SingleSchool school={school} key={school.schoolId} handleSaveSchool={handleSaveSchool} savedSchoolIds={savedSchoolIds}/>

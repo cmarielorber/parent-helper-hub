@@ -1,48 +1,145 @@
-  .form-group{
-    color: var(--DARK_ORANGE);
-    font-size: 1.2rem;
-    margin: 10px;
-  }
+.form-group {
+  color: var(--DARK_ORANGE);
+  font-size: 1.2rem;
+  margin: 10px;
+}
 
-  .searchresource{
-    border: 8px double var(--DARK);
-    border-radius: 10px;
-    margin-top: 15rem;
-    padding-top: 10px;
-    background-color: var(--OFF_WHITE);
-    color: var(--DARK_ORANGE);
-  }
-  
-  .searchposts{
-    border: 8px double var(--DARK);
-    border-radius: 10px;
-    margin-top: 25px;
-    background-color: var(--OFF_WHITE);
-    color: var(--DARK_ORANGE);
-    width: 100%;
-    font-size: 25px;
-    font-weight: bold;
-  }
+.welcomeContainer {
+  margin-top: 15rem;
+}
 
-  .searchButton{
-    background-color: var(--DARK_ORANGE);
-    border-color: var(--DARK_ORANGE);
-    font-weight: 600;
-  }
+.welcomeUser {
+  margin-top: 15rem;
+}
 
-  .searchButton:hover{
-    background-color: var(--TEAL);
-    border-color: var(--TEAL);
-  }
+/* .profileicon {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #000;
+} */
 
-  .jumbotron{
-    margin-bottom: 0px;
-  }
+.profileInfo {
+  background-color: var(--OFF_WHITE);
+  border: 8px double var(--DARK);
+  border-radius: 10px;
+  color: var(--DARK_ORANGE);
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-  /* .searchButton:after{
-    background-color: var(--DARK);
-    border-color: var(--ORANGE);
-  } */
+.personalInfo {
+  display: flex;
+  flex-direction: column;
+}
 
-  
+.searchresource {
+  border: 8px double var(--DARK);
+  border-radius: 10px;
+  margin-top: 15rem;
+  padding-top: 10px;
+  background-color: var(--OFF_WHITE);
+  color: var(--DARK_ORANGE);
+  font-family: "Crushed", cursive;
+}
 
+.searchposts {
+  border: 8px double var(--DARK);
+  border-radius: 10px;
+  margin-top: 25px;
+  background-color: var(--OFF_WHITE);
+  color: var(--DARK_ORANGE);
+  width: 100%;
+  font-family: "Crushed", cursive;
+}
+
+.searchButton {
+  background-color: var(--DARK_ORANGE);
+  border-color: var(--DARK_ORANGE);
+  font-weight: 600;
+}
+
+.searchButton:hover {
+  background-color: var(--TEAL);
+  border-color: var(--TEAL);
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus {
+  background-color: var(--TEAL);
+  border-color: var(--TEAL);
+}
+
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: var(--TEAL);
+  border-color: var(--TEAL);
+}
+
+.btn-primary:focus {
+  background-color: var(--TEAL);
+  border-color: var(--TEAL);
+  box-shadow: 0 0 0 0.2rem rgba(75, 81, 88, 0.5);
+}
+
+.jumbotron {
+  margin-bottom: 0px;
+}
+
+.footer {
+  padding-top: 10px;
+  font-family: "Crushed", cursive;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  background-color: var(--DARK);
+  color: var(--YELLOW);
+  text-align: center;
+}
+
+.footer-bottom {
+  margin-top: 5px;
+  text-align: center;
+  font-size: x-small;
+}
+
+.team {
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+.team-member {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.githublink {
+  color: var(--YELLOW);
+  text-decoration: none;
+}
+
+.github-icon:hover g {
+  fill: var(--DARK_ORANGE);
+}
+
+.githublink:hover {
+  color: var(--DARK_ORANGE);
+  text-decoration: none;
+}
+
+.first-name {
+  margin-bottom: 5px;
+}
+
+.donations {
+  background-color: var(--OFF_WHITE);
+  color: var(--DARK_ORANGE);
+  border-radius: 8px;
+}
