@@ -200,17 +200,18 @@ export function SchoolIcon() {
 export function GithubIcon() {
   return (
     <svg
-      width="30px"
-      height="30px"
+    className="github-icon"
+      width="50px"
+      height="50px"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       fill="#e9c46a"
     >
-      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></g>
       <g id="SVGRepo_iconCarrier">
         {" "}
