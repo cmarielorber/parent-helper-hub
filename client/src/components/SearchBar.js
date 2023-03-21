@@ -5,12 +5,12 @@ import { MDBCol } from "mdbreact";
 const styles= {
     button: {
         // backgroundColor: "none",
-        border: "1px solid #e9c46a",
+        border: "0.1rem solid #e9c46a",
         color: Colors.YELLOW,
         
       },
       search: {
-        margin: "5px",
+        margin: ".5rem",
       },
 };
 

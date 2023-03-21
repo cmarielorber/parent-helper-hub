@@ -22,30 +22,30 @@ const styles = {
     profileicon: {
       width: 150,
       height: 150,
-      borderRadius: "50%",
-      border: "3px solid #000",
+      borderRadius: ".5rem",
+      border: ".3rem solid #000",
     },
     card:{
       backgroundColor: "#f7ede2",
-      border: "5px double #264653 ",
-      borderRadius: "10px",
+      border: ".5rem double #264653 ",
+      borderRadius: "1rem",
     },
     cardHeader:{
-      borderBottom: "5px double #264653 ",
+      borderBottom: ".5rem double #264653 ",
       textAlign: "center",
       color: "#e76f51",
-      fontSize: "25px",
+      fontSize: "1.25rem",
       fontWeight: "bold",
       fontFamily: 'Crushed, cursive',
     },
     cardBody:{
       textAlign: "start",
       color: "#e76f51",
-      fontSize: "20px",
+      fontSize: "1rem",
       fontFamily: 'Crushed, sans-serif',
     },
     cardBorder:{
-      borderBottom: "2px dotted #264653 ",
+      borderBottom: ".2rem dotted #264653 ",
     }
   };
 

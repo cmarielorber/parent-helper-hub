@@ -14,9 +14,9 @@ const styles = {
     overFlow: "hidden",
   },
   divstyle: {
-    border: "5px dotted #264653 ",
-    borderRadius: "10px",
-    margin: "10px",
+    border: ".5rem dotted #264653 ",
+    borderRadius: "1rem",
+    margin: "1rem",
     backgroundColor: "#f7ede2",
     width: "100%",
     height: "100%",
@@ -25,8 +25,8 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     backgroundColor: "#f7ede2",
-    padding: "10px 20px",
-    borderRadius: "5px",
+    padding: "1rem 2rem",
+    borderRadius: ".5rem",
     textDecoration: "bold",
     decoration: "none",
     width: "60%",
@@ -35,8 +35,8 @@ const styles = {
   welcometext: {
     display: "flex",
     justifyContent: "center",
-    margin: "10px",
-    padding: "10px 20px",
+    margin: "1rem",
+    padding: "1rem 2rem",
   },
 };
 
