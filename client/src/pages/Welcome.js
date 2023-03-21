@@ -12,7 +12,6 @@ const styles = {
     backgroundSize: "cover",
     backgroundPosition: "center",
     overFlow: "hidden",
-    height: "100%"
   },
   divstyle: {
     border: "5px dotted #264653 ",

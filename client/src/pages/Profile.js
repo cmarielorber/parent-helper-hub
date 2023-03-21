@@ -18,7 +18,6 @@ const styles = {
       backgroundSize: "cover",
       backgroundPosition: "center",
       overFlow: "hidden",
-      height: "100%"
     },
     profileicon: {
       width: 150,
