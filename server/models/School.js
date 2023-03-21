@@ -27,10 +27,10 @@ const schoolSchema = new Schema({
   rank: {type: Number},
   rankOf: {type: Number},
   rankStars: {type: Number},
-  rankStatewidePercentage: {type: String},
-  averageStandardScore: {type: String},
+  rankStatewidePercentage: {type: Number, float: true},
+  averageStandardScore: {type: Number, float: true},
   numberOfStudents: {type: Number},
-  pupilTeacherRatio: {type: String},
+  pupilTeacherRatio: {type: Number, float: true},
 });
 
 module.exports = schoolSchema;

@@ -38,10 +38,10 @@ const typeDefs = gql`
     rank: Int
     rankOf: Int
     rankStars: Int
-    rankStatewidePercentage: String
-    averageStandardScore: String
+    rankStatewidePercentage: Float
+    averageStandardScore: Float
     numberOfStudents: Int
-    pupilTeacherRatio: String
+    pupilTeacherRatio: Float
   }
   
   type Query {
@@ -92,10 +92,10 @@ const typeDefs = gql`
     rank: Int,
     rankOf: Int,
     rankStars: Int,
-    rankStatewidePercentage: String,
-    averageStandardScore: String,
+    rankStatewidePercentage: Float,
+    averageStandardScore: Float,
     numberOfStudents: Int,
-    pupilTeacherRatio: String,
+    pupilTeacherRatio: Float,
     ): User
 
     removeSchool(
