@@ -3,14 +3,14 @@
   font-size: 1.2rem;
   margin: 10px;
 }
-
+/* 
 .welcomeContainer {
   margin-top: 15rem;
 }
 
 .welcomeUser {
   margin-top: 15rem;
-}
+} */
 
 /* .profileicon {
   width: 150px;
@@ -39,7 +39,7 @@
 .searchresource {
   border: 8px double var(--DARK);
   border-radius: 10px;
-  margin-top: 15rem;
+  /* margin-top: 15rem; */
   padding-top: 10px;
   background-color: var(--OFF_WHITE);
   color: var(--DARK_ORANGE);
@@ -52,7 +52,6 @@
   margin-top: 25px;
   background-color: var(--OFF_WHITE);
   color: var(--DARK_ORANGE);
-  width: 100%;
   font-family: "Crushed", cursive;
 }
 
