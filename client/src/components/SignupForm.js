@@ -12,10 +12,10 @@ const styles = {
     fontSize: "1.5rem",
     fontFamily: "Crushed, sans-serif",
   },
-  buttonIn:{
+  buttonIn: {
     backgroundColor: Colors.TEAL,
     borderColor: Colors.TEAL,
-    },
+  },
 };
 
 const SignupForm = () => {
@@ -24,10 +24,7 @@ const SignupForm = () => {
     username: "",
     email: "",
     password: "",
-    childCount: 1,
-    // child: [],
     zipcode: "",
-    // ageGroup: ""
   });
   // set state for form validation
   const [validated] = useState(false);
@@ -68,12 +65,12 @@ const SignupForm = () => {
       username: "",
       email: "",
       password: "",
-      childCount: 1,
-      // child: [],
       zipcode: "",
-      // ageGroup: ""
     });
   };
+
+
+
 
   if (loading) {
     return <div>Loading...</div>;
@@ -81,9 +78,13 @@ const SignupForm = () => {
 
   return (
     <>
-    
+
       {/* This is needed for the validation functionality above */}
+<<<<<<< HEAD
       <Form style={{ border: ".8rem double #264653", borderRadius:".5rem", padding: "2rem" }} noValidate validated={validated} onSubmit={handleFormSubmit}>
+=======
+      <Form style={{ border: "8px double #264653", borderRadius: "5px", padding: "20px" }} noValidate validated={validated} onSubmit={handleFormSubmit}>
+>>>>>>> c82351e24b289bca31f234e393521adca76e5aee
         {/* show alert if server response is bad */}
         <Alert
           dismissible
@@ -110,61 +111,23 @@ const SignupForm = () => {
             Username is required!
           </Form.Control.Feedback>
         </Form.Group>
+
         <Form.Group>
-          <Form.Label style={styles.formLabel} htmlFor="childCount">
-            Number of Children
+          <Form.Label style={styles.formLabel} htmlFor="zipcode">
+            Zipcode
           </Form.Label>
           <Form.Control
-            i
-            // id="childCount"
-            as="select"
-            type="number"
-            placeholder="Number of Children"
-            name="childCount"
+            type="string"
+            placeholder="Your zipcode"
+            name="zipcode"
             onChange={handleInputChange}
-            value={userFormData.childCount}
-          >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-          </Form.Control>
+            value={userFormData.zipcode}
+            required
+          />
+          <Form.Control.Feedback type="invalid">
+            Zipcode is required!
+          </Form.Control.Feedback>
         </Form.Group>
-        {/* <Form.Group>
-          <Form.Label htmlFor="child">Child's Full Name</Form.Label>
-          {
-            renderNameForm()
-          }
-        </Form.Group>
-        <Form.Group>
-          <Form.Label htmlFor="ageGroup">
-            Child's Age Group
-          </Form.Label>
-           {
-            renderAgeGroupForm()
-          }
-
-        </Form.Group> */}
-
-<Form.Group>
-  <Form.Label style={styles.formLabel} htmlFor="zipcode">
-    Zipcode
-  </Form.Label>
-  <Form.Control
-    type="string"
-    placeholder="Your zipcode"
-    name="zipcode"
-    onChange={handleInputChange}
-    value={userFormData.zipcode}
-    required
-  />
-  <Form.Control.Feedback type="invalid">
-    Zipcode is required!
-  </Form.Control.Feedback>
-</Form.Group>
 
         <Form.Group>
           <Form.Label style={styles.formLabel} htmlFor="email">
@@ -199,19 +162,19 @@ const SignupForm = () => {
             Password is required!
           </Form.Control.Feedback>
         </Form.Group>
-        <Container style={{textAlign: "center"}}>
-        <Button style={styles.buttonIn}
-          disabled={
-            !(
-              userFormData.username &&
-              userFormData.email &&
-              userFormData.password
-            )
-          }
-          type="submit"
-        >
-          Submit
-        </Button>
+        <Container style={{ textAlign: "center" }}>
+          <Button style={styles.buttonIn}
+            disabled={
+              !(
+                userFormData.username &&
+                userFormData.email &&
+                userFormData.password
+              )
+            }
+            type="submit"
+          >
+            Submit
+          </Button>
         </Container>
       </Form>
     </>

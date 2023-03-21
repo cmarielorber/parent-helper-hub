@@ -240,7 +240,7 @@ const handleSaveSchool = async (schoolId) => {
           </Form.Row>
         </Form>
       </Container>
-      <Container className="searchposts d-flex flex-column justify-content-center align-items-center" style={styles.font}> SCHOOLS
+      <Container className="searchposts d-flex flex-column align-items-center" style={styles.font}> SCHOOLS
       <h2 style={styles.fontView}>
           {searchedSchools.length
             ? `Viewing ${searchedSchools.length} results:`

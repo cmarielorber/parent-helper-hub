@@ -8,8 +8,16 @@
     --BLACK: #000000;
 };
 
+html {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   font-family: 'Crushed', sans-serif;
+  background-color: var(--DARK);
+  width: 100%;
+  height: 100%;
 };
 
 h1,
@@ -20,6 +28,14 @@ h5,
 h6 {
   font-family: 'Rubik Mono One', sans-serif;
 };
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 .small {
   font-weight: 300;

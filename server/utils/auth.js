@@ -7,7 +7,7 @@ const expiration = '2h';
 
 module.exports = {
   // function for our authenticated routes
-  authMiddleware: function ({req}) {
+  authMiddleware: function ({req, res}) {
     // get token from header
     let token = req.headers.authorization;
 

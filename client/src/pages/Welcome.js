@@ -45,6 +45,7 @@ function Welcome() {
 
 
   return (
+    <>
     <Jumbotron fluid className="jumbo pt-2" style={styles.jumbotron}>
       <Container
         className="welcomeContainer d-flex flex-column justify-content-center align-items-center"
@@ -84,6 +85,7 @@ function Welcome() {
         </div>
       </Container>
     </Jumbotron>
+    </>
   );
 }
 
