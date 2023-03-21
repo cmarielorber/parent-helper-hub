@@ -73,9 +73,9 @@ const LoginForm = () => {
     <>
       <Form
         style={{
-          border: "8px double #264653",
-          borderRadius: "5px",
-          padding: "20px",
+          border: ".8rem double #264653",
+          borderRadius: ".5rem",
+          padding: "2rem",
         }}
         noValidate
         validated={validated}

@@ -11,42 +11,42 @@ import "../styles/pages.css";
 import EditForm from "../components/EditForm";
 
 const styles = {
-  bg: {
-    backgroundImage: `url(${profileImg}`,
-    Image: "cover",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    overFlow: "hidden",
-  },
-  profileicon: {
-    width: 150,
-    height: 150,
-    borderRadius: "50%",
-    border: "3px solid #000",
-  },
-  card: {
-    backgroundColor: "#f7ede2",
-    border: "5px double #264653 ",
-    borderRadius: "10px",
-  },
-  cardHeader: {
-    borderBottom: "5px double #264653 ",
-    textAlign: "center",
-    color: "#e76f51",
-    fontSize: "25px",
-    fontWeight: "bold",
-    fontFamily: "Crushed, cursive",
-  },
-  cardBody: {
-    textAlign: "start",
-    color: "#e76f51",
-    fontSize: "20px",
-    fontFamily: "Crushed, sans-serif",
-  },
-  cardBorder: {
-    borderBottom: "2px dotted #264653 ",
-  },
-};
+    bg: {
+      backgroundImage: `url(${profileImg}`,
+      Image: "cover",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      overFlow: "hidden",
+    },
+    profileicon: {
+      width: 150,
+      height: 150,
+      borderRadius: ".5rem",
+      border: ".3rem solid #000",
+    },
+    card:{
+      backgroundColor: "#f7ede2",
+      border: ".5rem double #264653 ",
+      borderRadius: "1rem",
+    },
+    cardHeader:{
+      borderBottom: ".5rem double #264653 ",
+      textAlign: "center",
+      color: "#e76f51",
+      fontSize: "1.25rem",
+      fontWeight: "bold",
+      fontFamily: 'Crushed, cursive',
+    },
+    cardBody:{
+      textAlign: "start",
+      color: "#e76f51",
+      fontSize: "1rem",
+      fontFamily: 'Crushed, sans-serif',
+    },
+    cardBorder:{
+      borderBottom: ".2rem dotted #264653 ",
+    }
+  };
 
 const Profile = () => {
   const { loading, data } = useQuery(QUERY_ME);
