@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { Form, Modal, Button, Alert } from "react-bootstrap";
+import { Form, Modal, Button } from "react-bootstrap";
 // import { Form, Button, Alert } from "react-bootstrap";
 import Auth from "../utils/auth";
 // refractor to use Apollo GraphQL API instead of RESTful API
-import { useMutation } from "@apollo/client";
-import { ADD_USER, SAVE_USER } from "../utils/mutations";
+import { useMutation, useQuery } from "@apollo/client";
+import { UPDATE_USER, SAVE_USER } from "../utils/mutations";
+import { saveUserId } from "../utils/localStorage";
+import Colors from "../utils/Colors";
+import { QUERY_ME } from "../utils/queries";
 // import { QUERY_USER, QUERY_ME } from '../utils/queries';
 // create QUERY for child
 
@@ -14,27 +17,65 @@ import { ADD_USER, SAVE_USER } from "../utils/mutations";
 // import { saveEditFormIds, getEditFormIds } from '../utils/localStorage';
 // import {SAVE_USER} from '../utils/mutations';
 
+
+const styles = {
+  formLabel: {
+    color: Colors.DARK_ORANGE,
+    fontSize: "1.5rem",
+    fontFamily: "Crushed, sans-serif",
+  },
+  buttonIn: {
+    backgroundColor: Colors.TEAL,
+    borderColor: Colors.TEAL,
+  },
+};
+
+
 const EditForm = () => {
-  console.log("inside EditForm");
+  
   // set initial form state
   const [userFormData, setUserFormData] = useState({
-    username: "",
     email: "",
-    password: "",
-    childCount: 1,
-    child: [],
     zipcode: "",
-    ageGroup: "",
   });
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
+  const { loading, data } = useQuery(QUERY_ME);
+
   const [show, setShow] = useState(false);
   // const [savedUserIds, setSavedUserIds] = useState(getSavedUserIds());
-  const [saveUser, {loading}] = useMutation(SAVE_USER);
+  const [saveUser] = useMutation(SAVE_USER);
   // get a function 'addUser' returned by useMutation hook
   // to execute the ADD_USER mutation in the functions below
   // const [addUser, { loading }] = useMutation(ADD_USER);
+
+  if (loading) {
+    return <div>Loading...</div>;
+    
+  }
+
+  const user = data?.me || {};
+
+  console.log(user)
+
+
+  // async function handleUpdateForm(email, zipcode) {
+
+  //   try {
+  //     await saveUser({
+  //       variables: {
+  //         email: email,
+  //         zipcode: zipcode,
+          
+  //       }
+  //     });
+
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // }
+
 
   // keep this code lines 33-37
   const handleInputChange = (event) => {
@@ -43,234 +84,136 @@ const EditForm = () => {
   };
 
   const handleShow = () => setShow(true);
-  const handleSave = () => {
-      setShow(false);
-    // get user input 
-    console.log("user input:", userFormData);
-    // save user input in database
-
-  //   // if okay display message "your updates have been saved
-  //   // close the modal 
-  }
-  const handleClose = () => setShow(false);
-
-  // const handleChildNameChange = (event) => {
-  //   const index = event.target.id.split("-")[1];
-
-  //   const newChild = event.target.value;
-
-  //   let currentChild = userFormData.Child;
-
-  //   currentChild[index] = newChild;
-
-  //   setUserFormData({ ...userFormData, child: currentChild });
-  // };
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
-    // check if form has everything (as per react-bootstrap docs)
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
+  const  handleSave = async () => {
+    setShow(false);
+    // save edit input to database
     try {
+      console.log("user input:", userFormData);
       const { data } = await saveUser({
         variables: userFormData,
       });
-      Auth.login(data.saveUser.token);
+      //Auth.login(data.saveUser.token);
     } catch (err) {
       console.log(err);
       setShow(true);
     }
 
     setUserFormData({
-      username: "",
       email: "",
-      password: "",
-      childCount: [],
-      // child: [],
       zipcode: "",
-      // ageGroup: ""
     });
-  };
+    
+    // save user input in database
+  }
+  const handleClose = () => setShow(false);
 
-  // // ===== For future updates on childcount and names ===== // //
 
-  //   function renderNameForm () {
-  //     console.log(userFormData.childCount)
-  //     return (`
-  //       <>
-  //         {
-  //           Array.from({ length: userFormData.childCount }).map((child, index) => {
-  //             return <Form.Control
-  //             type="string"
-  //             placeholder={`Child #${index+1} Full Name`}
-  //             name="child"
-  //             onChange={handleChildNameChange}
-  //             value={userFormData.child[index]}
-  //             id={`child-${index}`}
-  //           />
-  //           })
-  //         }
-  //         </>
-  //     )
+  // const handleFormSubmit = async (event) => {
+  //   event.preventDefault();
+
+  //   // check if form has everything (as per react-bootstrap docs)
+  //   const form = event.currentTarget;
+  //   if (form.checkValidity() === false) {
+  //     event.preventDefault();
+  //     event.stopPropagation();
   //   }
 
-  //   function renderAgeGroupForm () {
-  //     console.log(userFormData.childCount)
-  //     return (
-  //       <>
-  //         {
-  //           Array.from({ length: userFormData.childCount }).map((ageGroup, index) => {
-  //             return <Form.Control
-  //             id={`child-${index}`}
-  //             as="select"
-  //             type='string'
-  //             placeholder= {`Child #${index+1} Age Group`}
-  //             name='ageGroup'
-  //             onChange={handleInputChange}
-  //             value={userFormData.ageGroup[index]}
-  //           >
-  //            <option value="0-5">0-5</option>
-  //            <option value="6-18">6-18</option>
-  //            <option value="18+">18+</option>
-  //           </Form.Control>
-  //           }
-  //     )
+  //   try {
+  //     const { data } = await saveUser({
+  //       variables: userFormData,
+  //     });
+  //     Auth.login(data.saveUser.token);
+  //   } catch (err) {
+  //     console.log(err);
+  //     setShow(true);
   //   }
-  //   </>
-  //     )
-  // }
+
+  //   setUserFormData({
+  //     username: "",
+  //     email: "",
+  //     password: "",
+  //     zipcode: "",
+  //   });
+  // };
+
+ 
 
   if (loading) {
     return <div>Loading...</div>;
   }
+
   return (
-   
-   <>
+
+    <>
       <div
 
-      >      
-        <Button variant="primary" onClick={handleShow}>
-        Edit Profile
+      >
+        <Button style={styles.buttonIn} variant="primary" onClick={handleShow}>
+          Edit Profile
         </Button>
         <Modal
-        show={show}
-        onHide={handleClose}
+          show={show}
+          onHide={handleClose}
 
-      >
-        <Modal.Dialog show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Update Profile</Modal.Title>
-          </Modal.Header>
+        >
+          <Modal.Dialog show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Update Profile</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <p>
+                {" "}
+                Update items that need to be edited, ensure to hit 'Save Changes'
+              </p>
+              <Form.Group>
+                <Form.Label style={styles.formLabel} htmlFor="zipcode"> Update Zipcode</Form.Label>
+                <Form.Control
+                  type="string"
+                  placeholder="Your zipcode"
+                  name="zipcode"
+                  onChange={handleInputChange}
+                  value={userFormData.zipcode}
+                  required
+                />
+              </Form.Group>
 
+              <Form.Group>
+                <Form.Label style={styles.formLabel} htmlFor="email">Change Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Your email address"
+                  name="email"
+                  onChange={handleInputChange}
+                  value={userFormData.email}
+                  required
+                />
+              </Form.Group>
 
+            </Modal.Body>
 
-
-          <Modal.Body>
-            <p>
-              {" "}
-              Update items that need to be edited, ensure to hit 'Save Changes'
-            </p>
-            <Form.Group>
-              <Form.Label htmlFor="childCount">
-                Update Number of Children
-              </Form.Label>
-              <Form.Control
-                id="childCount"
-                as="select"
-                type="number"
-                placeholder="Number of Children"
-                name="childCount"
-                onChange={handleInputChange}
-                value={userFormData.childCount}
-              >
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-              </Form.Control>
-            </Form.Group>
-
-            {/* <Form.Group>
-          <Form.Label htmlFor="child">Update Child's Full Name</Form.Label>
-          {
-            renderNameForm()
-          }
-        </Form.Group>
-        <Form.Group>
-           <Form.Label htmlFor="ageGroup">
-             Update Child's Age Group
-           </Form.Label>
-           {
-            renderAgeGroupForm()
-          }
-        </Form.Group> */}
-            <Form.Group>
-              <Form.Label htmlFor="zipcode"> Update Zipcode</Form.Label>
-              <Form.Control
-                type="string"
-                placeholder="Your zipcode"
-                name="zipcode"
-                onChange={handleInputChange}
-                value={userFormData.zipcode}
-                required
-              />
-            </Form.Group>
-
-            <Form.Group>
-              <Form.Label htmlFor="email">Change Email</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Your email address"
-                name="email"
-                onChange={handleInputChange}
-                value={userFormData.email}
-                required
-              />
-            </Form.Group>
-            {/* 
-        <Form.Group>
-          <Form.Label htmlFor="password">Change Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Your password"
-            name="password"
-            onChange={handleInputChange}
-            value={userFormData.password}
-            required
-          />
-        </Form.Group> */}
-          </Modal.Body>
-
-          <Modal.Footer>
-            {/* 
+            <Modal.Footer>
+              {/* 
  // create state to hold saved saveUserId values */}
 
-            <Button 
-              variant="secondary"
-              onClick= {handleClose}
-            >
-              Close
-            </Button>
-                        
-            <Button 
-              variant="primary"
-              onClick={() => handleSave()}
-            >
+              <Button
+                variant="secondary"
+                onClick={handleClose}
+              >
+                Close
+              </Button>
 
-              Save changes
-            </Button>
+              <Button style={styles.buttonIn}
+                variant="primary"
+                onClick={() => handleSave()}
+                
+              >
 
-     
-          </Modal.Footer>
-        </Modal.Dialog>
+                Save changes
+              </Button>
+
+
+            </Modal.Footer>
+          </Modal.Dialog>
         </Modal>
       </div>
     </>

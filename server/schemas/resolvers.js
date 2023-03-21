@@ -7,7 +7,10 @@ const resolvers = {
     // retrieve the logged in user from the context and find the user details in the database
     me: async (parent, args, context) => {
       if (context.user) {
-        data = await User.findOne({ _id: context.user._id });
+        const data = await User.findOne({ _id: context.user._id });
+
+        console.log(data)
+
         return data;
       }
       throw new AuthenticationError('You need to be logged in!');
@@ -38,17 +41,22 @@ const resolvers = {
       
       return { token, user};
     },
-    saveUser: async (parent, email, childCount, zipcode) => {
-      if (constext.user) {
-        return User.findOneAndReplace(
-        { _id: context.user},
+    saveUser: async (parent, {email, zipcode }, context) => {
+      if (context.user) {
+        return User.findOneAndUpdate(
+        { _id: context.user._id},
         {
-          $addToSet: { childCount, zipcode, email},
+          $set:{zipcode:zipcode, email:email}
+
+          // $set: { 
+          //   zipcode:zipcode, 
+          //   email:email 
+          // },
           
         },
-        { returnNewDocument: true,
-          new: false,
-          runValidators: true 
+        { 
+          new: true,
+         
           // returnDocument: username, email, password, childCount, zipcode, children: [], savedSchools: [] 
         }
         );

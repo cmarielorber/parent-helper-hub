@@ -10,6 +10,7 @@ import {
   UserIcon,
 } from "../components/icons";
 import "../styles/pages.css";
+import EditForm from "../components/EditForm";
 
 const styles = {
     bg: {
@@ -47,6 +48,7 @@ const styles = {
     cardBorder:{
       borderBottom: "2px dotted #264653 ",
     }
+    
   };
 
 const Profile = () => {
@@ -54,6 +56,7 @@ const Profile = () => {
   const [removeSchool] = useMutation(REMOVE_SCHOOL);
   const user = data?.me || {};
 
+  
   async function handleDeleteSchool(schoolId) {
     try {
       await removeSchool({
@@ -67,7 +70,10 @@ const Profile = () => {
 
   if (loading) {
     return <div>Loading...</div>;
+    
   }
+  
+  console.log("test", data)
 
   return (
     <>
@@ -84,11 +90,11 @@ const Profile = () => {
             <p style={styles.cardBorder} className="zip"> Zipcode: {`${user.zipcode}`}</p>
             </Card.Body>
           </Card>
-     
+        <EditForm></EditForm>
         <Container className="searchposts d-flex flex-column justify-content-center align-items-center ml-auto">
           {`${user.username}'s`} SCHOOLS
           <CardColumns>
-            {user.savedSchools.map((school) => {
+            {user.savedSchools ? user.savedSchools.map((school) => {
               return (
                 <SingleSavedSchool
                   school={school}
@@ -96,7 +102,7 @@ const Profile = () => {
                   handleDeleteSchool={handleDeleteSchool}
                 />
               );
-            })}
+            }): null}
           </CardColumns>
         </Container>
       </Jumbotron>
