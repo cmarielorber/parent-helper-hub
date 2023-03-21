@@ -13,8 +13,8 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!, $childCount: Int, $zipcode: String! ) {
-    addUser(username: $username, email: $email, password: $password, childCount: $childCount, zipcode: $zipcode ) {
+  mutation addUser($username: String!, $email: String!, $password: String!, $zipcode: String! ) {
+    addUser(username: $username, email: $email, password: $password, zipcode: $zipcode ) {
       token
       user {
         _id
@@ -25,13 +25,12 @@ export const ADD_USER = gql`
 `;
 
 export const SAVE_USER = gql`
-  mutation saveUser($username: String!, $email: String!, $password: String!, $childCount: Int, $zipcode: String! ) {
-    saveUser(username: $username, email: $email, password: $password, childCount: $childCount, zipcode: $zipcode ) {
-      token
-      user {
+  mutation saveUser($email: String!, $zipcode: String ) {
+    saveUser(email: $email, zipcode: $zipcode ) {
         _id
         username
-      }
+        email
+        zipcode
     }
   }
 `;
@@ -58,10 +57,10 @@ export const SAVE_SCHOOL = gql`
     $rank: Int
     $rankOf: Int
     $rankStars: Int
-    $rankStatewidePercentage: String
-    $averageStandardScore: String
+    $rankStatewidePercentage: Float
+    $averageStandardScore: Float
     $numberOfStudents: Int
-    $pupilTeacherRatio: String  
+    $pupilTeacherRatio: Float  
   ) {
     saveSchool(
     schoolId: $schoolId
@@ -113,4 +112,4 @@ export const REMOVE_SCHOOL = gql`
     }
   }
 `;
-      
+

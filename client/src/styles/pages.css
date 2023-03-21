@@ -4,14 +4,28 @@
   margin: 10px;
 }
 
-.welcomecontainer {
-  margin-top: 15rem;
+
+.profileInfo {
+  background-color: var(--OFF_WHITE);
+  border: 8px double var(--DARK);
+  border-radius: 10px;
+  color: var(--DARK_ORANGE);
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.personalInfo {
+  display: flex;
+  flex-direction: column;
 }
 
 .searchresource {
   border: 8px double var(--DARK);
   border-radius: 10px;
-  margin-top: 15rem;
+  /* margin-top: 15rem; */
   padding-top: 10px;
   background-color: var(--OFF_WHITE);
   color: var(--DARK_ORANGE);
@@ -24,7 +38,6 @@
   margin-top: 25px;
   background-color: var(--OFF_WHITE);
   color: var(--DARK_ORANGE);
-  width: 100%;
   font-family: "Crushed", cursive;
 }
 
@@ -68,6 +81,8 @@
   background-color: var(--DARK);
   color: var(--YELLOW);
   text-align: center;
+  min-height: 150px;
+  justify-content: center
 }
 
 .footer-bottom {
@@ -93,17 +108,17 @@
 }
 
 .githublink {
-color: var(--YELLOW);
-text-decoration: none;
+  color: var(--YELLOW);
+  text-decoration: none;
 }
 
-.github-icon:hover g{
-  fill: var(--DARK_ORANGE)
+.github-icon:hover g {
+  fill: var(--DARK_ORANGE);
 }
 
 .githublink:hover {
-color: var(--DARK_ORANGE);
-text-decoration: none;
+  color: var(--DARK_ORANGE);
+  text-decoration: none;
 }
 
 .first-name {

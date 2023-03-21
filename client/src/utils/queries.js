@@ -6,7 +6,6 @@ export const QUERY_USER = gql`
         _id
         username
         email
-        childCount
         zipcode
         child {
             childName
@@ -22,7 +21,6 @@ export const QUERY_ME = gql`
             _id
             username
             email
-            childCount
             zipcode
             savedSchools {
                 _id

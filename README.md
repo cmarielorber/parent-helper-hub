@@ -223,23 +223,23 @@ You can find more of our work on our GitHub, [hannybear88](https://github.com/ha
 
 * Hannah Chung
   * Focus: profile, edit, pages, components, utils, models, schemas, README, and Presentation
-  * Support: Trello and searchlist
+  * Support: Trello, searchlist, Zoom pseudo coding 
 
 * Triana Deguzman
   * Focus:  Trello Coordination, profile, edit, searchlist, pages, components, utils, models, and schemas
-  * Support: Presetation and  README
+  * Support: Presetation,  README, Zoom pseudo coding 
 
 * Christen Lorber
   * Focus: Navbar, Styling, Login/Logout
-  * Support: App
+  * Support: App, Zoom pseudo coding 
 
 * Fernando Maldonado
   * Focus: Welcome page and footer
-  * Support: API
+  * Support: API, Zoom pseudo coding 
 
 * Heidi Wu
   * Focus: Server Side, API, and Schools
-  * Support: Auth
+  * Support: Auth, Zoom pseudo coding 
 
 * Team Collaboration
   * team pseudo coding
