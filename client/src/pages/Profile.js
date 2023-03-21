@@ -86,7 +86,6 @@ const Profile = () => {
             <Card.Body style={styles.cardBody}className="cardBody">
             <p className="prouser" style={styles.cardBorder}> Username: {`${user.username}`}</p>
             <p style={styles.cardBorder} className="proemail"> Email: {`${user.email}`}</p>
-            <p style={styles.cardBorder} className="childnum"> Number of Children: {`${user.childCount}`}</p>
             <p style={styles.cardBorder} className="zip"> Zipcode: {`${user.zipcode}`}</p>
             </Card.Body>
           </Card>
