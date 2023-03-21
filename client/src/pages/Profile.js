@@ -75,10 +75,11 @@ const Profile = () => {
   return (
     <>
       <Jumbotron fluid className="jumbo pt-2" style={styles.bg}>
-        <Container className="welcomeUser d-flex flex-row">
+        <Container className="welcomeUser d-flex flex-column container" style={{ width: "60%"}}>
           <Container
-            className="welcomeUser d-flex flex-column justify-content-center align-items-center"
-          >
+            className="welcomeUser d-flex flex-column container"
+            style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+>
             <ProfileIcon style={styles.profileicon} />
             <Card style={{ ...styles.card,  minWidth: "300px" }}>
               <Card.Header style={styles.cardHeader} className="cardHeader">
@@ -97,11 +98,12 @@ const Profile = () => {
                   {" "}
                   Zipcode: {`${user.zipcode}`}
                 </p>
+                <EditForm className="text-align-center"/> 
               </Card.Body>
             </Card>
           </Container>
-          <EditForm></EditForm>
-          <Container className="searchposts d-flex flex-column align-items-center ml-auto">
+          
+          <Container className="searchposts d-flex flex-column justify-content-center align-items-center" >
             {`${user.username}'s`} SCHOOLS
             <CardColumns>
               {user.savedSchools.map((school) => {
