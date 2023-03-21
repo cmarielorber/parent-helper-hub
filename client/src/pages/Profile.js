@@ -7,7 +7,7 @@ import SingleSavedSchool from "../components/SingleSavedSchool";
 import { removeSchoolId } from "../utils/localStorage";
 import profileImg from "../assets/profileImg.png";
 import {
-  UserIcon,
+  ProfileIcon,
 } from "../components/icons";
 import "../styles/pages.css";
 
@@ -18,6 +18,7 @@ const styles = {
       backgroundSize: "cover",
       backgroundPosition: "center",
       overFlow: "hidden",
+      height: "100%"
     },
     profileicon: {
       width: 150,
@@ -74,7 +75,7 @@ const Profile = () => {
       <Jumbotron fluid className="jumbo pt-2" style={styles.bg}>
         <Container 
         className="welcomeUser d-flex flex-column justify-content-center align-items-center">  </Container>
-         <UserIcon style={styles.profileicon}/>
+         <ProfileIcon style={styles.profileicon}/>
          <Card style={{ width: "25%", ...styles.card }}>
             <Card.Header  style={styles.cardHeader}className="cardHeader">Welcome, {`${user.username}`}</Card.Header>
             <Card.Body style={styles.cardBody}className="cardBody">

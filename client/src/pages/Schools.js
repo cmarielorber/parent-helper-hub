@@ -17,6 +17,7 @@ const styles = {
     backgroundImage: `url(${booksImg})`,
     backgroundSize: "fill",
     backgroundPosition: "center",
+    height: "100%"
   },
   font:{
     fontFamily: 'Crushed, cursive',

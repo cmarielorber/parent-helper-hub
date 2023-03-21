@@ -13,6 +13,7 @@ const styles = {
     backgroundSize: "cover",
     backgroundPosition: "center",
     overFlow: "hidden",
+    height: "100%"
   },
   formstyle: {
     border: "5px dotted #264653 ",
