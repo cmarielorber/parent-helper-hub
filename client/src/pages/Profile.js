@@ -8,6 +8,7 @@ import { removeSchoolId } from "../utils/localStorage";
 import profileImg from "../assets/profileImg.png";
 import { ProfileIcon } from "../components/icons";
 import "../styles/pages.css";
+import EditForm from "../components/EditForm";
 
 const styles = {
   bg: {
@@ -52,6 +53,7 @@ const Profile = () => {
   const [removeSchool] = useMutation(REMOVE_SCHOOL);
   const user = data?.me || {};
 
+  
   async function handleDeleteSchool(schoolId) {
     try {
       await removeSchool({
@@ -65,7 +67,10 @@ const Profile = () => {
 
   if (loading) {
     return <div>Loading...</div>;
+    
   }
+  
+  console.log("test", data)
 
   return (
     <>
@@ -88,10 +93,6 @@ const Profile = () => {
                   {" "}
                   Email: {`${user.email}`}
                 </p>
-                <p style={styles.cardBorder} className="childnum">
-                  {" "}
-                  Number of Children: {`${user.childCount}`}
-                </p>
                 <p style={styles.cardBorder} className="zip">
                   {" "}
                   Zipcode: {`${user.zipcode}`}
@@ -99,6 +100,7 @@ const Profile = () => {
               </Card.Body>
             </Card>
           </Container>
+          <EditForm></EditForm>
           <Container className="searchposts d-flex flex-column align-items-center ml-auto">
             {`${user.username}'s`} SCHOOLS
             <CardColumns>
