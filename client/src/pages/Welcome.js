@@ -12,6 +12,7 @@ const styles = {
     backgroundSize: "cover",
     backgroundPosition: "center",
     overFlow: "hidden",
+    maxHeight: "auto",
   },
   divstyle: {
     border: ".5rem dotted #264653 ",

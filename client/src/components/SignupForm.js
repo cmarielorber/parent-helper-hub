@@ -80,11 +80,7 @@ const SignupForm = () => {
     <>
 
       {/* This is needed for the validation functionality above */}
-<<<<<<< HEAD
-      <Form style={{ border: ".8rem double #264653", borderRadius:".5rem", padding: "2rem" }} noValidate validated={validated} onSubmit={handleFormSubmit}>
-=======
       <Form style={{ border: "8px double #264653", borderRadius: "5px", padding: "20px" }} noValidate validated={validated} onSubmit={handleFormSubmit}>
->>>>>>> c82351e24b289bca31f234e393521adca76e5aee
         {/* show alert if server response is bad */}
         <Alert
           dismissible
