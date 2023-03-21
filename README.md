@@ -155,17 +155,21 @@ Edit For on Profile Page:
 
 ![Edit Form](./client/src/assets/images/phh_profilepage_editform.png)
 
-Saved Schools on Profile Page:
-
-![Saved Schools](./client/src/assets/images/phh_profilepage_savedschools.png)
-
 Searching for Schools:
 
 ![Search For Schools](./client/src/assets/images/phh_searchforschools_screenshot.png)
 
-<!-- Searched Schools:
+Searched Schools:
 
-Searched Schools Added to Profile Page: -->
+![Searched Schools](./client/src/assets/images/phh_searchedschools_screenshot.png)
+
+Searched Schools already saved and added to Profile Page:
+
+![This school has already been saved](./client/src/assets/images/phh_thisschoolhasalreadybeensaved_screenshot.png)
+
+Saved Schools on Profile Page:
+
+![Saved Schools](./client/src/assets/images/phh_profilepage_savedschools.png)
 
 Search for Housing Programs:
 ![Search for Housing Programs](./client/src/assets/images/phh_searchforhousingprograms_screenshot.png)
