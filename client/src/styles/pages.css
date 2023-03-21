@@ -346,3 +346,21 @@
     margin-bottom: .02rem;
   }
 }
+
+.modal-content{
+  background: none;
+  border-style: none;
+  color: var(--DARK_ORANGE);
+}
+
+.modal-body{
+  border-top: 8px double var(--DARK);
+  border-bottom:8px double var(--DARK);
+}
+
+.modal-footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

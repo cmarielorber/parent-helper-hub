@@ -98,7 +98,9 @@ const Profile = () => {
                   {" "}
                   Zipcode: {`${user.zipcode}`}
                 </p>
-                <EditForm className="text-align-center"/> 
+                <Container style={{ textAlign: "center" }}>
+                <EditForm /> 
+                </Container>
               </Card.Body>
             </Card>
           </Container>
