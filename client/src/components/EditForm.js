@@ -11,10 +11,18 @@ import { QUERY_ME } from "../utils/queries";
 
 
 const styles = {
+  bg:{
+    backgroundColor: Colors.OFF_WHITE,
+    fontFamily: "Crushed, cursive",
+  },
   formLabel: {
     color: Colors.DARK_ORANGE,
     fontSize: "1.5rem",
-    fontFamily: "Crushed, sans-serif",
+    fontFamily: "Crushed, cursive",
+  },
+  formBody: {
+    color: Colors.DARK_ORANGE,
+    fontFamily: "Crushed, cursive",
   },
   buttonIn: {
     backgroundColor: Colors.TEAL,
@@ -104,13 +112,12 @@ const EditForm = () => {
         <Modal
           show={show}
           onHide={handleClose}
-
         >
-          <Modal.Dialog show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Update Profile</Modal.Title>
+          <Modal.Dialog   show={show} onHide={handleClose}>
+            <Modal.Header style={styles.bg} closeButton>
+              <Modal.Title style={styles.bg}>Update Profile</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body style={styles.bg}> 
               <p>
                 {" "}
                 Update items that need to be edited, ensure to hit 'Save Changes'
@@ -141,7 +148,7 @@ const EditForm = () => {
 
             </Modal.Body>
 
-            <Modal.Footer>
+            <Modal.Footer style={{textAlign: "center", ...styles.bg}}>
               {/* 
  // create state to hold saved saveUserId values */}
 
