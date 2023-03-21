@@ -133,57 +133,56 @@ This will allow single parents to register and save searches for resources of in
 
 The following screenshots show examples of the interaction and options presented to the user when application is initiated.
 
-<!-- Homepage:
+Signup/Login:
+![Signup/Login](./client/src/assets/images/phh_loginsignup_screenshot.png)
 
-![showing homepage](./public/assets/images/homepage1.png)
+Signup Form:
 
-Searching:
+![Signup Form](./client/src/assets/images/phh_signupform_screenshot.png)
 
-![showing search function](./public/assets/images/homepageSearch.png)
+Login Form:
 
-Below shows the key to the map and what the different icons/numbers represent in the map:
+![Login Form](./client/src/assets/images/phh_loginform_screenshot.png)
 
-![showing key to the map icons](./public/assets/images/MapKey.png)
+Welcome Page:
 
-In order to make a reservation, click on the "Reserve Station" as seen in image:
+![showing homepage](./client/src/assets/images/phh_welcomepage_screenshot.png)
 
-![showing reserve station](./public/assets/images/MapSelection.png)
+Profile Page:
+![Profile Page](./client/src/assets/images/phh_profile_page.png)
 
-Required Login to make new reservation(s) or register a new charging station: 
+Edit For on Profile Page:
 
-![showing login table](./public/assets/images/login1.png)
+![Edit Form](./client/src/assets/images/phh_profilepage_editform.png)
 
-If no account has been created, a signup option is available on the bottom of the login where the sign up page will appear: 
+Saved Schools on Profile Page:
 
-![showing signup table](./public/assets/images/signup1.png)
+![Saved Schools](./client/src/assets/images/phh_profilepage_savedschools.png)
 
-Detail Reservation: 
+Searching for Schools:
 
-![showing detail reservation](./public/assets/images/reservationselection.png)
+![Search For Schools](./client/src/assets/images/phh_searchforschools_screenshot.png)
 
-Viewing User Reservation(s) "My Reservations": 
+<!-- Searched Schools:
 
-![showing reservations for user](./public/assets/images/myreservations2.png)
+Searched Schools Added to Profile Page: -->
 
-- To make modification to reservation and remove click on "Cancel Reservation": 
+Search for Housing Programs:
+![Search for Housing Programs](./client/src/assets/images/phh_searchforhousingprograms_screenshot.png)
 
-![showing how to cancel reservation](./public/assets/images/ModifyReservation.png)
+Search for Legal Services:
+![Search for Legal Services](./client/src/assets/images/phh_searchforlegalservices_screenshot.png)
 
-- If no reservations have been made by the user the following will appear: 
+Search for Healthcare Resources
+![Search for Healthcare Resources](./client/src/assets/images/phh_searchforhealthcareresources_screenshot.png)
 
-![showing no reservations view](./public/assets/images/noreservations.png)
+Footer:
 
-Viewing User Charging Stations "My Charging Stations": 
-
-![showing charging stations owned by user](./public/assets/images/mychargingstations.png)
-
-Registering a new charging station: 
-
-![showing how to register a charging station](./public/assets/images/registerstation.png)
+![Footer](./client/src/assets/images/phh_footer_screenshot.png)
 
 Logout: 
 
-![showing where logout is located](./public/assets/images/Logout.png) -->
+![showing where logout is located](./client/src/assets/images/phh_logout_screenshot.png)
 
 ## Goals for Future Development
 
@@ -248,73 +247,3 @@ You can find more of our work on our GitHub, [hannybear88](https://github.com/ha
 * Christen Lorber
 * Fernando Maldonado
 * Heidi Wu
-
-<!-- # Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
