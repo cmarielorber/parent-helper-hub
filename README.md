@@ -4,7 +4,7 @@ Project #3
 
 ## Project Description
 
-This app  allows single parents access resources that they need in one app.
+This app allows single parents access resources that they need in one app.
 
 ## Table of Contents
 
@@ -24,11 +24,10 @@ This app  allows single parents access resources that they need in one app.
 
 ## User-Story
 
-* AS A developer who is interested in helping single parents easilly find resources for ...
-
-* I WANT an Parent Helper Hub site to support the single parents ....
-* SO THAT
-* AND SO THAT
+* AS A who is interested in helping single parents easily find resources for schools, housing, legal, and healthcare
+* I WANT a place where all information is brought together into one site
+* SO THAT it can support single parents
+* AND SO THAT these resources are easily accessible
 
 ## Acceptance Criteria
 
@@ -36,42 +35,34 @@ This app  allows single parents access resources that they need in one app.
 
 * WHEN I visit the site for the first time
 * THEN I am presented on a homepage, landing site, which includes information about the site, signup, and contact us info
-* WHEN I click on login
+* WHEN I click on login/sign up
 * THEN I am prompted to sign up or login in
 * WHEN I sign up
-* THEN I must provide a valid email address and password
+* THEN I must provide a valid email address, username, zipcode, number of children, and a password
 * WHEN I am done signing up
 * THEN I am automatically directed to the home page
 * WHEN I already have an account
 * THEN I can login using an email and password
-* WHEN I am logged in and my username appears on the top middle of the profile page
-* THEN I can select either to view my Saved Searches, search a specific .... within the category, or edit my child(ren) form(s).
-* WHEN I want to make a modification to child form
-* THEN select Edit Form to edit
-* WHEN
-* THEN
-* WHEN
-* THEN
-* WHEN I select search
-* THEN I select a category
-* WHEN I select a category
-* THEN I search a specific term within that category
-* WHEN
-* THEN
-* WHEN
-* THEN
-* WHEN
-* THEN
-* WHEN
-* THEN
-* WHEN
-* THEN
+* WHEN I am done logging in
+* THEN I am automatically directed to the home page
+* WHEN I am logged in
+* THEN I can select an icon in the top navbar
+* WHEN I would like to search for Schools, Housing, Healthcare, Legal I select one
+* THEN I am redirected to a search page for the chosen topic
+* WHEN I want to save a search item
+* THEN I select save on the search item
+* WHEN I select Profile from the navbar
+* THEN I am redirected to the profile page where my username appears on the top welcoming me
+* WHEN I want to update profile information
+* THEN I select the edit/update button to modify some of the profile information
 * WHEN I select Logout
 * THEN I am logged out of the site
 
 ## Motivation for Development
 
-* We all came to an agreement that single parents resources aren't easily accessible. This application allows single parents be able to search for resources easily and
+It came to our attention that single parents struggles finding resources in one easily accessible location.
+The purpose of this application is to consolidate various topics from various sites into one location.
+This will allow single parents to register and save searches for resources of interest such as schools, housing, healthcare, and legal.
 
 ## Process
 
@@ -80,7 +71,7 @@ This app  allows single parents access resources that they need in one app.
 * Defined a high level breakdown of the project
 * Assigned tasks to team members
 * High collaboration throughout
-  * Working together via zooms, meetings, slack, etc to help with sudo coding and/or brainstorming how to effectively move ahead in the process
+  * Working together via zooms, meetings, slack, etc to help with pseudo coding and/or brainstorming how to effectively move ahead in the process
 * Set team goals and reasses as needed throughout
 
 ## Technologies Used
@@ -91,45 +82,52 @@ This app  allows single parents access resources that they need in one app.
 ![Technologies](https://img.shields.io/badge/CSS3-F7DF1E?style=for-the-badge&logo=css3&logoColor=green)
 ![Technologies](https://img.shields.io/badge/Javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Technologies](https://img.shields.io/badge/bootstrap-F7DF1E?style=for-the-badge&logo=Bootstrap&logoColor=red)
-![Technologies](https://img.shields.io/badge/-JSON-blue)
 ![Technologies](https://img.shields.io/badge/Heroku-purple)
-![Technologies](https://img.shields.io/badge/Bcrypt-green)
-![Technologies](https://img.shields.io/badge/Handelbars.js-orange)
-![Technologies](https://img.shields.io/badge/-Node.js-339933?logo=Node.js&logoColor=white)
-![Technologies](https://img.shields.io/badge/-npm-CB3837?logo=npm&logoColor=white)
-![Technologies](https://img.shields.io/badge/SQL2-orange)
-![Technologies](https://img.shields.io/badge/ConnectionSessionSequelize-yellowgreen)
-![Technologies](https://img.shields.io/badge/Dotenv-yellow)
-![Technologies](https://img.shields.io/badge/Express-green)
-![Technologies](https://img.shields.io/badge/Express-handlebars-blueviolet)
-![Technologies](https://img.shields.io/badge/Express-Session-orange)
-![Technologies](https://img.shields.io/badge/Sequalize-blue)
-![Technologies](https://img.shields.io/badge/GoogleMaps-API-blue)
-![Technologies](https://img.shields.io/badge/Javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Technologies](https://img.shields.io/badge/@apollo/client-green)
+![Technologies](https://img.shields.io/badge/@stripe/stripejs-orange)
+![Technologies](https://img.shields.io/badge/@testing-library/jestdom-green)
+![Technologies](https://img.shields.io/badge/@testing-library/react/stripe-orange)
+![Technologies](https://img.shields.io/badge/@testing-library/user-event)
+![Technologies](https://img.shields.io/badge/develop-yellowgreen)
+![Technologies](https://img.shields.io/badge/jwt-decode-yellow)
+![Technologies](https://img.shields.io/badge/npm-green)
+![Technologies](https://img.shields.io/badge/react-blueviolet)
+![Technologies](https://img.shields.io/badge/react-orange)
+![Technologies](https://img.shields.io/badge/react-bootstrap-blue)
+![Technologies](https://img.shields.io/badge/react-dom-blue)
+![Technologies](https://img.shields.io/badge/react-routerdom-blue)
+![Technologies](https://img.shields.io/badge/react-scripts-orange)
+![Technologies](https://img.shields.io/badge/react-stripecheckout-green)
+![Technologies](https://img.shields.io/badge/run-blueviolet)
+![Technologies](https://img.shields.io/badge/style-components-green)
+![Technologies](https://img.shields.io/badge/styled-components-blueviolet)
 ![Technologies](https://img.shields.io/badge/-Node.js-339933?logo=Node.js&logoColor=white)
 ![Technologies](https://img.shields.io/badge/-npm-CB3837?logo=npm&logoColor=white)
 ![Technologies](https://img.shields.io/badge/npm%20package-moment-%3CCOLOR%3E?style=flat-square&logo=npm)
+![Technologies](https://img.shields.io/badge/Dotenv-yellow)
+![Technologies](https://img.shields.io/badge/Bcrypt-green)
+![Technologies](https://img.shields.io/badge/apolloserver-express-green)
+![Technologies](https://img.shields.io/badge/mdbreact-blueviolet)
+![Technologies](https://img.shields.io/badge/jsonwebtoken-blueviolet)
+![Technologies](https://img.shields.io/badge/stripe-orange)
 ![Technologies](https://img.shields.io/badge/npm%20package-express-green?style=flat-square&logo=npm)
 ![Technologies](https://img.shields.io/badge/npm%20package-mongoose-purple?style=flat-square&logo=npm)
 ![Technologies](https://img.shields.io/badge/Database-MongoDB-yellow?style=flat-square&logo=mongoDB)
 
 ## Challenges
 
-* Material UI - new repo had to be created
-
-* New repo had to be created
-* Had to reclone repo multiple times
-* Having multiple branches caused issues
-* d
+* Merge conflicts
+* Git pull origin main when switching branches
+* API request “blocked by CORS policy”
+* Data type matching
+* Handling empty fields
 
 ## Successes
 
-* d
-
-* d
-* d
-* d
-* d
+* Navigating newness of React
+* Integrating past projects and new code 
+* Overwriting bootstrap scss, and running out of time
+* Debugging across so many files
 
 ## Usage
 
@@ -191,23 +189,20 @@ Logout:
 
 ### Short Term Goals
 
-*
-*
-*
-*
-*
-*
-*
+* Allow user to edit profile
+  * Number of child(ren)
+  * Add child(ren) name(s)
+  * Age Group
+* Register child(ren) in user profile
+* Save favorite schools to each child
 
 ### Long Term Goals
 
-*
-*
-*
-*
-*
-*
-*
+* Search functions for:
+  * Housing Page
+  * Legal Page
+  * Healthcare Page
+
 
 ## Support
 
@@ -222,29 +217,29 @@ You can find more of our work on our GitHub, [hannybear88](https://github.com/ha
 ## Tasks and Roles
 
 * Hannah Chung
-  * Focus: profile, edit, pages, components, utils, models, schemas, README, and Presentation
-  * Support: Trello, searchlist, Zoom pseudo coding 
+  * Focus: Profile, Edit, Signup, Search List, Utils, Models, Schemas, README, and Presentation
+  * Support: Trello
 
 * Triana Deguzman
-  * Focus:  Trello Coordination, profile, edit, searchlist, pages, components, utils, models, and schemas
-  * Support: Presetation,  README, Zoom pseudo coding 
+  * Focus:  Profile, Edit, Signup, Search List, Utils, Models, Schemas, README, and Presentation
+  * Support: Trello Coordination and README
 
 * Christen Lorber
-  * Focus: Navbar, Styling, Login/Logout
-  * Support: App, Zoom pseudo coding 
+  * Focus: Navbar, Schemas, Login/Signup, Donations, Styling throughout
+  * Support: App
 
 * Fernando Maldonado
-  * Focus: Welcome page and footer
-  * Support: API, Zoom pseudo coding 
+  * Focus: Welcome page, Schemas, Footer
+  * Support: App responsiveness
 
 * Heidi Wu
-  * Focus: Server Side, API, and Schools
-  * Support: Auth, Zoom pseudo coding 
+  * Focus: Server Side, Search Page, Schemas, and API
+  * Support: Across all
 
 * Team Collaboration
-  * team pseudo coding
-  * reviewing
-  * presentation runs
+  * Team pseudo coding
+  * Reviewing
+  * Presentation runs
 
 ## Credits and Contributors
 
