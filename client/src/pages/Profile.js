@@ -70,8 +70,6 @@ const Profile = () => {
     
   }
   
-  console.log("test", data)
-
   return (
     <>
       <Jumbotron fluid className="jumbo pt-2" style={styles.bg}>

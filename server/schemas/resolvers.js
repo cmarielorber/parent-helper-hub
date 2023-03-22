@@ -8,9 +8,6 @@ const resolvers = {
     me: async (parent, args, context) => {
       if (context.user) {
         const data = await User.findOne({ _id: context.user._id });
-
-        console.log(data)
-
         return data;
       }
       throw new AuthenticationError('You need to be logged in!');
@@ -35,8 +32,8 @@ const resolvers = {
       return { token, user };
     },
 
-    addUser: async (parent, { username, email, password, childCount, zipcode }) => {
-      const user = await User.create({ username, email, password, childCount, zipcode});
+    addUser: async (parent, { username, email, password, zipcode }) => {
+      const user = await User.create({ username, email, password, zipcode});
       const token = signToken(user);
       
       return { token, user};
@@ -47,24 +44,16 @@ const resolvers = {
         { _id: context.user._id},
         {
           $set:{zipcode:zipcode, email:email}
-
-          // $set: { 
-          //   zipcode:zipcode, 
-          //   email:email 
-          // },
-          
         },
         { 
           new: true,
-         
-          // returnDocument: username, email, password, childCount, zipcode, children: [], savedSchools: [] 
         }
         );
      
     }
   },
 
-    // retrieve the logged in user from the context and add the book to the user's savedSchools array
+    // retrieve the logged in user from the context and add the school to the user's savedSchools array
     saveSchool: async (parent, school, context) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
       if (context.user) {

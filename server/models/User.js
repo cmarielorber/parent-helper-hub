@@ -1,9 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-// import schema from Children.js
-const childSchema = require('./Child');
-
 //import schema from School.js
 const schoolSchema = require('./School');
 
@@ -28,16 +25,7 @@ const userSchema = new Schema(
       type: String,
       required: false,
     },
-    childCount: {
-      type: Number,
-      required: false,
-    },
-
-    // set savedBooks to be an array of data that adheres to the bookSchema
-    // savedBooks: [bookSchema],
-    // set children to be an array of data that adheres to the childSchema
-    children: [childSchema],
-
+    // set savedSchools to be an array of data that adheres to the schoolSchema
     savedSchools: [schoolSchema]
   },
   // set this to use virtual below
@@ -62,11 +50,6 @@ userSchema.pre('save', async function (next) {
 userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
-
-// when we query a user, we'll also get another field called `bookCount` with the number of saved books we have
-// userSchema.virtual('bookCount').get(function () {
-//   return this.savedBooks.length;
-// });
 
 const User = model('User', userSchema);
 
