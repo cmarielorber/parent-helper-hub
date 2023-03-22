@@ -38,13 +38,13 @@ const styles = {
     color: Colors.YELLOW,
   },
   logo: {
-    innerWidth: "100px",
+    innerWidth: "10px",
     innerHeight: "100px",
   },
   modalBody:{
     backgroundColor: Colors.OFF_WHITE,
     fontFamily: "Crushed, sans-serif",
-    borderRadius: "10px",
+    borderRadius: "1rem",
   }
 };
 

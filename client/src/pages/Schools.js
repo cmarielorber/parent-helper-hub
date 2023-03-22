@@ -20,20 +20,20 @@ const styles = {
   },
   font:{
     fontFamily: 'Crushed, cursive',
-    fontSize: "35px",
+    fontSize: "1.75rem",
   },
   fontView:{
     fontFamily: 'Crushed, cursive',
-    fontSize: "25px",
+    fontSize: "1.25rem",
   },
   fontSearch:{
     fontFamily: 'Crushed, cursive',
-    fontSize: "15px",
+    fontSize: ".75rem",
   },
   formstyle: {
-    border: "5px dotted #264653 ",
-    borderRadius: "10px",
-    margin: "10px",
+    border: ".5rem dotted #264653 ",
+    borderRadius: "1rem",
+    margin: "1rem",
     backgroundColor: "#f7ede2",
     width: "100%",
   },
@@ -240,7 +240,7 @@ const handleSaveSchool = async (schoolId) => {
           </Form.Row>
         </Form>
       </Container>
-      <Container className="searchposts d-flex flex-column justify-content-center align-items-center" style={styles.font}> SCHOOLS
+      <Container className="searchposts d-flex flex-column align-items-center" style={styles.font}> SCHOOLS
       <h2 style={styles.fontView}>
           {searchedSchools.length
             ? `Viewing ${searchedSchools.length} results:`
