@@ -152,6 +152,8 @@ function Healthcare() {
         <a
           href="https://www.dmhc.ca.gov/healthcareincalifornia/resourcelist.aspx"
           style={styles.resourceLink}
+          rel="noreferrer"
+          target="_blank"
         >
           Click for CA Healthcare Resource List
         </a>{" "}

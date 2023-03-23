@@ -141,6 +141,8 @@ function Housing() {
         <a
           href="https://www.cdss.ca.gov/benefits-services/more-services/housing-programs"
           style={styles.resourceLink}
+          rel="noreferrer"
+          target="_blank"
         >
           Click for Housing Resource
         </a>{" "}
