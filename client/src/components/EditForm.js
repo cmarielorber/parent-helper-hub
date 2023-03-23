@@ -57,11 +57,7 @@ const EditForm = () => {
 
   const user = data?.me || {};
 
-  console.log(user)
-
-
-
-  // keep this code lines 33-37
+  // update state variables whenever input change
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
@@ -74,7 +70,6 @@ const EditForm = () => {
   //   setShow(false);
   //   // save edit input to database
   //   try {
-  //     console.log("user input:", userFormData);
   //     const { data } = await saveUser({
   //       variables: userFormData,
   //     });

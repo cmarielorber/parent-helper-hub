@@ -6,7 +6,7 @@ import { GithubIcon } from "./icons";
 const Footer = () => {
   return (
     <div className="footer">
-      <Container class="footercontainer">
+      <Container className="footercontainer">
         <Row>
           <Col md={4}>
             <h5>Our Team</h5>
