@@ -141,6 +141,8 @@ function Legal() {
         <a
           href="https://selfhelp.courts.ca.gov/get-free-or-low-cost-legal-help"
           style={styles.resourceLink}
+          rel="noreferrer"
+          target="_blank"
         >
           Click for Legal Resource
         </a>{" "}
